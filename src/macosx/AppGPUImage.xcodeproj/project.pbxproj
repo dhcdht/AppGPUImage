@@ -1,0 +1,1161 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EB03765B210B05E7001C853C /* AGIProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB037659210B05E7001C853C /* AGIProgram.cpp */; };
+		EB03765C210B05E7001C853C /* AGIProgram.h in Headers */ = {isa = PBXBuildFile; fileRef = EB03765A210B05E7001C853C /* AGIProgram.h */; };
+		EB03765F210B0EB2001C853C /* AGIProgramCacheManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB03765D210B0EB2001C853C /* AGIProgramCacheManager.cpp */; };
+		EB037660210B0EB2001C853C /* AGIProgramCacheManager.h in Headers */ = {isa = PBXBuildFile; fileRef = EB03765E210B0EB2001C853C /* AGIProgramCacheManager.h */; };
+		EB1235A420EDF2450091A969 /* AGIFilterTwoPass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB1235A220EDF2450091A969 /* AGIFilterTwoPass.cpp */; };
+		EB1235A520EDF2450091A969 /* AGIFilterTwoPass.h in Headers */ = {isa = PBXBuildFile; fileRef = EB1235A320EDF2450091A969 /* AGIFilterTwoPass.h */; };
+		EB1235A820EDF3BD0091A969 /* AGIFilterSobelEdgeDetection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB1235A620EDF3BD0091A969 /* AGIFilterSobelEdgeDetection.cpp */; };
+		EB1235A920EDF3BD0091A969 /* AGIFilterSobelEdgeDetection.h in Headers */ = {isa = PBXBuildFile; fileRef = EB1235A720EDF3BD0091A969 /* AGIFilterSobelEdgeDetection.h */; };
+		EB29E4182124289E0082B304 /* libopencv_bgsegm.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E3E72124289B0082B304 /* libopencv_bgsegm.3.4.2.dylib */; };
+		EB29E4192124289E0082B304 /* libopencv_ximgproc.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E3E82124289B0082B304 /* libopencv_ximgproc.3.4.2.dylib */; };
+		EB29E41A2124289E0082B304 /* libopencv_ml.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E3E92124289B0082B304 /* libopencv_ml.3.4.2.dylib */; };
+		EB29E41B2124289E0082B304 /* libopencv_img_hash.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E3EA2124289B0082B304 /* libopencv_img_hash.3.4.2.dylib */; };
+		EB29E41C2124289E0082B304 /* libopencv_aruco.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E3EB2124289B0082B304 /* libopencv_aruco.3.4.2.dylib */; };
+		EB29E41D2124289E0082B304 /* libopencv_fuzzy.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E3EC2124289C0082B304 /* libopencv_fuzzy.3.4.2.dylib */; };
+		EB29E41E2124289E0082B304 /* libopencv_objdetect.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E3ED2124289C0082B304 /* libopencv_objdetect.3.4.2.dylib */; };
+		EB29E41F2124289E0082B304 /* libopencv_dnn_objdetect.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E3EE2124289C0082B304 /* libopencv_dnn_objdetect.3.4.2.dylib */; };
+		EB29E4202124289E0082B304 /* libopencv_features2d.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E3EF2124289C0082B304 /* libopencv_features2d.3.4.2.dylib */; };
+		EB29E4212124289E0082B304 /* libopencv_face.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E3F02124289C0082B304 /* libopencv_face.3.4.2.dylib */; };
+		EB29E4222124289E0082B304 /* libopencv_imgproc.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E3F12124289C0082B304 /* libopencv_imgproc.3.4.2.dylib */; };
+		EB29E4232124289E0082B304 /* libopencv_core.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E3F22124289C0082B304 /* libopencv_core.3.4.2.dylib */; };
+		EB29E4242124289E0082B304 /* libopencv_datasets.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E3F32124289C0082B304 /* libopencv_datasets.3.4.2.dylib */; };
+		EB29E4252124289E0082B304 /* libopencv_videostab.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E3F42124289C0082B304 /* libopencv_videostab.3.4.2.dylib */; };
+		EB29E4262124289E0082B304 /* libopencv_stitching.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E3F52124289C0082B304 /* libopencv_stitching.3.4.2.dylib */; };
+		EB29E4272124289E0082B304 /* libopencv_bioinspired.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E3F62124289C0082B304 /* libopencv_bioinspired.3.4.2.dylib */; };
+		EB29E4282124289E0082B304 /* libopencv_dnn.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E3F72124289C0082B304 /* libopencv_dnn.3.4.2.dylib */; };
+		EB29E4292124289E0082B304 /* liblibprotobuf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E3F82124289C0082B304 /* liblibprotobuf.a */; };
+		EB29E42A2124289E0082B304 /* libopencv_rgbd.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E3F92124289C0082B304 /* libopencv_rgbd.3.4.2.dylib */; };
+		EB29E42B2124289E0082B304 /* libopencv_videoio.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E3FA2124289C0082B304 /* libopencv_videoio.3.4.2.dylib */; };
+		EB29E42C2124289E0082B304 /* libopencv_video.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E3FB2124289C0082B304 /* libopencv_video.3.4.2.dylib */; };
+		EB29E42D2124289E0082B304 /* libopencv_xfeatures2d.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E3FC2124289C0082B304 /* libopencv_xfeatures2d.3.4.2.dylib */; };
+		EB29E42E2124289E0082B304 /* libopencv_highgui.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E3FD2124289C0082B304 /* libopencv_highgui.3.4.2.dylib */; };
+		EB29E42F2124289E0082B304 /* libopencv_structured_light.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E3FE2124289C0082B304 /* libopencv_structured_light.3.4.2.dylib */; };
+		EB29E4302124289E0082B304 /* libopencv_hfs.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E3FF2124289C0082B304 /* libopencv_hfs.3.4.2.dylib */; };
+		EB29E4312124289E0082B304 /* libopencv_calib3d.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E4002124289C0082B304 /* libopencv_calib3d.3.4.2.dylib */; };
+		EB29E4322124289E0082B304 /* libopencv_xobjdetect.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E4012124289D0082B304 /* libopencv_xobjdetect.3.4.2.dylib */; };
+		EB29E4332124289E0082B304 /* libopencv_superres.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E4022124289D0082B304 /* libopencv_superres.3.4.2.dylib */; };
+		EB29E4342124289E0082B304 /* libittnotify.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E4032124289D0082B304 /* libittnotify.a */; };
+		EB29E4352124289E0082B304 /* libopencv_line_descriptor.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E4042124289D0082B304 /* libopencv_line_descriptor.3.4.2.dylib */; };
+		EB29E4362124289E0082B304 /* libopencv_tracking.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E4052124289D0082B304 /* libopencv_tracking.3.4.2.dylib */; };
+		EB29E4372124289E0082B304 /* libopencv_reg.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E4062124289D0082B304 /* libopencv_reg.3.4.2.dylib */; };
+		EB29E4382124289E0082B304 /* libopencv_surface_matching.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E4072124289D0082B304 /* libopencv_surface_matching.3.4.2.dylib */; };
+		EB29E4392124289E0082B304 /* libopencv_phase_unwrapping.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E4082124289D0082B304 /* libopencv_phase_unwrapping.3.4.2.dylib */; };
+		EB29E43A2124289E0082B304 /* libopencv_optflow.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E4092124289D0082B304 /* libopencv_optflow.3.4.2.dylib */; };
+		EB29E43B2124289E0082B304 /* libippicv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E40A2124289D0082B304 /* libippicv.a */; };
+		EB29E43C2124289E0082B304 /* libopencv_photo.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E40B2124289D0082B304 /* libopencv_photo.3.4.2.dylib */; };
+		EB29E43D2124289E0082B304 /* liblibjpeg-turbo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E40C2124289D0082B304 /* liblibjpeg-turbo.a */; };
+		EB29E43E2124289E0082B304 /* libopencv_dpm.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E40D2124289D0082B304 /* libopencv_dpm.3.4.2.dylib */; };
+		EB29E43F2124289E0082B304 /* libopencv_flann.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E40E2124289D0082B304 /* libopencv_flann.3.4.2.dylib */; };
+		EB29E4402124289E0082B304 /* libopencv_imgcodecs.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E40F2124289D0082B304 /* libopencv_imgcodecs.3.4.2.dylib */; };
+		EB29E4412124289E0082B304 /* libopencv_plot.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E4102124289D0082B304 /* libopencv_plot.3.4.2.dylib */; };
+		EB29E4422124289E0082B304 /* libopencv_shape.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E4112124289D0082B304 /* libopencv_shape.3.4.2.dylib */; };
+		EB29E4432124289E0082B304 /* libopencv_ccalib.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E4122124289D0082B304 /* libopencv_ccalib.3.4.2.dylib */; };
+		EB29E4442124289E0082B304 /* liblibwebp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E4132124289D0082B304 /* liblibwebp.a */; };
+		EB29E4452124289E0082B304 /* libopencv_xphoto.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E4142124289D0082B304 /* libopencv_xphoto.3.4.2.dylib */; };
+		EB29E4462124289E0082B304 /* libopencv_saliency.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E4152124289D0082B304 /* libopencv_saliency.3.4.2.dylib */; };
+		EB29E4472124289E0082B304 /* libippiw.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E4162124289E0082B304 /* libippiw.a */; };
+		EB29E4482124289E0082B304 /* libopencv_stereo.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E4172124289E0082B304 /* libopencv_stereo.3.4.2.dylib */; };
+		EBA1C3CB2109B7D6006751E7 /* AGIUtilDefer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EBA1C3C92109B7D6006751E7 /* AGIUtilDefer.cpp */; };
+		EBA1C3CC2109B7D6006751E7 /* AGIUtilDefer.h in Headers */ = {isa = PBXBuildFile; fileRef = EBA1C3CA2109B7D6006751E7 /* AGIUtilDefer.h */; };
+		EBA1C3D92109C952006751E7 /* AGIPiplineIO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EBA1C3CE2109C952006751E7 /* AGIPiplineIO.cpp */; };
+		EBA1C3DA2109C952006751E7 /* AGIPiplineIO.hpp in Headers */ = {isa = PBXBuildFile; fileRef = EBA1C3CF2109C952006751E7 /* AGIPiplineIO.hpp */; };
+		EBA1C3DB2109C952006751E7 /* AGIPiplineInputPicture.h in Headers */ = {isa = PBXBuildFile; fileRef = EBA1C3D22109C952006751E7 /* AGIPiplineInputPicture.h */; };
+		EBA1C3DC2109C952006751E7 /* AGIPiplineInputFFmpegReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EBA1C3D32109C952006751E7 /* AGIPiplineInputFFmpegReader.cpp */; };
+		EBA1C3DD2109C952006751E7 /* AGIPiplineInputFFmpegReader.h in Headers */ = {isa = PBXBuildFile; fileRef = EBA1C3D42109C952006751E7 /* AGIPiplineInputFFmpegReader.h */; };
+		EBA1C3DE2109C952006751E7 /* AGIPiplineInputPicture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EBA1C3D52109C952006751E7 /* AGIPiplineInputPicture.cpp */; };
+		EBA1C3DF2109C952006751E7 /* AGIPiplineOutputContextWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EBA1C3D72109C952006751E7 /* AGIPiplineOutputContextWindow.cpp */; };
+		EBA1C3E02109C952006751E7 /* AGIPiplineOutputContextWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = EBA1C3D82109C952006751E7 /* AGIPiplineOutputContextWindow.h */; };
+		EBAA40D620E61B28002FC1B2 /* AGIPlatformMacOSX.h in Headers */ = {isa = PBXBuildFile; fileRef = EBAA40D420E61B28002FC1B2 /* AGIPlatformMacOSX.h */; };
+		EBAA40D720E61B28002FC1B2 /* AGIPlatformMacOSX.mm in Sources */ = {isa = PBXBuildFile; fileRef = EBAA40D520E61B28002FC1B2 /* AGIPlatformMacOSX.mm */; };
+		EBCA0AF120EB690200351569 /* AGIResourceManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EBCA0AD620EB690100351569 /* AGIResourceManager.cpp */; };
+		EBCA0AF220EB690200351569 /* AGIResourceManager.h in Headers */ = {isa = PBXBuildFile; fileRef = EBCA0AD720EB690100351569 /* AGIResourceManager.h */; };
+		EBCA0AF320EB690200351569 /* AGIContext.h in Headers */ = {isa = PBXBuildFile; fileRef = EBCA0AD820EB690100351569 /* AGIContext.h */; };
+		EBCA0AF420EB690200351569 /* AGIContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EBCA0AD920EB690100351569 /* AGIContext.cpp */; };
+		EBCA0AFB20EB690200351569 /* AGIFilterGrayscale.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EBCA0AE220EB690100351569 /* AGIFilterGrayscale.cpp */; };
+		EBCA0AFC20EB690200351569 /* AGIFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = EBCA0AE320EB690100351569 /* AGIFilter.h */; };
+		EBCA0AFD20EB690200351569 /* AGIFilterTransform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EBCA0AE420EB690100351569 /* AGIFilterTransform.cpp */; };
+		EBCA0AFE20EB690200351569 /* AGIFilterAlphaBlend.h in Headers */ = {isa = PBXBuildFile; fileRef = EBCA0AE520EB690100351569 /* AGIFilterAlphaBlend.h */; };
+		EBCA0AFF20EB690200351569 /* AGIFilterTransform.h in Headers */ = {isa = PBXBuildFile; fileRef = EBCA0AE620EB690100351569 /* AGIFilterTransform.h */; };
+		EBCA0B0120EB690200351569 /* AGIFilterAlphaBlend.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EBCA0AE820EB690100351569 /* AGIFilterAlphaBlend.cpp */; };
+		EBCA0B0220EB690200351569 /* AGIFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EBCA0AE920EB690100351569 /* AGIFilter.cpp */; };
+		EBCA0B0420EB690200351569 /* AGIFilterGrayscale.h in Headers */ = {isa = PBXBuildFile; fileRef = EBCA0AEB20EB690100351569 /* AGIFilterGrayscale.h */; };
+		EBCA0B0520EB690200351569 /* SDKTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EBCA0AEC20EB690200351569 /* SDKTest.cpp */; };
+		EBCA0B0620EB690200351569 /* bgfxUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EBCA0AEE20EB690200351569 /* bgfxUtils.cpp */; };
+		EBCA0B0720EB690200351569 /* bgfxUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = EBCA0AEF20EB690200351569 /* bgfxUtils.h */; };
+		EBCA9B3D20E6080200DAD97E /* glsl_optimizer.h in Headers */ = {isa = PBXBuildFile; fileRef = EBCA9B3C20E6080200DAD97E /* glsl_optimizer.h */; };
+		EBD56C4920E49F2100DBDCC2 /* libbgfxDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EBD56C1120E492CF00DBDCC2 /* libbgfxDebug.a */; };
+		EBD56C4A20E49F2100DBDCC2 /* libbimg_decodeDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EBD56C3620E4941300DBDCC2 /* libbimg_decodeDebug.a */; };
+		EBD56C4B20E49F2100DBDCC2 /* libbimgDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EBD56C1F20E493C400DBDCC2 /* libbimgDebug.a */; };
+		EBD56C7E20E4A40200DBDCC2 /* libfcppDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EBD56C7920E4A3D800DBDCC2 /* libfcppDebug.a */; };
+		EBD56C7F20E4A40200DBDCC2 /* libglsl-optimizerDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EBD56C7320E4A3C800DBDCC2 /* libglsl-optimizerDebug.a */; };
+		EBFFAA2D20EB759500ADB5D5 /* shaders in Resources */ = {isa = PBXBuildFile; fileRef = EBFFAA2C20EB759500ADB5D5 /* shaders */; };
+		EE550A0E20E2726200EFA54B /* AppGPUImage.h in Headers */ = {isa = PBXBuildFile; fileRef = EE550A0C20E2726200EFA54B /* AppGPUImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EE550A7E20E277D600EFA54B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE550A7D20E277D600EFA54B /* Foundation.framework */; };
+		EE550A8020E2784800EFA54B /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE550A7F20E2784800EFA54B /* Metal.framework */; };
+		EE550A8220E2785D00EFA54B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE550A8120E2785D00EFA54B /* QuartzCore.framework */; };
+		EE550A8420E2787500EFA54B /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE550A8320E2787400EFA54B /* AppKit.framework */; };
+		EE550AAF20E27CD800EFA54B /* AppGPUImageMacOSX.h in Headers */ = {isa = PBXBuildFile; fileRef = EE550AAE20E27CD800EFA54B /* AppGPUImageMacOSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EE550ABB20E27EB000EFA54B /* SDKTest.h in Headers */ = {isa = PBXBuildFile; fileRef = EE550AB920E27EB000EFA54B /* SDKTest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EE6CE3AC210DFEE5003176BD /* AGIDisaptchQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE6CE3AA210DFEE5003176BD /* AGIDisaptchQueue.cpp */; };
+		EE6CE3AD210DFEE5003176BD /* AGIDispatchQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = EE6CE3AB210DFEE5003176BD /* AGIDispatchQueue.h */; };
+		EE7393212113DDDB006144B1 /* AGIFilterContentMode.h in Headers */ = {isa = PBXBuildFile; fileRef = EE73931F2113DDDA006144B1 /* AGIFilterContentMode.h */; };
+		EE7393222113DDDB006144B1 /* AGIFilterContentMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE7393202113DDDA006144B1 /* AGIFilterContentMode.cpp */; };
+		EE7393252113DDE3006144B1 /* AGIPiplineInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE7393232113DDE3006144B1 /* AGIPiplineInput.cpp */; };
+		EE7393262113DDE3006144B1 /* AGIPiplineInput.h in Headers */ = {isa = PBXBuildFile; fileRef = EE7393242113DDE3006144B1 /* AGIPiplineInput.h */; };
+		EE7393292113DDEA006144B1 /* AGIImage.h in Headers */ = {isa = PBXBuildFile; fileRef = EE7393272113DDEA006144B1 /* AGIImage.h */; };
+		EE73932A2113DDEA006144B1 /* AGIImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE7393282113DDEA006144B1 /* AGIImage.cpp */; };
+		EE7393322113DDFB006144B1 /* AGITimeline.h in Headers */ = {isa = PBXBuildFile; fileRef = EE73932C2113DDFB006144B1 /* AGITimeline.h */; };
+		EE7393332113DDFB006144B1 /* AGITrack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE73932D2113DDFB006144B1 /* AGITrack.cpp */; };
+		EE7393342113DDFB006144B1 /* AGITimeline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE73932E2113DDFB006144B1 /* AGITimeline.cpp */; };
+		EE7393352113DDFB006144B1 /* AGIClip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE73932F2113DDFB006144B1 /* AGIClip.cpp */; };
+		EE7393362113DDFB006144B1 /* AGIClip.h in Headers */ = {isa = PBXBuildFile; fileRef = EE7393302113DDFB006144B1 /* AGIClip.h */; };
+		EE7393372113DDFB006144B1 /* AGITrack.h in Headers */ = {isa = PBXBuildFile; fileRef = EE7393312113DDFB006144B1 /* AGITrack.h */; };
+		EE90FBAA2100BBED0015E84A /* libavutil.56.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EE90FBA22100BBEC0015E84A /* libavutil.56.dylib */; };
+		EE90FBAB2100BBED0015E84A /* libpostproc.55.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EE90FBA32100BBEC0015E84A /* libpostproc.55.dylib */; };
+		EE90FBAC2100BBED0015E84A /* libavfilter.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EE90FBA42100BBEC0015E84A /* libavfilter.7.dylib */; };
+		EE90FBAD2100BBED0015E84A /* libswscale.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EE90FBA52100BBEC0015E84A /* libswscale.5.dylib */; };
+		EE90FBAE2100BBED0015E84A /* libswresample.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EE90FBA62100BBEC0015E84A /* libswresample.3.dylib */; };
+		EE90FBAF2100BBED0015E84A /* libavcodec.58.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EE90FBA72100BBEC0015E84A /* libavcodec.58.dylib */; };
+		EE90FBB02100BBED0015E84A /* libavformat.58.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EE90FBA82100BBED0015E84A /* libavformat.58.dylib */; };
+		EE90FBB12100BBED0015E84A /* libavdevice.58.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EE90FBA92100BBED0015E84A /* libavdevice.58.dylib */; };
+		EE90FBD12100C29C0015E84A /* libavcodec.58.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = EE90FBA72100BBEC0015E84A /* libavcodec.58.dylib */; };
+		EE90FBD22100C29C0015E84A /* libavdevice.58.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = EE90FBA92100BBED0015E84A /* libavdevice.58.dylib */; };
+		EE90FBD32100C29C0015E84A /* libavfilter.7.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = EE90FBA42100BBEC0015E84A /* libavfilter.7.dylib */; };
+		EE90FBD42100C29C0015E84A /* libavformat.58.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = EE90FBA82100BBED0015E84A /* libavformat.58.dylib */; };
+		EE90FBD52100C29C0015E84A /* libavutil.56.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = EE90FBA22100BBEC0015E84A /* libavutil.56.dylib */; };
+		EE90FBD62100C29C0015E84A /* libpostproc.55.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = EE90FBA32100BBEC0015E84A /* libpostproc.55.dylib */; };
+		EE90FBD72100C29C0015E84A /* libswresample.3.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = EE90FBA62100BBEC0015E84A /* libswresample.3.dylib */; };
+		EE90FBD82100C29C0015E84A /* libswscale.5.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = EE90FBA52100BBEC0015E84A /* libswscale.5.dylib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EBD56C1020E492CF00DBDCC2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBD56C0C20E492CF00DBDCC2 /* bgfx.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 02DC17D86E13606F771DC492;
+			remoteInfo = bgfx;
+		};
+		EBD56C1E20E493C400DBDCC2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBD56C1A20E493C400DBDCC2 /* bimg.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5ACAB1E8C601FA7FCF0B5EA3;
+			remoteInfo = bimg;
+		};
+		EBD56C2820E493DB00DBDCC2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBD56C1A20E493C400DBDCC2 /* bimg.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 00D72F0FECD05861D53DEF71;
+			remoteInfo = bimg;
+		};
+		EBD56C3520E4941300DBDCC2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBD56C3120E4941200DBDCC2 /* bimg_decode.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7D6367F06989315752CFB622;
+			remoteInfo = bimg_decode;
+		};
+		EBD56C3720E4941800DBDCC2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBD56C3120E4941200DBDCC2 /* bimg_decode.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = C35735362F701C60F81CACF9;
+			remoteInfo = bimg_decode;
+		};
+		EBD56C7220E4A3C800DBDCC2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBD56C6E20E4A3C800DBDCC2 /* glsl-optimizer.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3DF3A8F7A961FE76F24AB976;
+			remoteInfo = "glsl-optimizer";
+		};
+		EBD56C7820E4A3D800DBDCC2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBD56C7420E4A3D800DBDCC2 /* fcpp.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8491023EF0C84AD5F9D2AEF8;
+			remoteInfo = fcpp;
+		};
+		EBD56C7A20E4A3FC00DBDCC2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBD56C7420E4A3D800DBDCC2 /* fcpp.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = EA608F38D65AB88ABFC74E9B;
+			remoteInfo = fcpp;
+		};
+		EBD56C7C20E4A3FC00DBDCC2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBD56C6E20E4A3C800DBDCC2 /* glsl-optimizer.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 83EFA30F6F408F5198A47D13;
+			remoteInfo = "glsl-optimizer";
+		};
+		EBD56CFE20E4B59200DBDCC2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBD56C0C20E492CF00DBDCC2 /* bgfx.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = A853C66B944DEFBD7DBA85CE;
+			remoteInfo = bgfx;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EE90FBD02100C28D0015E84A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				EE90FBD12100C29C0015E84A /* libavcodec.58.dylib in CopyFiles */,
+				EE90FBD22100C29C0015E84A /* libavdevice.58.dylib in CopyFiles */,
+				EE90FBD32100C29C0015E84A /* libavfilter.7.dylib in CopyFiles */,
+				EE90FBD42100C29C0015E84A /* libavformat.58.dylib in CopyFiles */,
+				EE90FBD52100C29C0015E84A /* libavutil.56.dylib in CopyFiles */,
+				EE90FBD62100C29C0015E84A /* libpostproc.55.dylib in CopyFiles */,
+				EE90FBD72100C29C0015E84A /* libswresample.3.dylib in CopyFiles */,
+				EE90FBD82100C29C0015E84A /* libswscale.5.dylib in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		EB037659210B05E7001C853C /* AGIProgram.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AGIProgram.cpp; sourceTree = "<group>"; };
+		EB03765A210B05E7001C853C /* AGIProgram.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AGIProgram.h; sourceTree = "<group>"; };
+		EB03765D210B0EB2001C853C /* AGIProgramCacheManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AGIProgramCacheManager.cpp; sourceTree = "<group>"; };
+		EB03765E210B0EB2001C853C /* AGIProgramCacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGIProgramCacheManager.h; sourceTree = "<group>"; };
+		EB1235A220EDF2450091A969 /* AGIFilterTwoPass.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AGIFilterTwoPass.cpp; sourceTree = "<group>"; };
+		EB1235A320EDF2450091A969 /* AGIFilterTwoPass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AGIFilterTwoPass.h; sourceTree = "<group>"; };
+		EB1235A620EDF3BD0091A969 /* AGIFilterSobelEdgeDetection.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AGIFilterSobelEdgeDetection.cpp; sourceTree = "<group>"; };
+		EB1235A720EDF3BD0091A969 /* AGIFilterSobelEdgeDetection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AGIFilterSobelEdgeDetection.h; sourceTree = "<group>"; };
+		EB29E3E72124289B0082B304 /* libopencv_bgsegm.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_bgsegm.3.4.2.dylib; path = ../common_deps/opencv/macosx/lib/libopencv_bgsegm.3.4.2.dylib; sourceTree = "<group>"; };
+		EB29E3E82124289B0082B304 /* libopencv_ximgproc.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_ximgproc.3.4.2.dylib; path = ../common_deps/opencv/macosx/lib/libopencv_ximgproc.3.4.2.dylib; sourceTree = "<group>"; };
+		EB29E3E92124289B0082B304 /* libopencv_ml.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_ml.3.4.2.dylib; path = ../common_deps/opencv/macosx/lib/libopencv_ml.3.4.2.dylib; sourceTree = "<group>"; };
+		EB29E3EA2124289B0082B304 /* libopencv_img_hash.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_img_hash.3.4.2.dylib; path = ../common_deps/opencv/macosx/lib/libopencv_img_hash.3.4.2.dylib; sourceTree = "<group>"; };
+		EB29E3EB2124289B0082B304 /* libopencv_aruco.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_aruco.3.4.2.dylib; path = ../common_deps/opencv/macosx/lib/libopencv_aruco.3.4.2.dylib; sourceTree = "<group>"; };
+		EB29E3EC2124289C0082B304 /* libopencv_fuzzy.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_fuzzy.3.4.2.dylib; path = ../common_deps/opencv/macosx/lib/libopencv_fuzzy.3.4.2.dylib; sourceTree = "<group>"; };
+		EB29E3ED2124289C0082B304 /* libopencv_objdetect.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_objdetect.3.4.2.dylib; path = ../common_deps/opencv/macosx/lib/libopencv_objdetect.3.4.2.dylib; sourceTree = "<group>"; };
+		EB29E3EE2124289C0082B304 /* libopencv_dnn_objdetect.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_dnn_objdetect.3.4.2.dylib; path = ../common_deps/opencv/macosx/lib/libopencv_dnn_objdetect.3.4.2.dylib; sourceTree = "<group>"; };
+		EB29E3EF2124289C0082B304 /* libopencv_features2d.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_features2d.3.4.2.dylib; path = ../common_deps/opencv/macosx/lib/libopencv_features2d.3.4.2.dylib; sourceTree = "<group>"; };
+		EB29E3F02124289C0082B304 /* libopencv_face.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_face.3.4.2.dylib; path = ../common_deps/opencv/macosx/lib/libopencv_face.3.4.2.dylib; sourceTree = "<group>"; };
+		EB29E3F12124289C0082B304 /* libopencv_imgproc.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_imgproc.3.4.2.dylib; path = ../common_deps/opencv/macosx/lib/libopencv_imgproc.3.4.2.dylib; sourceTree = "<group>"; };
+		EB29E3F22124289C0082B304 /* libopencv_core.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_core.3.4.2.dylib; path = ../common_deps/opencv/macosx/lib/libopencv_core.3.4.2.dylib; sourceTree = "<group>"; };
+		EB29E3F32124289C0082B304 /* libopencv_datasets.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_datasets.3.4.2.dylib; path = ../common_deps/opencv/macosx/lib/libopencv_datasets.3.4.2.dylib; sourceTree = "<group>"; };
+		EB29E3F42124289C0082B304 /* libopencv_videostab.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_videostab.3.4.2.dylib; path = ../common_deps/opencv/macosx/lib/libopencv_videostab.3.4.2.dylib; sourceTree = "<group>"; };
+		EB29E3F52124289C0082B304 /* libopencv_stitching.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_stitching.3.4.2.dylib; path = ../common_deps/opencv/macosx/lib/libopencv_stitching.3.4.2.dylib; sourceTree = "<group>"; };
+		EB29E3F62124289C0082B304 /* libopencv_bioinspired.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_bioinspired.3.4.2.dylib; path = ../common_deps/opencv/macosx/lib/libopencv_bioinspired.3.4.2.dylib; sourceTree = "<group>"; };
+		EB29E3F72124289C0082B304 /* libopencv_dnn.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_dnn.3.4.2.dylib; path = ../common_deps/opencv/macosx/lib/libopencv_dnn.3.4.2.dylib; sourceTree = "<group>"; };
+		EB29E3F82124289C0082B304 /* liblibprotobuf.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblibprotobuf.a; path = ../common_deps/opencv/macosx/lib/liblibprotobuf.a; sourceTree = "<group>"; };
+		EB29E3F92124289C0082B304 /* libopencv_rgbd.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_rgbd.3.4.2.dylib; path = ../common_deps/opencv/macosx/lib/libopencv_rgbd.3.4.2.dylib; sourceTree = "<group>"; };
+		EB29E3FA2124289C0082B304 /* libopencv_videoio.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_videoio.3.4.2.dylib; path = ../common_deps/opencv/macosx/lib/libopencv_videoio.3.4.2.dylib; sourceTree = "<group>"; };
+		EB29E3FB2124289C0082B304 /* libopencv_video.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_video.3.4.2.dylib; path = ../common_deps/opencv/macosx/lib/libopencv_video.3.4.2.dylib; sourceTree = "<group>"; };
+		EB29E3FC2124289C0082B304 /* libopencv_xfeatures2d.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_xfeatures2d.3.4.2.dylib; path = ../common_deps/opencv/macosx/lib/libopencv_xfeatures2d.3.4.2.dylib; sourceTree = "<group>"; };
+		EB29E3FD2124289C0082B304 /* libopencv_highgui.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_highgui.3.4.2.dylib; path = ../common_deps/opencv/macosx/lib/libopencv_highgui.3.4.2.dylib; sourceTree = "<group>"; };
+		EB29E3FE2124289C0082B304 /* libopencv_structured_light.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_structured_light.3.4.2.dylib; path = ../common_deps/opencv/macosx/lib/libopencv_structured_light.3.4.2.dylib; sourceTree = "<group>"; };
+		EB29E3FF2124289C0082B304 /* libopencv_hfs.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_hfs.3.4.2.dylib; path = ../common_deps/opencv/macosx/lib/libopencv_hfs.3.4.2.dylib; sourceTree = "<group>"; };
+		EB29E4002124289C0082B304 /* libopencv_calib3d.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_calib3d.3.4.2.dylib; path = ../common_deps/opencv/macosx/lib/libopencv_calib3d.3.4.2.dylib; sourceTree = "<group>"; };
+		EB29E4012124289D0082B304 /* libopencv_xobjdetect.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_xobjdetect.3.4.2.dylib; path = ../common_deps/opencv/macosx/lib/libopencv_xobjdetect.3.4.2.dylib; sourceTree = "<group>"; };
+		EB29E4022124289D0082B304 /* libopencv_superres.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_superres.3.4.2.dylib; path = ../common_deps/opencv/macosx/lib/libopencv_superres.3.4.2.dylib; sourceTree = "<group>"; };
+		EB29E4032124289D0082B304 /* libittnotify.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libittnotify.a; path = ../common_deps/opencv/macosx/lib/libittnotify.a; sourceTree = "<group>"; };
+		EB29E4042124289D0082B304 /* libopencv_line_descriptor.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_line_descriptor.3.4.2.dylib; path = ../common_deps/opencv/macosx/lib/libopencv_line_descriptor.3.4.2.dylib; sourceTree = "<group>"; };
+		EB29E4052124289D0082B304 /* libopencv_tracking.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_tracking.3.4.2.dylib; path = ../common_deps/opencv/macosx/lib/libopencv_tracking.3.4.2.dylib; sourceTree = "<group>"; };
+		EB29E4062124289D0082B304 /* libopencv_reg.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_reg.3.4.2.dylib; path = ../common_deps/opencv/macosx/lib/libopencv_reg.3.4.2.dylib; sourceTree = "<group>"; };
+		EB29E4072124289D0082B304 /* libopencv_surface_matching.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_surface_matching.3.4.2.dylib; path = ../common_deps/opencv/macosx/lib/libopencv_surface_matching.3.4.2.dylib; sourceTree = "<group>"; };
+		EB29E4082124289D0082B304 /* libopencv_phase_unwrapping.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_phase_unwrapping.3.4.2.dylib; path = ../common_deps/opencv/macosx/lib/libopencv_phase_unwrapping.3.4.2.dylib; sourceTree = "<group>"; };
+		EB29E4092124289D0082B304 /* libopencv_optflow.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_optflow.3.4.2.dylib; path = ../common_deps/opencv/macosx/lib/libopencv_optflow.3.4.2.dylib; sourceTree = "<group>"; };
+		EB29E40A2124289D0082B304 /* libippicv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libippicv.a; path = ../common_deps/opencv/macosx/lib/libippicv.a; sourceTree = "<group>"; };
+		EB29E40B2124289D0082B304 /* libopencv_photo.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_photo.3.4.2.dylib; path = ../common_deps/opencv/macosx/lib/libopencv_photo.3.4.2.dylib; sourceTree = "<group>"; };
+		EB29E40C2124289D0082B304 /* liblibjpeg-turbo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "liblibjpeg-turbo.a"; path = "../common_deps/opencv/macosx/lib/liblibjpeg-turbo.a"; sourceTree = "<group>"; };
+		EB29E40D2124289D0082B304 /* libopencv_dpm.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_dpm.3.4.2.dylib; path = ../common_deps/opencv/macosx/lib/libopencv_dpm.3.4.2.dylib; sourceTree = "<group>"; };
+		EB29E40E2124289D0082B304 /* libopencv_flann.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_flann.3.4.2.dylib; path = ../common_deps/opencv/macosx/lib/libopencv_flann.3.4.2.dylib; sourceTree = "<group>"; };
+		EB29E40F2124289D0082B304 /* libopencv_imgcodecs.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_imgcodecs.3.4.2.dylib; path = ../common_deps/opencv/macosx/lib/libopencv_imgcodecs.3.4.2.dylib; sourceTree = "<group>"; };
+		EB29E4102124289D0082B304 /* libopencv_plot.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_plot.3.4.2.dylib; path = ../common_deps/opencv/macosx/lib/libopencv_plot.3.4.2.dylib; sourceTree = "<group>"; };
+		EB29E4112124289D0082B304 /* libopencv_shape.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_shape.3.4.2.dylib; path = ../common_deps/opencv/macosx/lib/libopencv_shape.3.4.2.dylib; sourceTree = "<group>"; };
+		EB29E4122124289D0082B304 /* libopencv_ccalib.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_ccalib.3.4.2.dylib; path = ../common_deps/opencv/macosx/lib/libopencv_ccalib.3.4.2.dylib; sourceTree = "<group>"; };
+		EB29E4132124289D0082B304 /* liblibwebp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblibwebp.a; path = ../common_deps/opencv/macosx/lib/liblibwebp.a; sourceTree = "<group>"; };
+		EB29E4142124289D0082B304 /* libopencv_xphoto.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_xphoto.3.4.2.dylib; path = ../common_deps/opencv/macosx/lib/libopencv_xphoto.3.4.2.dylib; sourceTree = "<group>"; };
+		EB29E4152124289D0082B304 /* libopencv_saliency.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_saliency.3.4.2.dylib; path = ../common_deps/opencv/macosx/lib/libopencv_saliency.3.4.2.dylib; sourceTree = "<group>"; };
+		EB29E4162124289E0082B304 /* libippiw.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libippiw.a; path = ../common_deps/opencv/macosx/lib/libippiw.a; sourceTree = "<group>"; };
+		EB29E4172124289E0082B304 /* libopencv_stereo.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_stereo.3.4.2.dylib; path = ../common_deps/opencv/macosx/lib/libopencv_stereo.3.4.2.dylib; sourceTree = "<group>"; };
+		EBA1C3C92109B7D6006751E7 /* AGIUtilDefer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AGIUtilDefer.cpp; sourceTree = "<group>"; };
+		EBA1C3CA2109B7D6006751E7 /* AGIUtilDefer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AGIUtilDefer.h; sourceTree = "<group>"; };
+		EBA1C3CE2109C952006751E7 /* AGIPiplineIO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AGIPiplineIO.cpp; sourceTree = "<group>"; };
+		EBA1C3CF2109C952006751E7 /* AGIPiplineIO.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AGIPiplineIO.hpp; sourceTree = "<group>"; };
+		EBA1C3D22109C952006751E7 /* AGIPiplineInputPicture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGIPiplineInputPicture.h; sourceTree = "<group>"; };
+		EBA1C3D32109C952006751E7 /* AGIPiplineInputFFmpegReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AGIPiplineInputFFmpegReader.cpp; sourceTree = "<group>"; };
+		EBA1C3D42109C952006751E7 /* AGIPiplineInputFFmpegReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGIPiplineInputFFmpegReader.h; sourceTree = "<group>"; };
+		EBA1C3D52109C952006751E7 /* AGIPiplineInputPicture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AGIPiplineInputPicture.cpp; sourceTree = "<group>"; };
+		EBA1C3D72109C952006751E7 /* AGIPiplineOutputContextWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AGIPiplineOutputContextWindow.cpp; sourceTree = "<group>"; };
+		EBA1C3D82109C952006751E7 /* AGIPiplineOutputContextWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGIPiplineOutputContextWindow.h; sourceTree = "<group>"; };
+		EBAA40D420E61B28002FC1B2 /* AGIPlatformMacOSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AGIPlatformMacOSX.h; sourceTree = "<group>"; };
+		EBAA40D520E61B28002FC1B2 /* AGIPlatformMacOSX.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AGIPlatformMacOSX.mm; sourceTree = "<group>"; };
+		EBCA0AD620EB690100351569 /* AGIResourceManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AGIResourceManager.cpp; sourceTree = "<group>"; };
+		EBCA0AD720EB690100351569 /* AGIResourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGIResourceManager.h; sourceTree = "<group>"; };
+		EBCA0AD820EB690100351569 /* AGIContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGIContext.h; sourceTree = "<group>"; };
+		EBCA0AD920EB690100351569 /* AGIContext.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AGIContext.cpp; sourceTree = "<group>"; };
+		EBCA0AE220EB690100351569 /* AGIFilterGrayscale.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AGIFilterGrayscale.cpp; sourceTree = "<group>"; };
+		EBCA0AE320EB690100351569 /* AGIFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGIFilter.h; sourceTree = "<group>"; };
+		EBCA0AE420EB690100351569 /* AGIFilterTransform.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AGIFilterTransform.cpp; sourceTree = "<group>"; };
+		EBCA0AE520EB690100351569 /* AGIFilterAlphaBlend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGIFilterAlphaBlend.h; sourceTree = "<group>"; };
+		EBCA0AE620EB690100351569 /* AGIFilterTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGIFilterTransform.h; sourceTree = "<group>"; };
+		EBCA0AE820EB690100351569 /* AGIFilterAlphaBlend.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AGIFilterAlphaBlend.cpp; sourceTree = "<group>"; };
+		EBCA0AE920EB690100351569 /* AGIFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AGIFilter.cpp; sourceTree = "<group>"; };
+		EBCA0AEB20EB690100351569 /* AGIFilterGrayscale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGIFilterGrayscale.h; sourceTree = "<group>"; };
+		EBCA0AEC20EB690200351569 /* SDKTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SDKTest.cpp; path = ../../common/SDKTest.cpp; sourceTree = "<group>"; };
+		EBCA0AEE20EB690200351569 /* bgfxUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = bgfxUtils.cpp; sourceTree = "<group>"; };
+		EBCA0AEF20EB690200351569 /* bgfxUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bgfxUtils.h; sourceTree = "<group>"; };
+		EBCA9B3C20E6080200DAD97E /* glsl_optimizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = glsl_optimizer.h; path = "../../common_deps/bgfx/3rdparty/glsl-optimizer/src/glsl/glsl_optimizer.h"; sourceTree = "<group>"; };
+		EBD56C0C20E492CF00DBDCC2 /* bgfx.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = bgfx.xcodeproj; path = "../common_deps/bgfx/.build/projects/xcode4-osx/bgfx.xcodeproj"; sourceTree = "<group>"; };
+		EBD56C1A20E493C400DBDCC2 /* bimg.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = bimg.xcodeproj; path = "../common_deps/bgfx/.build/projects/xcode4-osx/bimg.xcodeproj"; sourceTree = "<group>"; };
+		EBD56C3120E4941200DBDCC2 /* bimg_decode.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = bimg_decode.xcodeproj; path = "../common_deps/bgfx/.build/projects/xcode4-osx/bimg_decode.xcodeproj"; sourceTree = "<group>"; };
+		EBD56C6E20E4A3C800DBDCC2 /* glsl-optimizer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "glsl-optimizer.xcodeproj"; path = "../common_deps/bgfx/.build/projects/xcode4-osx/glsl-optimizer.xcodeproj"; sourceTree = "<group>"; };
+		EBD56C7420E4A3D800DBDCC2 /* fcpp.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = fcpp.xcodeproj; path = "../common_deps/bgfx/.build/projects/xcode4-osx/fcpp.xcodeproj"; sourceTree = "<group>"; };
+		EBFFAA2C20EB759500ADB5D5 /* shaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = shaders; path = ../../common_res/shaders; sourceTree = "<group>"; };
+		EE550A0920E2726200EFA54B /* AppGPUImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AppGPUImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE550A0C20E2726200EFA54B /* AppGPUImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppGPUImage.h; sourceTree = "<group>"; };
+		EE550A0D20E2726200EFA54B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE550A7D20E277D600EFA54B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		EE550A7F20E2784800EFA54B /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
+		EE550A8120E2785D00EFA54B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		EE550A8320E2787400EFA54B /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		EE550AAE20E27CD800EFA54B /* AppGPUImageMacOSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppGPUImageMacOSX.h; sourceTree = "<group>"; };
+		EE550AB920E27EB000EFA54B /* SDKTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SDKTest.h; path = ../../common/SDKTest.h; sourceTree = "<group>"; };
+		EE6CE3AA210DFEE5003176BD /* AGIDisaptchQueue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AGIDisaptchQueue.cpp; sourceTree = "<group>"; };
+		EE6CE3AB210DFEE5003176BD /* AGIDispatchQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGIDispatchQueue.h; sourceTree = "<group>"; };
+		EE73931F2113DDDA006144B1 /* AGIFilterContentMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGIFilterContentMode.h; sourceTree = "<group>"; };
+		EE7393202113DDDA006144B1 /* AGIFilterContentMode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AGIFilterContentMode.cpp; sourceTree = "<group>"; };
+		EE7393232113DDE3006144B1 /* AGIPiplineInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AGIPiplineInput.cpp; sourceTree = "<group>"; };
+		EE7393242113DDE3006144B1 /* AGIPiplineInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGIPiplineInput.h; sourceTree = "<group>"; };
+		EE7393272113DDEA006144B1 /* AGIImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGIImage.h; sourceTree = "<group>"; };
+		EE7393282113DDEA006144B1 /* AGIImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AGIImage.cpp; sourceTree = "<group>"; };
+		EE73932C2113DDFB006144B1 /* AGITimeline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGITimeline.h; sourceTree = "<group>"; };
+		EE73932D2113DDFB006144B1 /* AGITrack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AGITrack.cpp; sourceTree = "<group>"; };
+		EE73932E2113DDFB006144B1 /* AGITimeline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AGITimeline.cpp; sourceTree = "<group>"; };
+		EE73932F2113DDFB006144B1 /* AGIClip.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AGIClip.cpp; sourceTree = "<group>"; };
+		EE7393302113DDFB006144B1 /* AGIClip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGIClip.h; sourceTree = "<group>"; };
+		EE7393312113DDFB006144B1 /* AGITrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGITrack.h; sourceTree = "<group>"; };
+		EE90FBA22100BBEC0015E84A /* libavutil.56.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libavutil.56.dylib; path = ../common_deps/ffmpeg/macosx/dylib/libavutil.56.dylib; sourceTree = "<group>"; };
+		EE90FBA32100BBEC0015E84A /* libpostproc.55.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpostproc.55.dylib; path = ../common_deps/ffmpeg/macosx/dylib/libpostproc.55.dylib; sourceTree = "<group>"; };
+		EE90FBA42100BBEC0015E84A /* libavfilter.7.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libavfilter.7.dylib; path = ../common_deps/ffmpeg/macosx/dylib/libavfilter.7.dylib; sourceTree = "<group>"; };
+		EE90FBA52100BBEC0015E84A /* libswscale.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libswscale.5.dylib; path = ../common_deps/ffmpeg/macosx/dylib/libswscale.5.dylib; sourceTree = "<group>"; };
+		EE90FBA62100BBEC0015E84A /* libswresample.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libswresample.3.dylib; path = ../common_deps/ffmpeg/macosx/dylib/libswresample.3.dylib; sourceTree = "<group>"; };
+		EE90FBA72100BBEC0015E84A /* libavcodec.58.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libavcodec.58.dylib; path = ../common_deps/ffmpeg/macosx/dylib/libavcodec.58.dylib; sourceTree = "<group>"; };
+		EE90FBA82100BBED0015E84A /* libavformat.58.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libavformat.58.dylib; path = ../common_deps/ffmpeg/macosx/dylib/libavformat.58.dylib; sourceTree = "<group>"; };
+		EE90FBA92100BBED0015E84A /* libavdevice.58.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libavdevice.58.dylib; path = ../common_deps/ffmpeg/macosx/dylib/libavdevice.58.dylib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EE550A0520E2726200EFA54B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBD56C7E20E4A40200DBDCC2 /* libfcppDebug.a in Frameworks */,
+				EBD56C7F20E4A40200DBDCC2 /* libglsl-optimizerDebug.a in Frameworks */,
+				EBD56C4A20E49F2100DBDCC2 /* libbimg_decodeDebug.a in Frameworks */,
+				EBD56C4B20E49F2100DBDCC2 /* libbimgDebug.a in Frameworks */,
+				EE90FBAD2100BBED0015E84A /* libswscale.5.dylib in Frameworks */,
+				EBD56C4920E49F2100DBDCC2 /* libbgfxDebug.a in Frameworks */,
+				EE90FBAA2100BBED0015E84A /* libavutil.56.dylib in Frameworks */,
+				EE90FBAB2100BBED0015E84A /* libpostproc.55.dylib in Frameworks */,
+				EE90FBB02100BBED0015E84A /* libavformat.58.dylib in Frameworks */,
+				EE550A8420E2787500EFA54B /* AppKit.framework in Frameworks */,
+				EE550A8220E2785D00EFA54B /* QuartzCore.framework in Frameworks */,
+				EE90FBB12100BBED0015E84A /* libavdevice.58.dylib in Frameworks */,
+				EE550A8020E2784800EFA54B /* Metal.framework in Frameworks */,
+				EE90FBAC2100BBED0015E84A /* libavfilter.7.dylib in Frameworks */,
+				EE90FBAF2100BBED0015E84A /* libavcodec.58.dylib in Frameworks */,
+				EE90FBAE2100BBED0015E84A /* libswresample.3.dylib in Frameworks */,
+				EE550A7E20E277D600EFA54B /* Foundation.framework in Frameworks */,
+				EB29E4182124289E0082B304 /* libopencv_bgsegm.3.4.2.dylib in Frameworks */,
+				EB29E4192124289E0082B304 /* libopencv_ximgproc.3.4.2.dylib in Frameworks */,
+				EB29E41A2124289E0082B304 /* libopencv_ml.3.4.2.dylib in Frameworks */,
+				EB29E41B2124289E0082B304 /* libopencv_img_hash.3.4.2.dylib in Frameworks */,
+				EB29E41C2124289E0082B304 /* libopencv_aruco.3.4.2.dylib in Frameworks */,
+				EB29E41D2124289E0082B304 /* libopencv_fuzzy.3.4.2.dylib in Frameworks */,
+				EB29E41E2124289E0082B304 /* libopencv_objdetect.3.4.2.dylib in Frameworks */,
+				EB29E41F2124289E0082B304 /* libopencv_dnn_objdetect.3.4.2.dylib in Frameworks */,
+				EB29E4202124289E0082B304 /* libopencv_features2d.3.4.2.dylib in Frameworks */,
+				EB29E4212124289E0082B304 /* libopencv_face.3.4.2.dylib in Frameworks */,
+				EB29E4222124289E0082B304 /* libopencv_imgproc.3.4.2.dylib in Frameworks */,
+				EB29E4232124289E0082B304 /* libopencv_core.3.4.2.dylib in Frameworks */,
+				EB29E4242124289E0082B304 /* libopencv_datasets.3.4.2.dylib in Frameworks */,
+				EB29E4252124289E0082B304 /* libopencv_videostab.3.4.2.dylib in Frameworks */,
+				EB29E4262124289E0082B304 /* libopencv_stitching.3.4.2.dylib in Frameworks */,
+				EB29E4272124289E0082B304 /* libopencv_bioinspired.3.4.2.dylib in Frameworks */,
+				EB29E4282124289E0082B304 /* libopencv_dnn.3.4.2.dylib in Frameworks */,
+				EB29E4292124289E0082B304 /* liblibprotobuf.a in Frameworks */,
+				EB29E42A2124289E0082B304 /* libopencv_rgbd.3.4.2.dylib in Frameworks */,
+				EB29E42B2124289E0082B304 /* libopencv_videoio.3.4.2.dylib in Frameworks */,
+				EB29E42C2124289E0082B304 /* libopencv_video.3.4.2.dylib in Frameworks */,
+				EB29E42D2124289E0082B304 /* libopencv_xfeatures2d.3.4.2.dylib in Frameworks */,
+				EB29E42E2124289E0082B304 /* libopencv_highgui.3.4.2.dylib in Frameworks */,
+				EB29E42F2124289E0082B304 /* libopencv_structured_light.3.4.2.dylib in Frameworks */,
+				EB29E4302124289E0082B304 /* libopencv_hfs.3.4.2.dylib in Frameworks */,
+				EB29E4312124289E0082B304 /* libopencv_calib3d.3.4.2.dylib in Frameworks */,
+				EB29E4322124289E0082B304 /* libopencv_xobjdetect.3.4.2.dylib in Frameworks */,
+				EB29E4332124289E0082B304 /* libopencv_superres.3.4.2.dylib in Frameworks */,
+				EB29E4342124289E0082B304 /* libittnotify.a in Frameworks */,
+				EB29E4352124289E0082B304 /* libopencv_line_descriptor.3.4.2.dylib in Frameworks */,
+				EB29E4362124289E0082B304 /* libopencv_tracking.3.4.2.dylib in Frameworks */,
+				EB29E4372124289E0082B304 /* libopencv_reg.3.4.2.dylib in Frameworks */,
+				EB29E4382124289E0082B304 /* libopencv_surface_matching.3.4.2.dylib in Frameworks */,
+				EB29E4392124289E0082B304 /* libopencv_phase_unwrapping.3.4.2.dylib in Frameworks */,
+				EB29E43A2124289E0082B304 /* libopencv_optflow.3.4.2.dylib in Frameworks */,
+				EB29E43B2124289E0082B304 /* libippicv.a in Frameworks */,
+				EB29E43C2124289E0082B304 /* libopencv_photo.3.4.2.dylib in Frameworks */,
+				EB29E43D2124289E0082B304 /* liblibjpeg-turbo.a in Frameworks */,
+				EB29E43E2124289E0082B304 /* libopencv_dpm.3.4.2.dylib in Frameworks */,
+				EB29E43F2124289E0082B304 /* libopencv_flann.3.4.2.dylib in Frameworks */,
+				EB29E4402124289E0082B304 /* libopencv_imgcodecs.3.4.2.dylib in Frameworks */,
+				EB29E4412124289E0082B304 /* libopencv_plot.3.4.2.dylib in Frameworks */,
+				EB29E4422124289E0082B304 /* libopencv_shape.3.4.2.dylib in Frameworks */,
+				EB29E4432124289E0082B304 /* libopencv_ccalib.3.4.2.dylib in Frameworks */,
+				EB29E4442124289E0082B304 /* liblibwebp.a in Frameworks */,
+				EB29E4452124289E0082B304 /* libopencv_xphoto.3.4.2.dylib in Frameworks */,
+				EB29E4462124289E0082B304 /* libopencv_saliency.3.4.2.dylib in Frameworks */,
+				EB29E4472124289E0082B304 /* libippiw.a in Frameworks */,
+				EB29E4482124289E0082B304 /* libopencv_stereo.3.4.2.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EB037658210B05CF001C853C /* core */ = {
+			isa = PBXGroup;
+			children = (
+				EB037659210B05E7001C853C /* AGIProgram.cpp */,
+				EB03765A210B05E7001C853C /* AGIProgram.h */,
+				EB03765D210B0EB2001C853C /* AGIProgramCacheManager.cpp */,
+				EB03765E210B0EB2001C853C /* AGIProgramCacheManager.h */,
+			);
+			path = core;
+			sourceTree = "<group>";
+		};
+		EBA1C3CD2109C952006751E7 /* piplineIO */ = {
+			isa = PBXGroup;
+			children = (
+				EBA1C3CE2109C952006751E7 /* AGIPiplineIO.cpp */,
+				EBA1C3CF2109C952006751E7 /* AGIPiplineIO.hpp */,
+			);
+			name = piplineIO;
+			path = ../../common/piplineIO;
+			sourceTree = "<group>";
+		};
+		EBA1C3D02109C952006751E7 /* IO */ = {
+			isa = PBXGroup;
+			children = (
+				EE7393282113DDEA006144B1 /* AGIImage.cpp */,
+				EE7393272113DDEA006144B1 /* AGIImage.h */,
+				EBA1C3D12109C952006751E7 /* input */,
+				EBA1C3D62109C952006751E7 /* output */,
+			);
+			name = IO;
+			path = ../../common/IO;
+			sourceTree = "<group>";
+		};
+		EBA1C3D12109C952006751E7 /* input */ = {
+			isa = PBXGroup;
+			children = (
+				EE7393232113DDE3006144B1 /* AGIPiplineInput.cpp */,
+				EE7393242113DDE3006144B1 /* AGIPiplineInput.h */,
+				EBA1C3D22109C952006751E7 /* AGIPiplineInputPicture.h */,
+				EBA1C3D32109C952006751E7 /* AGIPiplineInputFFmpegReader.cpp */,
+				EBA1C3D42109C952006751E7 /* AGIPiplineInputFFmpegReader.h */,
+				EBA1C3D52109C952006751E7 /* AGIPiplineInputPicture.cpp */,
+			);
+			path = input;
+			sourceTree = "<group>";
+		};
+		EBA1C3D62109C952006751E7 /* output */ = {
+			isa = PBXGroup;
+			children = (
+				EBA1C3D82109C952006751E7 /* AGIPiplineOutputContextWindow.h */,
+				EBA1C3D72109C952006751E7 /* AGIPiplineOutputContextWindow.cpp */,
+			);
+			path = output;
+			sourceTree = "<group>";
+		};
+		EBCA0AD520EB690100351569 /* core */ = {
+			isa = PBXGroup;
+			children = (
+				EE6CE3AA210DFEE5003176BD /* AGIDisaptchQueue.cpp */,
+				EE6CE3AB210DFEE5003176BD /* AGIDispatchQueue.h */,
+				EBCA0AD620EB690100351569 /* AGIResourceManager.cpp */,
+				EBCA0AD720EB690100351569 /* AGIResourceManager.h */,
+				EBCA0AD820EB690100351569 /* AGIContext.h */,
+				EBCA0AD920EB690100351569 /* AGIContext.cpp */,
+			);
+			name = core;
+			path = ../../common/core;
+			sourceTree = "<group>";
+		};
+		EBCA0AE120EB690100351569 /* filter */ = {
+			isa = PBXGroup;
+			children = (
+				EE7393202113DDDA006144B1 /* AGIFilterContentMode.cpp */,
+				EE73931F2113DDDA006144B1 /* AGIFilterContentMode.h */,
+				EB037658210B05CF001C853C /* core */,
+				EBCA0AE320EB690100351569 /* AGIFilter.h */,
+				EBCA0AE920EB690100351569 /* AGIFilter.cpp */,
+				EBCA0AE620EB690100351569 /* AGIFilterTransform.h */,
+				EBCA0AE420EB690100351569 /* AGIFilterTransform.cpp */,
+				EBCA0AE520EB690100351569 /* AGIFilterAlphaBlend.h */,
+				EBCA0AE820EB690100351569 /* AGIFilterAlphaBlend.cpp */,
+				EBCA0AEB20EB690100351569 /* AGIFilterGrayscale.h */,
+				EBCA0AE220EB690100351569 /* AGIFilterGrayscale.cpp */,
+				EB1235A320EDF2450091A969 /* AGIFilterTwoPass.h */,
+				EB1235A220EDF2450091A969 /* AGIFilterTwoPass.cpp */,
+				EB1235A720EDF3BD0091A969 /* AGIFilterSobelEdgeDetection.h */,
+				EB1235A620EDF3BD0091A969 /* AGIFilterSobelEdgeDetection.cpp */,
+			);
+			name = filter;
+			path = ../../common/filter;
+			sourceTree = "<group>";
+		};
+		EBCA0AED20EB690200351569 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				EBCA0AEE20EB690200351569 /* bgfxUtils.cpp */,
+				EBCA0AEF20EB690200351569 /* bgfxUtils.h */,
+				EBA1C3C92109B7D6006751E7 /* AGIUtilDefer.cpp */,
+				EBA1C3CA2109B7D6006751E7 /* AGIUtilDefer.h */,
+			);
+			name = util;
+			path = ../../common/util;
+			sourceTree = "<group>";
+		};
+		EBD56C0D20E492CF00DBDCC2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EBD56C1120E492CF00DBDCC2 /* libbgfxDebug.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EBD56C1B20E493C400DBDCC2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EBD56C1F20E493C400DBDCC2 /* libbimgDebug.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EBD56C3220E4941200DBDCC2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EBD56C3620E4941300DBDCC2 /* libbimg_decodeDebug.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EBD56C6F20E4A3C800DBDCC2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EBD56C7320E4A3C800DBDCC2 /* libglsl-optimizerDebug.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EBD56C7520E4A3D800DBDCC2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EBD56C7920E4A3D800DBDCC2 /* libfcppDebug.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EBFFAA2B20EB757800ADB5D5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EBFFAA2C20EB759500ADB5D5 /* shaders */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		EE5509FF20E2726200EFA54B = {
+			isa = PBXGroup;
+			children = (
+				EE550A0B20E2726200EFA54B /* AppGPUImage */,
+				EBFFAA2B20EB757800ADB5D5 /* Resources */,
+				EE550A0A20E2726200EFA54B /* Products */,
+				EE550A7C20E277D500EFA54B /* Frameworks */,
+				EBD56C7420E4A3D800DBDCC2 /* fcpp.xcodeproj */,
+				EBD56C6E20E4A3C800DBDCC2 /* glsl-optimizer.xcodeproj */,
+				EBD56C3120E4941200DBDCC2 /* bimg_decode.xcodeproj */,
+				EBD56C1A20E493C400DBDCC2 /* bimg.xcodeproj */,
+				EBD56C0C20E492CF00DBDCC2 /* bgfx.xcodeproj */,
+			);
+			sourceTree = "<group>";
+		};
+		EE550A0A20E2726200EFA54B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EE550A0920E2726200EFA54B /* AppGPUImage.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EE550A0B20E2726200EFA54B /* AppGPUImage */ = {
+			isa = PBXGroup;
+			children = (
+				EBCA9B3C20E6080200DAD97E /* glsl_optimizer.h */,
+				EE550A0C20E2726200EFA54B /* AppGPUImage.h */,
+				EE550AAE20E27CD800EFA54B /* AppGPUImageMacOSX.h */,
+				EBAA40D420E61B28002FC1B2 /* AGIPlatformMacOSX.h */,
+				EBAA40D520E61B28002FC1B2 /* AGIPlatformMacOSX.mm */,
+				EE550A0D20E2726200EFA54B /* Info.plist */,
+				EE73932B2113DDFB006144B1 /* timeline */,
+				EBCA0AD520EB690100351569 /* core */,
+				EBCA0AE120EB690100351569 /* filter */,
+				EBA1C3D02109C952006751E7 /* IO */,
+				EBA1C3CD2109C952006751E7 /* piplineIO */,
+				EBCA0AEC20EB690200351569 /* SDKTest.cpp */,
+				EE550AB920E27EB000EFA54B /* SDKTest.h */,
+				EBCA0AED20EB690200351569 /* util */,
+			);
+			path = AppGPUImage;
+			sourceTree = "<group>";
+		};
+		EE550A7C20E277D500EFA54B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EB29E40A2124289D0082B304 /* libippicv.a */,
+				EB29E4162124289E0082B304 /* libippiw.a */,
+				EB29E4032124289D0082B304 /* libittnotify.a */,
+				EB29E40C2124289D0082B304 /* liblibjpeg-turbo.a */,
+				EB29E3F82124289C0082B304 /* liblibprotobuf.a */,
+				EB29E4132124289D0082B304 /* liblibwebp.a */,
+				EB29E3EB2124289B0082B304 /* libopencv_aruco.3.4.2.dylib */,
+				EB29E3E72124289B0082B304 /* libopencv_bgsegm.3.4.2.dylib */,
+				EB29E3F62124289C0082B304 /* libopencv_bioinspired.3.4.2.dylib */,
+				EB29E4002124289C0082B304 /* libopencv_calib3d.3.4.2.dylib */,
+				EB29E4122124289D0082B304 /* libopencv_ccalib.3.4.2.dylib */,
+				EB29E3F22124289C0082B304 /* libopencv_core.3.4.2.dylib */,
+				EB29E3F32124289C0082B304 /* libopencv_datasets.3.4.2.dylib */,
+				EB29E3EE2124289C0082B304 /* libopencv_dnn_objdetect.3.4.2.dylib */,
+				EB29E3F72124289C0082B304 /* libopencv_dnn.3.4.2.dylib */,
+				EB29E40D2124289D0082B304 /* libopencv_dpm.3.4.2.dylib */,
+				EB29E3F02124289C0082B304 /* libopencv_face.3.4.2.dylib */,
+				EB29E3EF2124289C0082B304 /* libopencv_features2d.3.4.2.dylib */,
+				EB29E40E2124289D0082B304 /* libopencv_flann.3.4.2.dylib */,
+				EB29E3EC2124289C0082B304 /* libopencv_fuzzy.3.4.2.dylib */,
+				EB29E3FF2124289C0082B304 /* libopencv_hfs.3.4.2.dylib */,
+				EB29E3FD2124289C0082B304 /* libopencv_highgui.3.4.2.dylib */,
+				EB29E3EA2124289B0082B304 /* libopencv_img_hash.3.4.2.dylib */,
+				EB29E40F2124289D0082B304 /* libopencv_imgcodecs.3.4.2.dylib */,
+				EB29E3F12124289C0082B304 /* libopencv_imgproc.3.4.2.dylib */,
+				EB29E4042124289D0082B304 /* libopencv_line_descriptor.3.4.2.dylib */,
+				EB29E3E92124289B0082B304 /* libopencv_ml.3.4.2.dylib */,
+				EB29E3ED2124289C0082B304 /* libopencv_objdetect.3.4.2.dylib */,
+				EB29E4092124289D0082B304 /* libopencv_optflow.3.4.2.dylib */,
+				EB29E4082124289D0082B304 /* libopencv_phase_unwrapping.3.4.2.dylib */,
+				EB29E40B2124289D0082B304 /* libopencv_photo.3.4.2.dylib */,
+				EB29E4102124289D0082B304 /* libopencv_plot.3.4.2.dylib */,
+				EB29E4062124289D0082B304 /* libopencv_reg.3.4.2.dylib */,
+				EB29E3F92124289C0082B304 /* libopencv_rgbd.3.4.2.dylib */,
+				EB29E4152124289D0082B304 /* libopencv_saliency.3.4.2.dylib */,
+				EB29E4112124289D0082B304 /* libopencv_shape.3.4.2.dylib */,
+				EB29E4172124289E0082B304 /* libopencv_stereo.3.4.2.dylib */,
+				EB29E3F52124289C0082B304 /* libopencv_stitching.3.4.2.dylib */,
+				EB29E3FE2124289C0082B304 /* libopencv_structured_light.3.4.2.dylib */,
+				EB29E4022124289D0082B304 /* libopencv_superres.3.4.2.dylib */,
+				EB29E4072124289D0082B304 /* libopencv_surface_matching.3.4.2.dylib */,
+				EB29E4052124289D0082B304 /* libopencv_tracking.3.4.2.dylib */,
+				EB29E3FB2124289C0082B304 /* libopencv_video.3.4.2.dylib */,
+				EB29E3FA2124289C0082B304 /* libopencv_videoio.3.4.2.dylib */,
+				EB29E3F42124289C0082B304 /* libopencv_videostab.3.4.2.dylib */,
+				EB29E3FC2124289C0082B304 /* libopencv_xfeatures2d.3.4.2.dylib */,
+				EB29E3E82124289B0082B304 /* libopencv_ximgproc.3.4.2.dylib */,
+				EB29E4012124289D0082B304 /* libopencv_xobjdetect.3.4.2.dylib */,
+				EB29E4142124289D0082B304 /* libopencv_xphoto.3.4.2.dylib */,
+				EE90FBA72100BBEC0015E84A /* libavcodec.58.dylib */,
+				EE90FBA92100BBED0015E84A /* libavdevice.58.dylib */,
+				EE90FBA42100BBEC0015E84A /* libavfilter.7.dylib */,
+				EE90FBA82100BBED0015E84A /* libavformat.58.dylib */,
+				EE90FBA22100BBEC0015E84A /* libavutil.56.dylib */,
+				EE90FBA32100BBEC0015E84A /* libpostproc.55.dylib */,
+				EE90FBA62100BBEC0015E84A /* libswresample.3.dylib */,
+				EE90FBA52100BBEC0015E84A /* libswscale.5.dylib */,
+				EE550A8320E2787400EFA54B /* AppKit.framework */,
+				EE550A8120E2785D00EFA54B /* QuartzCore.framework */,
+				EE550A7F20E2784800EFA54B /* Metal.framework */,
+				EE550A7D20E277D600EFA54B /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EE73932B2113DDFB006144B1 /* timeline */ = {
+			isa = PBXGroup;
+			children = (
+				EE73932C2113DDFB006144B1 /* AGITimeline.h */,
+				EE73932D2113DDFB006144B1 /* AGITrack.cpp */,
+				EE73932E2113DDFB006144B1 /* AGITimeline.cpp */,
+				EE73932F2113DDFB006144B1 /* AGIClip.cpp */,
+				EE7393302113DDFB006144B1 /* AGIClip.h */,
+				EE7393312113DDFB006144B1 /* AGITrack.h */,
+			);
+			name = timeline;
+			path = ../../common/timeline;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		EE550A0620E2726200EFA54B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBCA0AF320EB690200351569 /* AGIContext.h in Headers */,
+				EB1235A520EDF2450091A969 /* AGIFilterTwoPass.h in Headers */,
+				EBCA9B3D20E6080200DAD97E /* glsl_optimizer.h in Headers */,
+				EE550ABB20E27EB000EFA54B /* SDKTest.h in Headers */,
+				EE6CE3AD210DFEE5003176BD /* AGIDispatchQueue.h in Headers */,
+				EBA1C3DA2109C952006751E7 /* AGIPiplineIO.hpp in Headers */,
+				EBA1C3CC2109B7D6006751E7 /* AGIUtilDefer.h in Headers */,
+				EE7393362113DDFB006144B1 /* AGIClip.h in Headers */,
+				EE7393322113DDFB006144B1 /* AGITimeline.h in Headers */,
+				EBCA0B0720EB690200351569 /* bgfxUtils.h in Headers */,
+				EBAA40D620E61B28002FC1B2 /* AGIPlatformMacOSX.h in Headers */,
+				EE7393262113DDE3006144B1 /* AGIPiplineInput.h in Headers */,
+				EE7393292113DDEA006144B1 /* AGIImage.h in Headers */,
+				EBCA0AFE20EB690200351569 /* AGIFilterAlphaBlend.h in Headers */,
+				EBA1C3DB2109C952006751E7 /* AGIPiplineInputPicture.h in Headers */,
+				EBCA0AFC20EB690200351569 /* AGIFilter.h in Headers */,
+				EE7393212113DDDB006144B1 /* AGIFilterContentMode.h in Headers */,
+				EBCA0AF220EB690200351569 /* AGIResourceManager.h in Headers */,
+				EBCA0B0420EB690200351569 /* AGIFilterGrayscale.h in Headers */,
+				EBCA0AFF20EB690200351569 /* AGIFilterTransform.h in Headers */,
+				EB1235A920EDF3BD0091A969 /* AGIFilterSobelEdgeDetection.h in Headers */,
+				EE550A0E20E2726200EFA54B /* AppGPUImage.h in Headers */,
+				EBA1C3E02109C952006751E7 /* AGIPiplineOutputContextWindow.h in Headers */,
+				EE550AAF20E27CD800EFA54B /* AppGPUImageMacOSX.h in Headers */,
+				EB037660210B0EB2001C853C /* AGIProgramCacheManager.h in Headers */,
+				EB03765C210B05E7001C853C /* AGIProgram.h in Headers */,
+				EE7393372113DDFB006144B1 /* AGITrack.h in Headers */,
+				EBA1C3DD2109C952006751E7 /* AGIPiplineInputFFmpegReader.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		EE550A0820E2726200EFA54B /* AppGPUImage */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE550A1120E2726200EFA54B /* Build configuration list for PBXNativeTarget "AppGPUImage" */;
+			buildPhases = (
+				EE550A0420E2726200EFA54B /* Sources */,
+				EE550A0520E2726200EFA54B /* Frameworks */,
+				EE550A0620E2726200EFA54B /* Headers */,
+				EE550A0720E2726200EFA54B /* Resources */,
+				EE90FBD02100C28D0015E84A /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EBD56C7B20E4A3FC00DBDCC2 /* PBXTargetDependency */,
+				EBD56C7D20E4A3FC00DBDCC2 /* PBXTargetDependency */,
+				EBD56C3820E4941800DBDCC2 /* PBXTargetDependency */,
+				EBD56C2920E493DB00DBDCC2 /* PBXTargetDependency */,
+				EBD56CFF20E4B59200DBDCC2 /* PBXTargetDependency */,
+			);
+			name = AppGPUImage;
+			productName = AppGPUImage_MacOSX;
+			productReference = EE550A0920E2726200EFA54B /* AppGPUImage.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EE550A0020E2726200EFA54B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "董宏昌";
+				TargetAttributes = {
+					EE550A0820E2726200EFA54B = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+				};
+			};
+			buildConfigurationList = EE550A0320E2726200EFA54B /* Build configuration list for PBXProject "AppGPUImage" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = EE5509FF20E2726200EFA54B;
+			productRefGroup = EE550A0A20E2726200EFA54B /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = EBD56C0D20E492CF00DBDCC2 /* Products */;
+					ProjectRef = EBD56C0C20E492CF00DBDCC2 /* bgfx.xcodeproj */;
+				},
+				{
+					ProductGroup = EBD56C1B20E493C400DBDCC2 /* Products */;
+					ProjectRef = EBD56C1A20E493C400DBDCC2 /* bimg.xcodeproj */;
+				},
+				{
+					ProductGroup = EBD56C3220E4941200DBDCC2 /* Products */;
+					ProjectRef = EBD56C3120E4941200DBDCC2 /* bimg_decode.xcodeproj */;
+				},
+				{
+					ProductGroup = EBD56C7520E4A3D800DBDCC2 /* Products */;
+					ProjectRef = EBD56C7420E4A3D800DBDCC2 /* fcpp.xcodeproj */;
+				},
+				{
+					ProductGroup = EBD56C6F20E4A3C800DBDCC2 /* Products */;
+					ProjectRef = EBD56C6E20E4A3C800DBDCC2 /* glsl-optimizer.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				EE550A0820E2726200EFA54B /* AppGPUImage */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		EBD56C1120E492CF00DBDCC2 /* libbgfxDebug.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libbgfxDebug.a;
+			remoteRef = EBD56C1020E492CF00DBDCC2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EBD56C1F20E493C400DBDCC2 /* libbimgDebug.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libbimgDebug.a;
+			remoteRef = EBD56C1E20E493C400DBDCC2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EBD56C3620E4941300DBDCC2 /* libbimg_decodeDebug.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libbimg_decodeDebug.a;
+			remoteRef = EBD56C3520E4941300DBDCC2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EBD56C7320E4A3C800DBDCC2 /* libglsl-optimizerDebug.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libglsl-optimizerDebug.a";
+			remoteRef = EBD56C7220E4A3C800DBDCC2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EBD56C7920E4A3D800DBDCC2 /* libfcppDebug.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libfcppDebug.a;
+			remoteRef = EBD56C7820E4A3D800DBDCC2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EE550A0720E2726200EFA54B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBFFAA2D20EB759500ADB5D5 /* shaders in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EE550A0420E2726200EFA54B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBCA0B0620EB690200351569 /* bgfxUtils.cpp in Sources */,
+				EBCA0AFB20EB690200351569 /* AGIFilterGrayscale.cpp in Sources */,
+				EE7393352113DDFB006144B1 /* AGIClip.cpp in Sources */,
+				EE7393332113DDFB006144B1 /* AGITrack.cpp in Sources */,
+				EE7393252113DDE3006144B1 /* AGIPiplineInput.cpp in Sources */,
+				EBCA0B0120EB690200351569 /* AGIFilterAlphaBlend.cpp in Sources */,
+				EBA1C3DF2109C952006751E7 /* AGIPiplineOutputContextWindow.cpp in Sources */,
+				EBCA0AFD20EB690200351569 /* AGIFilterTransform.cpp in Sources */,
+				EBA1C3D92109C952006751E7 /* AGIPiplineIO.cpp in Sources */,
+				EBCA0AF420EB690200351569 /* AGIContext.cpp in Sources */,
+				EBCA0B0220EB690200351569 /* AGIFilter.cpp in Sources */,
+				EE7393222113DDDB006144B1 /* AGIFilterContentMode.cpp in Sources */,
+				EB1235A820EDF3BD0091A969 /* AGIFilterSobelEdgeDetection.cpp in Sources */,
+				EB03765F210B0EB2001C853C /* AGIProgramCacheManager.cpp in Sources */,
+				EBA1C3DE2109C952006751E7 /* AGIPiplineInputPicture.cpp in Sources */,
+				EB1235A420EDF2450091A969 /* AGIFilterTwoPass.cpp in Sources */,
+				EB03765B210B05E7001C853C /* AGIProgram.cpp in Sources */,
+				EE7393342113DDFB006144B1 /* AGITimeline.cpp in Sources */,
+				EBAA40D720E61B28002FC1B2 /* AGIPlatformMacOSX.mm in Sources */,
+				EBA1C3CB2109B7D6006751E7 /* AGIUtilDefer.cpp in Sources */,
+				EBCA0AF120EB690200351569 /* AGIResourceManager.cpp in Sources */,
+				EBA1C3DC2109C952006751E7 /* AGIPiplineInputFFmpegReader.cpp in Sources */,
+				EE73932A2113DDEA006144B1 /* AGIImage.cpp in Sources */,
+				EE6CE3AC210DFEE5003176BD /* AGIDisaptchQueue.cpp in Sources */,
+				EBCA0B0520EB690200351569 /* SDKTest.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EBD56C2920E493DB00DBDCC2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = bimg;
+			targetProxy = EBD56C2820E493DB00DBDCC2 /* PBXContainerItemProxy */;
+		};
+		EBD56C3820E4941800DBDCC2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = bimg_decode;
+			targetProxy = EBD56C3720E4941800DBDCC2 /* PBXContainerItemProxy */;
+		};
+		EBD56C7B20E4A3FC00DBDCC2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = fcpp;
+			targetProxy = EBD56C7A20E4A3FC00DBDCC2 /* PBXContainerItemProxy */;
+		};
+		EBD56C7D20E4A3FC00DBDCC2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "glsl-optimizer";
+			targetProxy = EBD56C7C20E4A3FC00DBDCC2 /* PBXContainerItemProxy */;
+		};
+		EBD56CFF20E4B59200DBDCC2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = bgfx;
+			targetProxy = EBD56CFE20E4B59200DBDCC2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		EE550A0F20E2726200EFA54B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		EE550A1020E2726200EFA54B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		EE550A1220E2726200EFA54B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = TDKPBS4685;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				HEADER_SEARCH_PATHS = (
+					../common_deps/bgfx/include,
+					../common_deps/bx/include,
+					../common_deps/bimg/include,
+					../common_deps/bgfx/3rdparty/fcpp,
+					../common,
+					../common_deps/ffmpeg/include,
+					../common_deps/opencv/include,
+				);
+				INFOPLIST_FILE = AppGPUImage/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					../common_deps/ffmpeg/macosx/dylib,
+					../common_deps/opencv/macosx/lib,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dhcdht.AppGPUImage-MacOSX";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		EE550A1320E2726200EFA54B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = TDKPBS4685;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				HEADER_SEARCH_PATHS = (
+					../common_deps/bgfx/include,
+					../common_deps/bx/include,
+					../common_deps/bimg/include,
+					../common_deps/bgfx/3rdparty/fcpp,
+					../common,
+					../common_deps/ffmpeg/include,
+					../common_deps/opencv/include,
+				);
+				INFOPLIST_FILE = AppGPUImage/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					../common_deps/ffmpeg/macosx/dylib,
+					../common_deps/opencv/macosx/lib,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dhcdht.AppGPUImage-MacOSX";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EE550A0320E2726200EFA54B /* Build configuration list for PBXProject "AppGPUImage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE550A0F20E2726200EFA54B /* Debug */,
+				EE550A1020E2726200EFA54B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE550A1120E2726200EFA54B /* Build configuration list for PBXNativeTarget "AppGPUImage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE550A1220E2726200EFA54B /* Debug */,
+				EE550A1320E2726200EFA54B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EE550A0020E2726200EFA54B /* Project object */;
+}

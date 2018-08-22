@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{FE558099-EFD7-41A5-9E16-5032F8952651}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>AppGPUImage</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <LibraryPath>$(ProjectDir)\..\common_deps\bgfx\.build\win64_vs2017\bin;$(ProjectDir)\..\common_deps\ffmpeg\win10\lib;$(ProjectDir)\..\common_deps\opencv\win10\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\common_deps\bx\include\compat\msvc;$(ProjectDir)\..\common_deps\bgfx\include;$(ProjectDir)\..\common_deps\bimg\include;$(ProjectDir)\..\common_deps\bx\include;$(ProjectDir)\..\common_deps\bgfx\3rdparty\fcpp;$(ProjectDir)\..\common_deps\bgfx\3rdparty\glsl-optimizer\src\glsl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_LIB;_ITERATOR_DEBUG_LEVEL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\common_deps\bgfx\include;$(ProjectDir)\..\common_deps\bx\include;$(ProjectDir)\..\common_deps\bimg\include;$(ProjectDir)\..\common_deps\bx\include\compat\msvc;$(ProjectDir)\..\common_deps\bgfx\3rdparty\glsl-optimizer\src\glsl;$(ProjectDir)\..\common_deps\bgfx\3rdparty\fcpp;$(ProjectDir)\..\common;$(ProjectDir)\..\common_deps\ffmpeg\include;$(ProjectDir)\..\common_deps\opencv\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>bgfxDebug.lib;bxDebug.lib;bimgDebug.lib;bimg_decodeDebug.lib;fcppDebug.lib;glslangDebug.lib;glsl-optimizerDebug.lib;spirv-optDebug.lib;avcodec.lib;avdevice.lib;avfilter.lib;avformat.lib;avutil.lib;postproc.lib;swresample.lib;swscale.lib;opencv_world342d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
+    <PostBuildEvent>
+      <Command>copy "$(SolutionDir)..\..\..\src\common_deps\ffmpeg\win10\dll\*.dll" "$(TargetDir)"
+copy "$(SolutionDir)..\..\..\src\common_deps\opencv\win10\dll\*.dll" "$(TargetDir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\common\core\AGIContext.h" />
+    <ClInclude Include="..\common\core\AGIDispatchQueue.h" />
+    <ClInclude Include="..\common\core\AGIResourceManager.h" />
+    <ClInclude Include="..\common\filter\AGIFilter.h" />
+    <ClInclude Include="..\common\filter\AGIFilterAlphaBlend.h" />
+    <ClInclude Include="..\common\filter\AGIFilterContentMode.h" />
+    <ClInclude Include="..\common\filter\AGIFilterGrayscale.h" />
+    <ClInclude Include="..\common\filter\AGIFilterOpenCVBackgroundDetect.h" />
+    <ClInclude Include="..\common\filter\AGIFilterOpenCVFaceDetect.h" />
+    <ClInclude Include="..\common\filter\AGIFilterSobelEdgeDetection.h" />
+    <ClInclude Include="..\common\filter\AGIFilterTransform.h" />
+    <ClInclude Include="..\common\filter\AGIFilterTwoPass.h" />
+    <ClInclude Include="..\common\filter\core\AGIProgram.h" />
+    <ClInclude Include="..\common\filter\core\AGIProgramCacheManager.h" />
+    <ClInclude Include="..\common\IO\AGIImage.h" />
+    <ClInclude Include="..\common\IO\input\AGIPiplineInput.h" />
+    <ClInclude Include="..\common\IO\input\AGIPiplineInputFFmpegReader.h" />
+    <ClInclude Include="..\common\IO\input\AGIPiplineInputPicture.h" />
+    <ClInclude Include="..\common\IO\output\AGIPiplineOutputContextWindow.h" />
+    <ClInclude Include="..\common\piplineIO\AGIPiplineIO.hpp" />
+    <ClInclude Include="..\common\SDKTest.h" />
+    <ClInclude Include="..\common\timeline\AGIClip.h" />
+    <ClInclude Include="..\common\timeline\AGITimeline.h" />
+    <ClInclude Include="..\common\timeline\AGITrack.h" />
+    <ClInclude Include="..\common\util\AGIUtilDefer.h" />
+    <ClInclude Include="..\common\util\bgfxUtils.h" />
+    <ClInclude Include="AGIPlatformWin10.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\common\core\AGIContext.cpp" />
+    <ClCompile Include="..\common\core\AGIDisaptchQueue.cpp" />
+    <ClCompile Include="..\common\core\AGIResourceManager.cpp" />
+    <ClCompile Include="..\common\filter\AGIFilter.cpp" />
+    <ClCompile Include="..\common\filter\AGIFilterAlphaBlend.cpp" />
+    <ClCompile Include="..\common\filter\AGIFilterContentMode.cpp" />
+    <ClCompile Include="..\common\filter\AGIFilterGrayscale.cpp" />
+    <ClCompile Include="..\common\filter\AGIFilterOpenCVBackgroundDetect.cpp" />
+    <ClCompile Include="..\common\filter\AGIFilterOpenCVFaceDetect.cpp" />
+    <ClCompile Include="..\common\filter\AGIFilterSobelEdgeDetection.cpp" />
+    <ClCompile Include="..\common\filter\AGIFilterTransform.cpp" />
+    <ClCompile Include="..\common\filter\AGIFilterTwoPass.cpp" />
+    <ClCompile Include="..\common\filter\core\AGIProgram.cpp" />
+    <ClCompile Include="..\common\filter\core\AGIProgramCacheManager.cpp" />
+    <ClCompile Include="..\common\IO\AGIImage.cpp" />
+    <ClCompile Include="..\common\IO\input\AGIPiplineInput.cpp" />
+    <ClCompile Include="..\common\IO\input\AGIPiplineInputFFmpegReader.cpp" />
+    <ClCompile Include="..\common\IO\input\AGIPiplineInputPicture.cpp" />
+    <ClCompile Include="..\common\IO\output\AGIPiplineOutputContextWindow.cpp" />
+    <ClCompile Include="..\common\piplineIO\AGIPiplineIO.cpp" />
+    <ClCompile Include="..\common\SDKTest.cpp" />
+    <ClCompile Include="..\common\timeline\AGIClip.cpp" />
+    <ClCompile Include="..\common\timeline\AGITimeline.cpp" />
+    <ClCompile Include="..\common\timeline\AGITrack.cpp" />
+    <ClCompile Include="..\common\util\AGIUtilDefer.cpp" />
+    <ClCompile Include="..\common\util\bgfxUtils.cpp" />
+    <ClCompile Include="AGIPlatformWin10.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

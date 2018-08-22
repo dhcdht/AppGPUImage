@@ -1,0 +1,12 @@
+[submodule "src/common_deps/bgfx"]
+	path = src/common_deps/bgfx
+	url = git@github.com:dhcdht/bgfx.git
+[submodule "src/common_deps/bimg"]
+	path = src/common_deps/bimg
+	url = git@github.com:bkaradzic/bimg.git
+[submodule "src/common_deps/bx"]
+	path = src/common_deps/bx
+	url = git@github.com:bkaradzic/bx.git
+[submodule "src/common_deps/brtshaderc"]
+	path = src/common_deps/brtshaderc
+	url = git@github.com:fredakilla/brtshaderc.git

@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{83c513bf-57cb-4684-9531-6cc1530c7a88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common\core">
+      <UniqueIdentifier>{ca2c623c-f5a3-4ce4-b2e3-258edc00af89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common\filter">
+      <UniqueIdentifier>{f2e927d3-fa05-4f6c-9539-abeaf692a86f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common\filter\core">
+      <UniqueIdentifier>{920aecf2-a070-4a72-9ce6-f390bfbcea28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common\IO">
+      <UniqueIdentifier>{20eb3d85-e487-4735-9272-353f182d3117}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common\IO\input">
+      <UniqueIdentifier>{8786ef7a-6b58-4074-b498-d4750f10357f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common\IO\output">
+      <UniqueIdentifier>{8feac53a-d198-41c8-ae05-37378bfce020}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common\piplineIO">
+      <UniqueIdentifier>{ddffb074-75e8-42be-b764-f57448e8f110}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common\util">
+      <UniqueIdentifier>{5202b539-e1d9-4dc5-9586-f580b36db311}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common\timeline">
+      <UniqueIdentifier>{897d82b0-dcb1-4519-996e-30ce8d5a2912}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AGIPlatformWin10.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\SDKTest.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\core\AGIContext.h">
+      <Filter>common\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\core\AGIDispatchQueue.h">
+      <Filter>common\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\filter\core\AGIProgramCacheManager.h">
+      <Filter>common\filter\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\filter\core\AGIProgram.h">
+      <Filter>common\filter\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\core\AGIResourceManager.h">
+      <Filter>common\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\filter\AGIFilter.h">
+      <Filter>common\filter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\filter\AGIFilterAlphaBlend.h">
+      <Filter>common\filter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\filter\AGIFilterContentMode.h">
+      <Filter>common\filter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\filter\AGIFilterGrayscale.h">
+      <Filter>common\filter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\filter\AGIFilterSobelEdgeDetection.h">
+      <Filter>common\filter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\filter\AGIFilterTransform.h">
+      <Filter>common\filter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\filter\AGIFilterTwoPass.h">
+      <Filter>common\filter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\IO\input\AGIPiplineInputFFmpegReader.h">
+      <Filter>common\IO\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\IO\input\AGIPiplineInputPicture.h">
+      <Filter>common\IO\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\IO\output\AGIPiplineOutputContextWindow.h">
+      <Filter>common\IO\output</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\IO\AGIImage.h">
+      <Filter>common\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\piplineIO\AGIPiplineIO.hpp">
+      <Filter>common\piplineIO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\util\AGIUtilDefer.h">
+      <Filter>common\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\util\bgfxUtils.h">
+      <Filter>common\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\timeline\AGITimeline.h">
+      <Filter>common\timeline</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\timeline\AGITrack.h">
+      <Filter>common\timeline</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\timeline\AGIClip.h">
+      <Filter>common\timeline</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\IO\input\AGIPiplineInput.h">
+      <Filter>common\IO\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\filter\AGIFilterOpenCVBackgroundDetect.h">
+      <Filter>common\filter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\filter\AGIFilterOpenCVFaceDetect.h">
+      <Filter>common\filter</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AGIPlatformWin10.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\SDKTest.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\core\AGIContext.cpp">
+      <Filter>common\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\core\AGIDisaptchQueue.cpp">
+      <Filter>common\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\filter\core\AGIProgramCacheManager.cpp">
+      <Filter>common\filter\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\filter\core\AGIProgram.cpp">
+      <Filter>common\filter\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\core\AGIResourceManager.cpp">
+      <Filter>common\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\filter\AGIFilter.cpp">
+      <Filter>common\filter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\filter\AGIFilterAlphaBlend.cpp">
+      <Filter>common\filter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\filter\AGIFilterContentMode.cpp">
+      <Filter>common\filter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\filter\AGIFilterGrayscale.cpp">
+      <Filter>common\filter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\filter\AGIFilterSobelEdgeDetection.cpp">
+      <Filter>common\filter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\filter\AGIFilterTransform.cpp">
+      <Filter>common\filter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\filter\AGIFilterTwoPass.cpp">
+      <Filter>common\filter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\IO\input\AGIPiplineInputFFmpegReader.cpp">
+      <Filter>common\IO\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\IO\input\AGIPiplineInputPicture.cpp">
+      <Filter>common\IO\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\IO\output\AGIPiplineOutputContextWindow.cpp">
+      <Filter>common\IO\output</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\IO\AGIImage.cpp">
+      <Filter>common\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\piplineIO\AGIPiplineIO.cpp">
+      <Filter>common\piplineIO</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\util\AGIUtilDefer.cpp">
+      <Filter>common\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\util\bgfxUtils.cpp">
+      <Filter>common\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\timeline\AGITimeline.cpp">
+      <Filter>common\timeline</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\timeline\AGITrack.cpp">
+      <Filter>common\timeline</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\timeline\AGIClip.cpp">
+      <Filter>common\timeline</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\IO\input\AGIPiplineInput.cpp">
+      <Filter>common\IO\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\filter\AGIFilterOpenCVBackgroundDetect.cpp">
+      <Filter>common\filter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\filter\AGIFilterOpenCVFaceDetect.cpp">
+      <Filter>common\filter</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
