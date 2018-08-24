@@ -64,6 +64,10 @@
 		EB29E4462124289E0082B304 /* libopencv_saliency.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E4152124289D0082B304 /* libopencv_saliency.3.4.2.dylib */; };
 		EB29E4472124289E0082B304 /* libippiw.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E4162124289E0082B304 /* libippiw.a */; };
 		EB29E4482124289E0082B304 /* libopencv_stereo.3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E4172124289E0082B304 /* libopencv_stereo.3.4.2.dylib */; };
+		EB8EB84E212FA71D00EA2CC8 /* AGIFilterOpenCVBackgroundDetect.h in Headers */ = {isa = PBXBuildFile; fileRef = EB8EB84A212FA71D00EA2CC8 /* AGIFilterOpenCVBackgroundDetect.h */; };
+		EB8EB84F212FA71D00EA2CC8 /* AGIFilterOpenCVFaceDetect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB8EB84B212FA71D00EA2CC8 /* AGIFilterOpenCVFaceDetect.cpp */; };
+		EB8EB850212FA71D00EA2CC8 /* AGIFilterOpenCVFaceDetect.h in Headers */ = {isa = PBXBuildFile; fileRef = EB8EB84C212FA71D00EA2CC8 /* AGIFilterOpenCVFaceDetect.h */; };
+		EB8EB851212FA71D00EA2CC8 /* AGIFilterOpenCVBackgroundDetect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB8EB84D212FA71D00EA2CC8 /* AGIFilterOpenCVBackgroundDetect.cpp */; };
 		EBA1C3CB2109B7D6006751E7 /* AGIUtilDefer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EBA1C3C92109B7D6006751E7 /* AGIUtilDefer.cpp */; };
 		EBA1C3CC2109B7D6006751E7 /* AGIUtilDefer.h in Headers */ = {isa = PBXBuildFile; fileRef = EBA1C3CA2109B7D6006751E7 /* AGIUtilDefer.h */; };
 		EBA1C3D92109C952006751E7 /* AGIPiplineIO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EBA1C3CE2109C952006751E7 /* AGIPiplineIO.cpp */; };
@@ -288,6 +292,10 @@
 		EB29E4152124289D0082B304 /* libopencv_saliency.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_saliency.3.4.2.dylib; path = ../common_deps/opencv/macosx/lib/libopencv_saliency.3.4.2.dylib; sourceTree = "<group>"; };
 		EB29E4162124289E0082B304 /* libippiw.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libippiw.a; path = ../common_deps/opencv/macosx/lib/libippiw.a; sourceTree = "<group>"; };
 		EB29E4172124289E0082B304 /* libopencv_stereo.3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_stereo.3.4.2.dylib; path = ../common_deps/opencv/macosx/lib/libopencv_stereo.3.4.2.dylib; sourceTree = "<group>"; };
+		EB8EB84A212FA71D00EA2CC8 /* AGIFilterOpenCVBackgroundDetect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGIFilterOpenCVBackgroundDetect.h; sourceTree = "<group>"; };
+		EB8EB84B212FA71D00EA2CC8 /* AGIFilterOpenCVFaceDetect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AGIFilterOpenCVFaceDetect.cpp; sourceTree = "<group>"; };
+		EB8EB84C212FA71D00EA2CC8 /* AGIFilterOpenCVFaceDetect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGIFilterOpenCVFaceDetect.h; sourceTree = "<group>"; };
+		EB8EB84D212FA71D00EA2CC8 /* AGIFilterOpenCVBackgroundDetect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AGIFilterOpenCVBackgroundDetect.cpp; sourceTree = "<group>"; };
 		EBA1C3C92109B7D6006751E7 /* AGIUtilDefer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AGIUtilDefer.cpp; sourceTree = "<group>"; };
 		EBA1C3CA2109B7D6006751E7 /* AGIUtilDefer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AGIUtilDefer.h; sourceTree = "<group>"; };
 		EBA1C3CE2109C952006751E7 /* AGIPiplineIO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AGIPiplineIO.cpp; sourceTree = "<group>"; };
@@ -504,6 +512,10 @@
 		EBCA0AE120EB690100351569 /* filter */ = {
 			isa = PBXGroup;
 			children = (
+				EB8EB84D212FA71D00EA2CC8 /* AGIFilterOpenCVBackgroundDetect.cpp */,
+				EB8EB84A212FA71D00EA2CC8 /* AGIFilterOpenCVBackgroundDetect.h */,
+				EB8EB84B212FA71D00EA2CC8 /* AGIFilterOpenCVFaceDetect.cpp */,
+				EB8EB84C212FA71D00EA2CC8 /* AGIFilterOpenCVFaceDetect.h */,
 				EE7393202113DDDA006144B1 /* AGIFilterContentMode.cpp */,
 				EE73931F2113DDDA006144B1 /* AGIFilterContentMode.h */,
 				EB037658210B05CF001C853C /* core */,
@@ -736,11 +748,13 @@
 				EE7393212113DDDB006144B1 /* AGIFilterContentMode.h in Headers */,
 				EBCA0AF220EB690200351569 /* AGIResourceManager.h in Headers */,
 				EBCA0B0420EB690200351569 /* AGIFilterGrayscale.h in Headers */,
+				EB8EB84E212FA71D00EA2CC8 /* AGIFilterOpenCVBackgroundDetect.h in Headers */,
 				EBCA0AFF20EB690200351569 /* AGIFilterTransform.h in Headers */,
 				EB1235A920EDF3BD0091A969 /* AGIFilterSobelEdgeDetection.h in Headers */,
 				EE550A0E20E2726200EFA54B /* AppGPUImage.h in Headers */,
 				EBA1C3E02109C952006751E7 /* AGIPiplineOutputContextWindow.h in Headers */,
 				EE550AAF20E27CD800EFA54B /* AppGPUImageMacOSX.h in Headers */,
+				EB8EB850212FA71D00EA2CC8 /* AGIFilterOpenCVFaceDetect.h in Headers */,
 				EB037660210B0EB2001C853C /* AGIProgramCacheManager.h in Headers */,
 				EB03765C210B05E7001C853C /* AGIProgram.h in Headers */,
 				EE7393372113DDFB006144B1 /* AGITrack.h in Headers */,
@@ -890,6 +904,7 @@
 				EBCA0B0120EB690200351569 /* AGIFilterAlphaBlend.cpp in Sources */,
 				EBA1C3DF2109C952006751E7 /* AGIPiplineOutputContextWindow.cpp in Sources */,
 				EBCA0AFD20EB690200351569 /* AGIFilterTransform.cpp in Sources */,
+				EB8EB84F212FA71D00EA2CC8 /* AGIFilterOpenCVFaceDetect.cpp in Sources */,
 				EBA1C3D92109C952006751E7 /* AGIPiplineIO.cpp in Sources */,
 				EBCA0AF420EB690200351569 /* AGIContext.cpp in Sources */,
 				EBCA0B0220EB690200351569 /* AGIFilter.cpp in Sources */,
@@ -900,6 +915,7 @@
 				EB1235A420EDF2450091A969 /* AGIFilterTwoPass.cpp in Sources */,
 				EB03765B210B05E7001C853C /* AGIProgram.cpp in Sources */,
 				EE7393342113DDFB006144B1 /* AGITimeline.cpp in Sources */,
+				EB8EB851212FA71D00EA2CC8 /* AGIFilterOpenCVBackgroundDetect.cpp in Sources */,
 				EBAA40D720E61B28002FC1B2 /* AGIPlatformMacOSX.mm in Sources */,
 				EBA1C3CB2109B7D6006751E7 /* AGIUtilDefer.cpp in Sources */,
 				EBCA0AF120EB690200351569 /* AGIResourceManager.cpp in Sources */,

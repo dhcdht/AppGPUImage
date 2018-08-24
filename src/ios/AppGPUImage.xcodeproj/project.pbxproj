@@ -11,6 +11,10 @@
 		EB1235BE20EE1D490091A969 /* AGIFilterTwoPass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB1235BA20EE1D480091A969 /* AGIFilterTwoPass.cpp */; };
 		EB1235BF20EE1D490091A969 /* AGIFilterTwoPass.h in Headers */ = {isa = PBXBuildFile; fileRef = EB1235BB20EE1D480091A969 /* AGIFilterTwoPass.h */; };
 		EB1235C020EE1D490091A969 /* AGIFilterSobelEdgeDetection.h in Headers */ = {isa = PBXBuildFile; fileRef = EB1235BC20EE1D490091A969 /* AGIFilterSobelEdgeDetection.h */; };
+		EB1B8782212FA767009B8F2D /* AGIFilterOpenCVBackgroundDetect.h in Headers */ = {isa = PBXBuildFile; fileRef = EB1B877E212FA767009B8F2D /* AGIFilterOpenCVBackgroundDetect.h */; };
+		EB1B8783212FA767009B8F2D /* AGIFilterOpenCVFaceDetect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB1B877F212FA767009B8F2D /* AGIFilterOpenCVFaceDetect.cpp */; };
+		EB1B8784212FA767009B8F2D /* AGIFilterOpenCVFaceDetect.h in Headers */ = {isa = PBXBuildFile; fileRef = EB1B8780212FA767009B8F2D /* AGIFilterOpenCVFaceDetect.h */; };
+		EB1B8785212FA767009B8F2D /* AGIFilterOpenCVBackgroundDetect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB1B8781212FA767009B8F2D /* AGIFilterOpenCVBackgroundDetect.cpp */; };
 		EB29E451212429750082B304 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB29E450212429750082B304 /* opencv2.framework */; };
 		EBAA418520EB5EB0002FC1B2 /* AGIPlatformIOS.h in Headers */ = {isa = PBXBuildFile; fileRef = EBAA418320EB5EB0002FC1B2 /* AGIPlatformIOS.h */; };
 		EBAA418620EB5EB0002FC1B2 /* AGIPlatformIOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = EBAA418420EB5EB0002FC1B2 /* AGIPlatformIOS.mm */; };
@@ -167,6 +171,10 @@
 		EB1235BA20EE1D480091A969 /* AGIFilterTwoPass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AGIFilterTwoPass.cpp; sourceTree = "<group>"; };
 		EB1235BB20EE1D480091A969 /* AGIFilterTwoPass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGIFilterTwoPass.h; sourceTree = "<group>"; };
 		EB1235BC20EE1D490091A969 /* AGIFilterSobelEdgeDetection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGIFilterSobelEdgeDetection.h; sourceTree = "<group>"; };
+		EB1B877E212FA767009B8F2D /* AGIFilterOpenCVBackgroundDetect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGIFilterOpenCVBackgroundDetect.h; sourceTree = "<group>"; };
+		EB1B877F212FA767009B8F2D /* AGIFilterOpenCVFaceDetect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AGIFilterOpenCVFaceDetect.cpp; sourceTree = "<group>"; };
+		EB1B8780212FA767009B8F2D /* AGIFilterOpenCVFaceDetect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGIFilterOpenCVFaceDetect.h; sourceTree = "<group>"; };
+		EB1B8781212FA767009B8F2D /* AGIFilterOpenCVBackgroundDetect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AGIFilterOpenCVBackgroundDetect.cpp; sourceTree = "<group>"; };
 		EB29E450212429750082B304 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = ../common_deps/opencv/ios/opencv2.framework; sourceTree = "<group>"; };
 		EBAA418320EB5EB0002FC1B2 /* AGIPlatformIOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AGIPlatformIOS.h; sourceTree = "<group>"; };
 		EBAA418420EB5EB0002FC1B2 /* AGIPlatformIOS.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AGIPlatformIOS.mm; sourceTree = "<group>"; };
@@ -319,6 +327,10 @@
 		EBFFA9CA20EB69F200ADB5D5 /* filter */ = {
 			isa = PBXGroup;
 			children = (
+				EB1B8781212FA767009B8F2D /* AGIFilterOpenCVBackgroundDetect.cpp */,
+				EB1B877E212FA767009B8F2D /* AGIFilterOpenCVBackgroundDetect.h */,
+				EB1B877F212FA767009B8F2D /* AGIFilterOpenCVFaceDetect.cpp */,
+				EB1B8780212FA767009B8F2D /* AGIFilterOpenCVFaceDetect.h */,
 				EEF5FF242113DCB400B5184F /* AGIFilterContentMode.cpp */,
 				EEF5FF232113DCB300B5184F /* AGIFilterContentMode.h */,
 				EEA892E0210CB6F800B5D5C7 /* core */,
@@ -548,11 +560,13 @@
 				EEF5FF222113DCA100B5184F /* AGIPiplineInput.h in Headers */,
 				EEA892F2210CB79900B5D5C7 /* AGIPiplineInputPicture.h in Headers */,
 				EBFFA9E720EB69F200ADB5D5 /* AGIFilterAlphaBlend.h in Headers */,
+				EB1B8782212FA767009B8F2D /* AGIFilterOpenCVBackgroundDetect.h in Headers */,
 				EB1235BF20EE1D490091A969 /* AGIFilterTwoPass.h in Headers */,
 				EBFFA9DC20EB69F200ADB5D5 /* AGIContext.h in Headers */,
 				EEA892E5210CB6F800B5D5C7 /* AGIProgram.h in Headers */,
 				EBAA418520EB5EB0002FC1B2 /* AGIPlatformIOS.h in Headers */,
 				EEF5FF192113DC8900B5184F /* AGITimeline.h in Headers */,
+				EB1B8784212FA767009B8F2D /* AGIFilterOpenCVFaceDetect.h in Headers */,
 				EBFFA9E820EB69F200ADB5D5 /* AGIFilterTransform.h in Headers */,
 				EEA892F7210CB79900B5D5C7 /* AGIPiplineOutputContextWindow.h in Headers */,
 				EEA892E6210CB6F800B5D5C7 /* AGIProgramCacheManager.h in Headers */,
@@ -701,6 +715,7 @@
 				EEF5FF1C2113DC8900B5184F /* AGIClip.cpp in Sources */,
 				EB1235BE20EE1D490091A969 /* AGIFilterTwoPass.cpp in Sources */,
 				EBFFA9E620EB69F200ADB5D5 /* AGIFilterTransform.cpp in Sources */,
+				EB1B8783212FA767009B8F2D /* AGIFilterOpenCVFaceDetect.cpp in Sources */,
 				EB1235BD20EE1D490091A969 /* AGIFilterSobelEdgeDetection.cpp in Sources */,
 				EBFFA9E420EB69F200ADB5D5 /* AGIFilterGrayscale.cpp in Sources */,
 				EEA892E7210CB6F800B5D5C7 /* AGIProgram.cpp in Sources */,
@@ -711,6 +726,7 @@
 				EEF5FF212113DCA100B5184F /* AGIPiplineInput.cpp in Sources */,
 				EEF5FF1A2113DC8900B5184F /* AGITrack.cpp in Sources */,
 				EBFFA9DA20EB69F200ADB5D5 /* AGIResourceManager.cpp in Sources */,
+				EB1B8785212FA767009B8F2D /* AGIFilterOpenCVBackgroundDetect.cpp in Sources */,
 				EBFFA9DF20EB69F200ADB5D5 /* AGIPiplineIO.cpp in Sources */,
 				EEF5FF1B2113DC8900B5184F /* AGITimeline.cpp in Sources */,
 				EBFFA9EF20EB69F200ADB5D5 /* bgfxUtils.cpp in Sources */,
