@@ -111,6 +111,7 @@ bool AGIFilterOpenCVFaceDetect::submit()
     cv::cvtColor(frame, grayFrame, CV_BGRA2GRAY);
     std::vector<cv::Rect> faceRects;
     m_tracker->process(grayFrame);
+    m_tracker->getObjects(faceRects);
 
     return AGIFilter::submit();
 }
