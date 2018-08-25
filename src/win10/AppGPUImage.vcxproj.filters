@@ -126,6 +126,9 @@
     <ClInclude Include="..\common\filter\AGIFilterOpenCVFaceDetect.h">
       <Filter>common\filter</Filter>
     </ClInclude>
+    <ClInclude Include="..\common\util\AGIUtil.h">
+      <Filter>common\util</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AGIPlatformWin10.cpp">

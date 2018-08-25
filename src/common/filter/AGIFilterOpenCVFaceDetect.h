@@ -24,9 +24,6 @@ public:
 
 private:
     cv::Ptr<cv::CascadeClassifier> m_classifier;
-    cv::Ptr<cv::DetectionBasedTracker::IDetector> m_mainDetector;
-    cv::Ptr<cv::DetectionBasedTracker::IDetector> m_trackingDetector;
-    cv::DetectionBasedTracker *m_tracker;
 };
 
 

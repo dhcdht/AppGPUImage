@@ -130,8 +130,8 @@ static void testFiltetPlayMovie(std::shared_ptr<AGIPiplineInput> input0)
     }
     else
     {
-		//auto filter = std::make_shared<AGIFilterOpenCVBackgroundDetect>();
-		auto filter = std::make_shared<AGIFilterOpenCVFaceDetect>();
+		auto filter = std::make_shared<AGIFilterOpenCVBackgroundDetect>();
+		//static  auto filter = std::make_shared<AGIFilterOpenCVFaceDetect>();
 
 		input->addTarget(filter);
 		filter->addTarget(output);
@@ -147,13 +147,16 @@ static void testFiltetPlayMovie(std::shared_ptr<AGIPiplineInput> input0)
     }
 }
 
-static std::shared_ptr<AGIPiplineInputFFmpegReader> kInput = nullptr;
+static std::shared_ptr<AGIPiplineInput> kInput = nullptr;
 void SDKTest::test_openMovieFile(const char* filePath)
 {
     kInput = std::make_shared<AGIPiplineInputFFmpegReader>();
     kInput->init(filePath);
+	//kInput = std::make_shared<AGIPiplineInputPicture>();
 
-	AGIContext::sharedContext()->getVideoProcessQueue()->dispatch([&]() {
+	std::string filePathString = filePath;
+	AGIContext::sharedContext()->getVideoProcessQueue()->dispatch([&, filePathString]() {
+		//kInput->init(filePathString);
 		this->test_playMovieNextFrame();
 	});
 }

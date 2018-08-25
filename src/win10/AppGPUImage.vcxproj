@@ -185,6 +185,7 @@ copy "$(SolutionDir)..\..\..\src\common_deps\opencv\win10\dll\*.dll" "$(TargetDi
     <ClInclude Include="..\common\timeline\AGIClip.h" />
     <ClInclude Include="..\common\timeline\AGITimeline.h" />
     <ClInclude Include="..\common\timeline\AGITrack.h" />
+    <ClInclude Include="..\common\util\AGIUtil.h" />
     <ClInclude Include="..\common\util\AGIUtilDefer.h" />
     <ClInclude Include="..\common\util\bgfxUtils.h" />
     <ClInclude Include="AGIPlatformWin10.h" />

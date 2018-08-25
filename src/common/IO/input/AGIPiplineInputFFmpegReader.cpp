@@ -7,8 +7,7 @@
 //
 
 #include "AGIPiplineInputFFmpegReader.h"
-#include "util/bgfxUtils.h"
-#include "util/AGIUtilDefer.h"
+#include "util/AGIUtil.h"
 
 
 AGIPiplineInputFFmpegReader::AGIPiplineInputFFmpegReader()
