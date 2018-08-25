@@ -15,7 +15,7 @@
 #include <bimg/decode.h>
 #include "core/AGIResourceManager.h"
 #include <bx/math.h>
-#include "filter/AGIFilter.h"
+#include "filter/AGIFilterDefault.h"
 #include "filter/AGIFilterTransform.h"
 #include "filter/AGIFilterGrayscale.h"
 #include "IO/input/AGIPiplineInputPicture.h"

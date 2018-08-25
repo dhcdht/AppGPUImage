@@ -29,7 +29,7 @@ bool AGIFilterGrayscale::setProgress(float progress)
 
 bool AGIFilterGrayscale::prepareUniform()
 {
-    if (!AGIFilter::prepareUniform()) {
+    if (!AGIFilterDefault::prepareUniform()) {
         return false;
     }
 
@@ -47,6 +47,6 @@ bool AGIFilterGrayscale::commitUniform()
         return false;
     }
 
-    return AGIFilter::commitUniform();
+    return AGIFilterDefault::commitUniform();
 }
 

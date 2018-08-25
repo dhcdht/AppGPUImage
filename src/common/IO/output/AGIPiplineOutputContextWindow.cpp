@@ -22,7 +22,7 @@ AGIPiplineOutputContextWindow::~AGIPiplineOutputContextWindow()
 
 bool AGIPiplineOutputContextWindow::init()
 {
-    m_filter = std::make_shared<AGIFilter>();
+    m_filter = std::make_shared<AGIFilterDefault>();
     if (!m_filter->prepareFilter()) {
         return false;
     }
@@ -61,7 +61,7 @@ bool AGIPiplineOutputContextWindow::processTarget()
 
 	m_filter->setTextures({ lastOutput });
     m_filter->setSubmitViewID(viewID);
-    m_filter->submit();
+    m_filter->submitFilter();
     bgfx::frame();
 
     this->endOneProcess();

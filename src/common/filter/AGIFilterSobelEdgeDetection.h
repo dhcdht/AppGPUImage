@@ -9,10 +9,10 @@
 #ifndef AGIFilterSobelEdgeDetection_h
 #define AGIFilterSobelEdgeDetection_h
 
-#include "AGIFilter.h"
+#include "AGIFilterDefault.h"
 
 
-class AGIFilterSobelEdgeDetection : public AGIFilter {
+class AGIFilterSobelEdgeDetection : public AGIFilterDefault {
 public:
     AGIFilterSobelEdgeDetection();
     ~AGIFilterSobelEdgeDetection() override;

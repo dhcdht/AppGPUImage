@@ -9,10 +9,10 @@
 #ifndef AGIFilterTransform_h
 #define AGIFilterTransform_h
 
-#include "AGIFilter.h"
+#include "AGIFilterDefault.h"
 
 
-class AGIFilterTransform : public AGIFilter {
+class AGIFilterTransform : public AGIFilterDefault {
 public:
     ~AGIFilterTransform() override;
     AGIFilterTransform();

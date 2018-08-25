@@ -9,11 +9,11 @@
 #ifndef AGIFilterOpenCVBackgroundDetect_h
 #define AGIFilterOpenCVBackgroundDetect_h
 
-#include "AGIFilter.h"
+#include "AGIFilterDefault.h"
 #include "opencv/cv.hpp"
 
 
-class AGIFilterOpenCVBackgroundDetect : public AGIFilter
+class AGIFilterOpenCVBackgroundDetect : public AGIFilterDefault
 {
 public:
 	AGIFilterOpenCVBackgroundDetect();
@@ -21,7 +21,7 @@ public:
 
 public:
 	bool prepareFilter() override;
-	bool submit() override;
+	bool submitFilter() override;
 
 private:
 	cv::Ptr<cv::BackgroundSubtractor> m_bgDetector;

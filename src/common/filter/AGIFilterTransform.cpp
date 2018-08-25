@@ -30,7 +30,7 @@ bool AGIFilterTransform::setTransform(float mat[4][4]) {
 }
 
 bool AGIFilterTransform::prepareUniform() {
-    if (!AGIFilter::prepareUniform()) {
+    if (!AGIFilterDefault::prepareUniform()) {
         return false;
     }
 
@@ -46,6 +46,6 @@ bool AGIFilterTransform::commitUniform() {
         return false;
     }
 
-    return AGIFilter::commitUniform();
+    return AGIFilterDefault::commitUniform();
 }
 

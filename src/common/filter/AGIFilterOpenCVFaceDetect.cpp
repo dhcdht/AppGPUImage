@@ -35,10 +35,10 @@ bool AGIFilterOpenCVFaceDetect::prepareFilter()
         return false;
     }
 
-    return AGIFilter::prepareFilter();
+    return AGIFilterDefault::prepareFilter();
 }
 
-bool AGIFilterOpenCVFaceDetect::submit()
+bool AGIFilterOpenCVFaceDetect::submitFilter()
 {
     if (m_textures.size() < 1)
     {
@@ -58,6 +58,6 @@ bool AGIFilterOpenCVFaceDetect::submit()
     std::vector<cv::Rect> faceRects;
     m_classifier->detectMultiScale(grayFrame, faceRects);
 
-    return AGIFilter::submit();
+    return AGIFilterDefault::submitFilter();
 }
 

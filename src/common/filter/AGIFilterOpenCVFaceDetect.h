@@ -8,11 +8,11 @@
 #ifndef AGIFilterOpenCVFaceDetect_h
 #define AGIFilterOpenCVFaceDetect_h
 
-#include "AGIFilter.h"
+#include "AGIFilterDefault.h"
 #include "opencv/cv.hpp"
 
 
-class AGIFilterOpenCVFaceDetect : public AGIFilter
+class AGIFilterOpenCVFaceDetect : public AGIFilterDefault
 {
 public:
     AGIFilterOpenCVFaceDetect();
@@ -20,7 +20,7 @@ public:
 
 public:
     bool prepareFilter() override;
-    bool submit() override;
+    bool submitFilter() override;
 
 private:
     cv::Ptr<cv::CascadeClassifier> m_classifier;

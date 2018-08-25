@@ -66,9 +66,6 @@
     <ClInclude Include="..\common\core\AGIResourceManager.h">
       <Filter>common\core</Filter>
     </ClInclude>
-    <ClInclude Include="..\common\filter\AGIFilter.h">
-      <Filter>common\filter</Filter>
-    </ClInclude>
     <ClInclude Include="..\common\filter\AGIFilterAlphaBlend.h">
       <Filter>common\filter</Filter>
     </ClInclude>
@@ -129,6 +126,12 @@
     <ClInclude Include="..\common\util\AGIUtil.h">
       <Filter>common\util</Filter>
     </ClInclude>
+    <ClInclude Include="..\common\filter\AGIFilterDefault.h">
+      <Filter>common\filter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\filter\core\AGIFilter.h">
+      <Filter>common\filter\core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AGIPlatformWin10.cpp">
@@ -151,9 +154,6 @@
     </ClCompile>
     <ClCompile Include="..\common\core\AGIResourceManager.cpp">
       <Filter>common\core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\common\filter\AGIFilter.cpp">
-      <Filter>common\filter</Filter>
     </ClCompile>
     <ClCompile Include="..\common\filter\AGIFilterAlphaBlend.cpp">
       <Filter>common\filter</Filter>
@@ -211,6 +211,12 @@
     </ClCompile>
     <ClCompile Include="..\common\filter\AGIFilterOpenCVFaceDetect.cpp">
       <Filter>common\filter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\filter\AGIFilterDefault.cpp">
+      <Filter>common\filter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\filter\core\AGIFilter.cpp">
+      <Filter>common\filter\core</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

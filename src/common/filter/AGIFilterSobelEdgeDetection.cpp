@@ -45,7 +45,7 @@ bool AGIFilterSobelEdgeDetection::setEdgeStrength(float edgeStrength)
 
 bool AGIFilterSobelEdgeDetection::prepareUniform()
 {
-    if (!AGIFilter::prepareUniform()) {
+    if (!AGIFilterDefault::prepareUniform()) {
         return false;
     }
 
@@ -58,7 +58,7 @@ bool AGIFilterSobelEdgeDetection::prepareUniform()
 
 bool AGIFilterSobelEdgeDetection::commitUniform()
 {
-    if (!AGIFilter::commitUniform()) {
+    if (!AGIFilterDefault::commitUniform()) {
         return false;
     }
 

@@ -11,7 +11,7 @@
 
 #include "piplineIO/AGIPiplineIO.hpp"
 #include <bgfx/bgfx.h>
-#include "filter/AGIFilter.h"
+#include "filter/AGIFilterDefault.h"
 #include "IO/AGIImage.h"
 
 
@@ -23,7 +23,7 @@ public:
     bool init();
 
 private:
-    std::shared_ptr<AGIFilter> m_filter;
+    std::shared_ptr<AGIFilterDefault> m_filter;
 
     // begin of AGIPiplineTarget
 public:

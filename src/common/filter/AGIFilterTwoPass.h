@@ -9,10 +9,10 @@
 #ifndef AGIFilterTwoPass_h
 #define AGIFilterTwoPass_h
 
-#include "AGIFilter.h"
+#include "AGIFilterDefault.h"
 
 
-class AGIFilterTwoPass : public AGIFilter {
+class AGIFilterTwoPass : public AGIFilterDefault {
 public:
     AGIFilterTwoPass();
     ~AGIFilterTwoPass() override;

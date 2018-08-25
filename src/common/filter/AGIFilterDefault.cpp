@@ -6,16 +6,24 @@
 //  Copyright © 2018年 董宏昌. All rights reserved.
 //
 
-#include "AGIFilter.h"
+#include "AGIFilterDefault.h"
 #include "filter/core/AGIProgramCacheManager.h"
 #include "core/AGIResourceManager.h"
 #include "util/bgfxUtils.h"
 #include "core/AGIContext.h"
 
-#include "piplineIO/AGIPiplineIO.cpp"
 
+AGIFilterDefault::AGIFilterDefault()
+    : m_programKey("default")
+    , m_program(nullptr)
+    , m_isPrepared(false)
+    , m_vertexHandle(BGFX_INVALID_HANDLE)
+    , m_indexHandle(BGFX_INVALID_HANDLE)
+{
 
-AGIFilter::~AGIFilter() {
+}
+
+AGIFilterDefault::~AGIFilterDefault() {
     if (m_program != nullptr) {
         m_program = nullptr;
     }
@@ -27,23 +35,9 @@ AGIFilter::~AGIFilter() {
         bgfx::destroy(m_vertexHandle);
         m_vertexHandle = BGFX_INVALID_HANDLE;
     }
-	m_framebufferImage = nullptr;
 }
 
-AGIFilter::AGIFilter()
-: m_programKey("default")
-, m_program(nullptr)
-, m_isPrepared(false)
-, m_textures()
-, m_submitViewID(0)
-, m_framebufferImage()
-, m_vertexHandle(BGFX_INVALID_HANDLE)
-, m_indexHandle(BGFX_INVALID_HANDLE)
-{
-
-}
-
-bool AGIFilter::prepareFilter() {
+bool AGIFilterDefault::prepareFilter() {
     if (m_isPrepared) {
         return true;
     }
@@ -63,7 +57,7 @@ bool AGIFilter::prepareFilter() {
     return true;
 }
 
-bool AGIFilter::prepareVertex() {
+bool AGIFilterDefault::prepareVertex() {
     static const float vertexs[4][4] = {
         {-1.0,  -1.0,   0,  1},
         {1.0,   1.0,    1,  0},
@@ -93,7 +87,7 @@ bool AGIFilter::prepareVertex() {
     return true;
 }
 
-bool AGIFilter::prepareProgram() {
+bool AGIFilterDefault::prepareProgram() {
     if (m_isPrepared) {
         return true;
     }
@@ -121,7 +115,7 @@ bool AGIFilter::prepareProgram() {
     return true;
 }
 
-bool AGIFilter::prepareUniform() {
+bool AGIFilterDefault::prepareUniform() {
     if (!m_program->createTexture("s_texture0", 0)) {
         return false;
     }
@@ -129,19 +123,7 @@ bool AGIFilter::prepareUniform() {
     return true;
 }
 
-bool AGIFilter::setTextures(std::vector<AGIImagePtr> textures) {
-    m_textures = textures;
-
-    return true;
-}
-
-bool AGIFilter::setSubmitViewID(bgfx::ViewId id) {
-    m_submitViewID = id;
-
-    return true;
-}
-
-bool AGIFilter::submit() {
+bool AGIFilterDefault::submitFilter() {
     if (!commitVertex()) {
         return false;
     }
@@ -158,14 +140,14 @@ bool AGIFilter::submit() {
     return true;
 }
 
-bool AGIFilter::commitVertex() {
+bool AGIFilterDefault::commitVertex() {
     bgfx::setVertexBuffer(0, m_vertexHandle);
     bgfx::setIndexBuffer(m_indexHandle);
 
     return true;
 }
 
-bool AGIFilter::commitUniform() {
+bool AGIFilterDefault::commitUniform() {
     if (m_textures[0] == nullptr) {
         return false;
     }
@@ -181,7 +163,7 @@ bool AGIFilter::commitUniform() {
     return true;
 }
 
-bool AGIFilter::commitState() {
+bool AGIFilterDefault::commitState() {
     bgfx::setState(0
                    | BGFX_STATE_WRITE_RGB
                    | BGFX_STATE_WRITE_A
@@ -191,92 +173,9 @@ bool AGIFilter::commitState() {
     return true;
 }
 
-bool AGIFilter::submitProgram() {
+bool AGIFilterDefault::submitProgram() {
     bgfx::submit(m_submitViewID, m_program->getProgramHandle());
 
     return true;
 }
-
-// AGIPiplineNode
-
-// AGIPiplineSource
-std::vector<AGIImagePtr> AGIFilter::pullOutputs() {
-	if (m_framebufferImage)
-	{
-		return { m_framebufferImage };
-	}
-
-    auto ti = getTargetInputCount();
-    std::vector<AGIImagePtr> lastOutputs(ti);
-    for (int i = 0; i < ti && i < m_textures.size(); i++) {
-        lastOutputs[i] = m_textures[i];
-    }
-    int sourceIndex = 0;
-    for (auto weakSource : m_sources) {
-        auto source = weakSource.lock();
-	    if (source == nullptr) {
-			continue;
-	    }
-        auto sourceOutputs = source->pullOutputs();
-        for (int i = 0; sourceIndex + i < ti && i < source->getSourceOutputCount() && i < sourceOutputs.size(); i++) {
-            lastOutputs[sourceIndex + i] = sourceOutputs[i];
-        }
-
-        sourceIndex = (sourceIndex + 1) % ti;
-    }
-
-    for (auto& lastOutput : lastOutputs)
-    {
-        if (lastOutput == nullptr)
-        {
-            return {  };
-        }
-    }
-
-    auto viewID = AGIContext::sharedContext()->nextValidViewID();
-    int sizeWidth = lastOutputs[0]->getSizeWidth();
-	int sizeHeight = lastOutputs[0]->getSizeHeight();
-	auto framebufferHandle = bgfx::createFrameBuffer(sizeWidth, sizeHeight, bgfx::TextureFormat::Enum::RGBA8);
-    bgfx::setViewFrameBuffer(viewID, framebufferHandle);
-    bgfx::setViewRect(viewID, 0, 0, sizeWidth, sizeHeight);
-    bgfx::setViewClear(viewID, BGFX_CLEAR_COLOR | BGFX_CLEAR_DEPTH, 0x000000ff);
-    bgfx::touch(viewID);
-
-    this->prepareFilter();
-    this->setTextures(lastOutputs);
-    for (int i = 0; i < this->getTargetInputCount(); i++) {
-        m_textures[i] = lastOutputs[i];
-    }
-    this->setSubmitViewID(viewID);
-    this->submit();
-
-	m_framebufferImage = std::make_shared<AGIImage>(framebufferHandle, sizeWidth, sizeHeight, bgfx::TextureFormat::Enum::RGBA8);
-	return { m_framebufferImage };
-}
-
-void AGIFilter::endOneProcess()
-{
-	m_framebufferImage = nullptr;
-	m_textures.clear();
-
-    AGIPiplineNode::endOneProcess();
-}
-// end of AGIPiplineSource
-
-// AGIPiplineTarget
-bool AGIFilter::processTarget() {
-    auto outputs = pullOutputs();
-    if (outputs.empty()) {
-        return false;
-    }
-    auto textureHandle = outputs.front();
-    if (!bgfx::isValid(textureHandle->getGPUTextureHandle())) {
-        return false;
-    }
-
-    return true;
-}
-// end of AGIPiplineTarget
-
-// end of AGIPiplineNode
 

@@ -39,10 +39,10 @@ bool AGIFilterOpenCVBackgroundDetect::prepareFilter()
 		return false;
 	}
 
-	return AGIFilter::prepareFilter();
+	return AGIFilterDefault::prepareFilter();
 }
 
-bool AGIFilterOpenCVBackgroundDetect::submit()
+bool AGIFilterOpenCVBackgroundDetect::submitFilter()
 {
 	if (m_textures.size() < 1)
 	{

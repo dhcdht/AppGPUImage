@@ -9,10 +9,10 @@
 #ifndef AGIFilterGrayscale_h
 #define AGIFilterGrayscale_h
 
-#include "AGIFilter.h"
+#include "AGIFilterDefault.h"
 
 
-class AGIFilterGrayscale : public AGIFilter {
+class AGIFilterGrayscale : public AGIFilterDefault {
 public:
     AGIFilterGrayscale();
     ~AGIFilterGrayscale() override;

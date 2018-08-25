@@ -21,7 +21,7 @@ AGIFilterTwoPass::~AGIFilterTwoPass()
 
 bool AGIFilterTwoPass::prepareUniform()
 {
-    if (!AGIFilter::prepareUniform()) {
+    if (!AGIFilterDefault::prepareUniform()) {
         return false;
     }
 
@@ -34,7 +34,7 @@ bool AGIFilterTwoPass::prepareUniform()
 
 bool AGIFilterTwoPass::commitUniform()
 {
-    if (!AGIFilter::commitUniform()) {
+    if (!AGIFilterDefault::commitUniform()) {
         return false;
     }
 
