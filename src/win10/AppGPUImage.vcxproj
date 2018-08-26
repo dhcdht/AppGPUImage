@@ -180,8 +180,10 @@ copy "$(SolutionDir)..\..\..\src\common_deps\opencv\win10\dll\*.dll" "$(TargetDi
     <ClInclude Include="..\common\IO\input\AGIPiplineInput.h" />
     <ClInclude Include="..\common\IO\input\AGIPiplineInputFFmpegReader.h" />
     <ClInclude Include="..\common\IO\input\AGIPiplineInputPicture.h" />
+    <ClInclude Include="..\common\IO\output\AGIPiplineOutput.h" />
     <ClInclude Include="..\common\IO\output\AGIPiplineOutputContextWindow.h" />
     <ClInclude Include="..\common\piplineIO\AGIPiplineIO.hpp" />
+    <ClInclude Include="..\common\player\AGIPlayerEngine.h" />
     <ClInclude Include="..\common\SDKTest.h" />
     <ClInclude Include="..\common\timeline\AGIClip.h" />
     <ClInclude Include="..\common\timeline\AGITimeline.h" />
@@ -211,8 +213,10 @@ copy "$(SolutionDir)..\..\..\src\common_deps\opencv\win10\dll\*.dll" "$(TargetDi
     <ClCompile Include="..\common\IO\input\AGIPiplineInput.cpp" />
     <ClCompile Include="..\common\IO\input\AGIPiplineInputFFmpegReader.cpp" />
     <ClCompile Include="..\common\IO\input\AGIPiplineInputPicture.cpp" />
+    <ClCompile Include="..\common\IO\output\AGIPiplineOutput.cpp" />
     <ClCompile Include="..\common\IO\output\AGIPiplineOutputContextWindow.cpp" />
     <ClCompile Include="..\common\piplineIO\AGIPiplineIO.cpp" />
+    <ClCompile Include="..\common\player\AGIPlayerEngine.cpp" />
     <ClCompile Include="..\common\SDKTest.cpp" />
     <ClCompile Include="..\common\timeline\AGIClip.cpp" />
     <ClCompile Include="..\common\timeline\AGITimeline.cpp" />

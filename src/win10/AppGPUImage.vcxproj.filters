@@ -43,6 +43,9 @@
     <Filter Include="common\timeline">
       <UniqueIdentifier>{897d82b0-dcb1-4519-996e-30ce8d5a2912}</UniqueIdentifier>
     </Filter>
+    <Filter Include="common\player">
+      <UniqueIdentifier>{ec54767d-091e-4a10-9586-681c43652cb0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AGIPlatformWin10.h">
@@ -132,6 +135,12 @@
     <ClInclude Include="..\common\filter\core\AGIFilter.h">
       <Filter>common\filter\core</Filter>
     </ClInclude>
+    <ClInclude Include="..\common\player\AGIPlayerEngine.h">
+      <Filter>common\player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\IO\output\AGIPiplineOutput.h">
+      <Filter>common\IO\output</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AGIPlatformWin10.cpp">
@@ -217,6 +226,12 @@
     </ClCompile>
     <ClCompile Include="..\common\filter\core\AGIFilter.cpp">
       <Filter>common\filter\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\player\AGIPlayerEngine.cpp">
+      <Filter>common\player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\IO\output\AGIPiplineOutput.cpp">
+      <Filter>common\IO\output</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

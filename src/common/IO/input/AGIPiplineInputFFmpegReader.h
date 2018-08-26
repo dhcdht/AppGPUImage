@@ -33,7 +33,8 @@ public:
     Milliseconds getDuration() override;
     int getPreferFrameRate() override;
     bool syncSeekToTime(Milliseconds time) override;
-    Milliseconds getCurrentTime() override;
+    Milliseconds getCurrentFrameTime() override;
+    Milliseconds getCurrentFrameDuration() override;
     // end of AGIPiplineInput
 
     // begin of AGIPiplineSource
@@ -55,6 +56,7 @@ private:
 
 	AGIImagePtr m_curFrameImage;
     Milliseconds m_curFramePts;
+    Milliseconds m_curFrameDuration;
 };
 typedef std::shared_ptr<AGIPiplineInputFFmpegReader> AGIPiplineInputFFmpegReaderPtr;
 

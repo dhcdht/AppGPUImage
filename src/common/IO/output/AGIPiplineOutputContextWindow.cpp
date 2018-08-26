@@ -23,9 +23,6 @@ AGIPiplineOutputContextWindow::~AGIPiplineOutputContextWindow()
 bool AGIPiplineOutputContextWindow::init()
 {
     m_filter = std::make_shared<AGIFilterDefault>();
-    if (!m_filter->prepareFilter()) {
-        return false;
-    }
     if (!m_filter->setSubmitViewID(0)) {
         return false;
     }
@@ -35,6 +32,10 @@ bool AGIPiplineOutputContextWindow::init()
 
 bool AGIPiplineOutputContextWindow::processTarget()
 {
+    if (!m_filter->prepareFilter()) {
+        return false;
+    }
+
 	AGIImagePtr lastOutput;
     for (auto weakSource : m_sources) {
         auto source = weakSource.lock();

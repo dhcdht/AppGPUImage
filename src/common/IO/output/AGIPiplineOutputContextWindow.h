@@ -9,18 +9,17 @@
 #ifndef AGIPiplineOutputContextWindow_h
 #define AGIPiplineOutputContextWindow_h
 
-#include "piplineIO/AGIPiplineIO.hpp"
+#include "AGIPiplineOutput.h"
 #include <bgfx/bgfx.h>
 #include "filter/AGIFilterDefault.h"
-#include "IO/AGIImage.h"
 
 
-class AGIPiplineOutputContextWindow : public AGIPiplineTarget<AGIImagePtr> {
+class AGIPiplineOutputContextWindow : public AGIPiplineOutput {
 public:
     AGIPiplineOutputContextWindow();
     virtual ~AGIPiplineOutputContextWindow();
 
-    bool init();
+    bool init() override;
 
 private:
     std::shared_ptr<AGIFilterDefault> m_filter;

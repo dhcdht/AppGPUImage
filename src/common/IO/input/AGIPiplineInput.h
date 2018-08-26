@@ -20,13 +20,14 @@ public:
 	AGIPiplineInput();
 	virtual ~AGIPiplineInput();
 
-	virtual bool init(const std::string filePath);
+	virtual bool init(const std::string filePath) = 0;
 
 public:
-	virtual Milliseconds getDuration();
-	virtual int getPreferFrameRate();
-	virtual bool syncSeekToTime(Milliseconds time);
-	virtual Milliseconds getCurrentTime();
+	virtual Milliseconds getDuration() = 0;
+	virtual int getPreferFrameRate() = 0;
+	virtual bool syncSeekToTime(Milliseconds time) = 0;
+	virtual Milliseconds getCurrentFrameTime() = 0;
+	virtual Milliseconds getCurrentFrameDuration() = 0;
 };
 typedef std::shared_ptr<AGIPiplineInput> AGIPiplineInputPtr;
 

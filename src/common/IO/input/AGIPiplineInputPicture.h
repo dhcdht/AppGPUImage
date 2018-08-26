@@ -27,6 +27,10 @@ public:
 public:
     bool init(const std::string filePath) override;
     std::chrono::milliseconds getDuration() override;
+    int getPreferFrameRate() override;
+    bool syncSeekToTime(Milliseconds time) override;
+    Milliseconds getCurrentFrameTime() override;
+    Milliseconds getCurrentFrameDuration() override;
     // end of AGIPiplineInput
 
     // begin of AGIPiplineSource

@@ -19,29 +19,3 @@ AGIPiplineInput::~AGIPiplineInput()
 	
 }
 
-bool AGIPiplineInput::init(const std::string filePath)
-{
-	return true;
-}
-
-Milliseconds AGIPiplineInput::getDuration()
-{
-	return Milliseconds(0);
-}
-
-int AGIPiplineInput::getPreferFrameRate()
-{
-	return 30;
-}
-
-
-bool AGIPiplineInput::syncSeekToTime(Milliseconds time)
-{
-	return true;
-}
-
-Milliseconds AGIPiplineInput::getCurrentTime()
-{
-	return Milliseconds(0);
-}
-

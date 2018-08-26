@@ -64,6 +64,25 @@ std::chrono::milliseconds AGIPiplineInputPicture::getDuration()
 	return std::chrono::milliseconds(1);
 }
 
+int AGIPiplineInputPicture::getPreferFrameRate()
+{
+	return 30;
+}
+
+bool AGIPiplineInputPicture::syncSeekToTime(Milliseconds time)
+{
+	return true;
+}
+
+Milliseconds AGIPiplineInputPicture::getCurrentFrameTime()
+{
+	return Milliseconds(0);
+}
+
+Milliseconds AGIPiplineInputPicture::getCurrentFrameDuration()
+{
+	return Milliseconds(0);
+}
 
 int AGIPiplineInputPicture::getSourceOutputCount()
 {

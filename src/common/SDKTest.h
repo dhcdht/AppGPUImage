@@ -20,8 +20,7 @@ public:
 
     void test_timeline(const char *filePath);
 
-    void test_openMovieFile(const char *filePath);
-    void test_playMovieNextFrame();
+    void test_playerEngine(const char *filePath);
 
 public:
     int m_windowID;

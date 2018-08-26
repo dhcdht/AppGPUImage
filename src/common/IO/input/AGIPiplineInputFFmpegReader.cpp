@@ -18,6 +18,7 @@ AGIPiplineInputFFmpegReader::AGIPiplineInputFFmpegReader()
     , m_avCodec(nullptr)
 	, m_curFrameImage(nullptr)
     , m_curFramePts{0}
+    , m_curFrameDuration{0}
 {
 
 }
@@ -43,6 +44,7 @@ AGIPiplineInputFFmpegReader::~AGIPiplineInputFFmpegReader()
     }
 	m_curFrameImage = nullptr;
     m_curFramePts = Milliseconds(0);
+    m_curFrameDuration = Milliseconds(0);
 }
 
 bool AGIPiplineInputFFmpegReader::init(const std::string filePath)
@@ -113,7 +115,7 @@ int AGIPiplineInputFFmpegReader::getPreferFrameRate()
     int frameRate = round(av_q2d(rational));
     if (frameRate <= 1)
     {
-        return AGIPiplineInput::getPreferFrameRate();
+        return 30;
     }
 
     return frameRate;
@@ -131,9 +133,14 @@ bool AGIPiplineInputFFmpegReader::syncSeekToTime(Milliseconds time)
     return true;
 }
 
-Milliseconds AGIPiplineInputFFmpegReader::getCurrentTime()
+Milliseconds AGIPiplineInputFFmpegReader::getCurrentFrameTime()
 {
     return m_curFramePts;
+}
+
+Milliseconds AGIPiplineInputFFmpegReader::getCurrentFrameDuration()
+{
+    return m_curFrameDuration;
 }
 
 std::vector<AGIImagePtr> AGIPiplineInputFFmpegReader::pullOutputs()
@@ -211,6 +218,8 @@ std::vector<AGIImagePtr> AGIPiplineInputFFmpegReader::pullOutputs()
 		);
     auto ptsMilliSeconds = av_rescale_q(receivedFrame->pts, m_avStream->time_base, av_make_q(1, 1000));
     m_curFramePts = Milliseconds(ptsMilliSeconds);
+    auto frameDurationMilliSeconds = av_rescale_q(receivedFrame->pkt_duration, m_avStream->time_base, av_make_q(1, 1000));
+    m_curFrameDuration = Milliseconds(frameDurationMilliSeconds);
 
 	return { m_curFrameImage };
 }

@@ -27,6 +27,7 @@
 #include "timeline/AGITimeline.h"
 #include "filter/AGIFilterOpenCVBackgroundDetect.h"
 #include "filter/AGIFilterOpenCVFaceDetect.h"
+#include "player/AGIPlayerEngine.h"
 
 
 SDKTest::~SDKTest() {
@@ -57,7 +58,6 @@ void SDKTest::test_timeline(const char *filePath)
 	auto endTime = videoTrack->getEndTime();
 }
 
-
 static void testFiltetPlayMovie(std::shared_ptr<AGIPiplineInput> input0)
 {
     static uint64_t kOnePartMilliSeconds = 3 * 1000;
@@ -70,7 +70,7 @@ static void testFiltetPlayMovie(std::shared_ptr<AGIPiplineInput> input0)
 
 	input->setContentMode(AGIFilterContentMode::ContentMode::AspectFit);
 
-	auto currentTimeMilliSeconds = input0->getCurrentTime();
+	auto currentTimeMilliSeconds = input0->getCurrentFrameTime();
 	int64_t currentTime = currentTimeMilliSeconds.count();
     if (currentTime < kOnePartMilliSeconds)
     {
@@ -147,38 +147,20 @@ static void testFiltetPlayMovie(std::shared_ptr<AGIPiplineInput> input0)
     }
 }
 
-static std::shared_ptr<AGIPiplineInput> kInput = nullptr;
-void SDKTest::test_openMovieFile(const char* filePath)
+static AGIPlayerEngine kPlayerEngine;
+void SDKTest::test_playerEngine(const char* filePath)
 {
-    kInput = std::make_shared<AGIPiplineInputFFmpegReader>();
-    kInput->init(filePath);
-	//kInput = std::make_shared<AGIPiplineInputPicture>();
+	auto input = std::make_shared<AGIPiplineInputFFmpegReader>();
+	input->init(filePath);
+	auto contentMode = std::make_shared<AGIFilterContentMode>();
+	contentMode->setContentMode(AGIFilterContentMode::AspectFit);
+	auto output = std::make_shared<AGIPiplineOutputContextWindow>();
+	output->init();
 
-	std::string filePathString = filePath;
-	AGIContext::sharedContext()->getVideoProcessQueue()->dispatch([&, filePathString]() {
-		//kInput->init(filePathString);
-		this->test_playMovieNextFrame();
-	});
+	input->addTarget(contentMode);
+	contentMode->addTarget(output);
+
+	kPlayerEngine.init(input, output);
+	kPlayerEngine.play();
 }
 
-void SDKTest::test_playMovieNextFrame()
-{
-	if (kInput != nullptr)
-	{
-        auto begin = std::chrono::steady_clock::now();
-        
-		kInput->removeAllTarget();
-		testFiltetPlayMovie(kInput);
-        
-        auto end = std::chrono::steady_clock::now();
-        auto duration = std::chrono::duration_cast<Milliseconds>(end - begin);
-
-		auto frameRate = kInput->getPreferFrameRate();
-        
-        auto nextTime = Milliseconds((int)(1000.0/frameRate)) - duration - Milliseconds(1);
-        std::this_thread::sleep_for(nextTime);
-        AGIContext::sharedContext()->getVideoProcessQueue()->dispatch([&]() {
-            this->test_playMovieNextFrame();
-        });
-	}
-}
