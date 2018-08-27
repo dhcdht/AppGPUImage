@@ -28,6 +28,7 @@
 #include "filter/AGIFilterOpenCVBackgroundDetect.h"
 #include "filter/AGIFilterOpenCVFaceDetect.h"
 #include "player/AGIPlayerEngine.h"
+#include "IO/output/AGIPiplineOutputImage.h"
 
 
 SDKTest::~SDKTest() {

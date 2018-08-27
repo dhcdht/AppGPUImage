@@ -141,6 +141,9 @@
     <ClInclude Include="..\common\IO\output\AGIPiplineOutput.h">
       <Filter>common\IO\output</Filter>
     </ClInclude>
+    <ClInclude Include="..\common\IO\output\AGIPiplineOutputImage.h">
+      <Filter>common\IO\output</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AGIPlatformWin10.cpp">
@@ -231,6 +234,9 @@
       <Filter>common\player</Filter>
     </ClCompile>
     <ClCompile Include="..\common\IO\output\AGIPiplineOutput.cpp">
+      <Filter>common\IO\output</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\IO\output\AGIPiplineOutputImage.cpp">
       <Filter>common\IO\output</Filter>
     </ClCompile>
   </ItemGroup>

@@ -17,7 +17,7 @@
 class AGIPiplineOutputContextWindow : public AGIPiplineOutput {
 public:
     AGIPiplineOutputContextWindow();
-    virtual ~AGIPiplineOutputContextWindow();
+    ~AGIPiplineOutputContextWindow() override;
 
     bool init() override;
 
