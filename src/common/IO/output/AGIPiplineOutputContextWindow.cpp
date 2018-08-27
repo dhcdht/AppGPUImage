@@ -63,9 +63,6 @@ bool AGIPiplineOutputContextWindow::processTarget()
 	m_filter->setTextures({ lastOutput });
     m_filter->setSubmitViewID(viewID);
     m_filter->submitFilter();
-    bgfx::frame();
-
-    this->endOneProcess();
 
     return true;
 }

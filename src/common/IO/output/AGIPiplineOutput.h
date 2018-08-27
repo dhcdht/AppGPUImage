@@ -21,7 +21,7 @@ public:
 
     virtual bool init() = 0;
 };
-typedef std::shared_ptr<AGIPiplineOutput> AgiPiplineOutputPtr;
+typedef std::shared_ptr<AGIPiplineOutput> AGIPiplineOutputPtr;
 
 
 #endif /* AGIPiplineOutput_h */

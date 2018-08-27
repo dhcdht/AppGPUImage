@@ -21,7 +21,7 @@ public:
     AGIPlayerEngine();
     virtual ~AGIPlayerEngine();
 
-    bool init(AGIPiplineInputPtr input, AgiPiplineOutputPtr output);
+    bool init(AGIPiplineInputPtr input, AGIPiplineOutputPtr output);
 
 public:
     bool play();
@@ -33,7 +33,11 @@ private:
 
 private:
     AGIPiplineInputPtr m_playInput;
-    AgiPiplineOutputPtr m_playOutput;
+    AGIPiplineOutputPtr m_playOutput;
+
+    AGIDispatchQueue m_playQueue;
+
+    Milliseconds m_lastFrameDuration;
 };
 
 

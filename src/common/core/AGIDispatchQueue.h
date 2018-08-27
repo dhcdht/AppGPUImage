@@ -27,6 +27,8 @@ public:
 	typedef std::function<void()> Operation;
 
 	void dispatch(const Operation& operation);
+	void syncDispatch(const Operation& operation);
+	void syncCancelAllOperation();
 
 public:
 	// 不允许拷贝复制等特殊操作
@@ -43,6 +45,9 @@ private:
 	std::mutex m_lock;
 	std::vector<std::thread> m_threads;
 	std::queue<Operation> m_operations;
+	Operation m_syncOperation;
+	std::mutex m_syncMutex;
+	std::condition_variable m_syncConditionVariable;
 	std::condition_variable m_conditionVariable;
 	bool m_quit;
 };
