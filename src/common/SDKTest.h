@@ -21,6 +21,7 @@ public:
     void test_timeline(const char *filePath);
 
     void test_playerEngine(const char *filePath);
+    void test_pauseEngine();
 
 public:
     int m_windowID;

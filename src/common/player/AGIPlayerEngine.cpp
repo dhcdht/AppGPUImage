@@ -14,6 +14,8 @@ AGIPlayerEngine::AGIPlayerEngine()
     : m_playInput{nullptr}
     , m_playOutput{nullptr}
     , m_playQueue{"AGIPlayerEngineQueue"}
+    , m_mutex{}
+    , m_isPaused{false}
     , m_lastFrameDuration{0}
 {
     
@@ -24,6 +26,8 @@ AGIPlayerEngine::~AGIPlayerEngine()
     m_playInput = nullptr;
     m_playOutput = nullptr;
     //m_playQueue;
+    //m_mutex;
+    m_isPaused = false;
     m_lastFrameDuration = Milliseconds(0);
 }
 
@@ -37,6 +41,9 @@ bool AGIPlayerEngine::init(AGIPiplineInputPtr input, AGIPiplineOutputPtr output)
 
 bool AGIPlayerEngine::play()
 {
+    std::unique_lock<decltype(m_mutex)> lock(m_mutex);
+    m_isPaused = false;
+
     m_playQueue.dispatch([&]()
     {
         AGIContext::sharedContext()->getVideoProcessQueue()->syncDispatch([&]()
@@ -47,22 +54,33 @@ bool AGIPlayerEngine::play()
         this->handlePlayNextFrame();
     });
 
+    lock.unlock();
     return true;
 }
 
 bool AGIPlayerEngine::pause()
 {
+    std::unique_lock<decltype(m_mutex)> lock(m_mutex);
+    m_isPaused = true;
+
+    m_playQueue.syncCancelAllOperation();
+
+    lock.unlock();
     return false;
 }
 
 bool AGIPlayerEngine::stop()
 {
+    this->pause();
+
+
+
     return false;
 }
 
 void AGIPlayerEngine::handlePlayNextFrame()
 {
-    if (m_playInput)
+    if (m_playInput && !m_isPaused)
     {
         m_lastFrameDuration = m_playInput->getCurrentFrameDuration();
         // 显示当前帧

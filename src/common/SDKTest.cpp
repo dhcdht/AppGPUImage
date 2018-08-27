@@ -165,3 +165,8 @@ void SDKTest::test_playerEngine(const char* filePath)
 	kPlayerEngine.play();
 }
 
+void SDKTest::test_pauseEngine()
+{
+	kPlayerEngine.pause();
+}
+

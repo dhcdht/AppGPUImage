@@ -36,7 +36,9 @@ private:
     AGIPiplineOutputPtr m_playOutput;
 
     AGIDispatchQueue m_playQueue;
+    std::mutex m_mutex;
 
+    bool m_isPaused;
     Milliseconds m_lastFrameDuration;
 };
 
