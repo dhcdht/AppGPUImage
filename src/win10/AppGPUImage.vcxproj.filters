@@ -147,6 +147,9 @@
     <ClInclude Include="..\common\pipline\AGIPipline.hpp">
       <Filter>common\pipline</Filter>
     </ClInclude>
+    <ClInclude Include="..\common\filter\core\AGIFilterGraph.h">
+      <Filter>common\filter\core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AGIPlatformWin10.cpp">
@@ -244,6 +247,9 @@
     </ClCompile>
     <ClCompile Include="..\common\pipline\AGIPipline.cpp">
       <Filter>common\pipline</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\filter\core\AGIFilterGraph.cpp">
+      <Filter>common\filter\core</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
