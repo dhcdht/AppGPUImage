@@ -11,6 +11,7 @@
 
 #include "AGIPipline.hpp"
 #include <deque>
+#include <mutex>
 
 
 template <typename SO, typename TI>
@@ -19,6 +20,13 @@ class AGIPiplineGraph
 public:
 	AGIPiplineGraph();
 	virtual ~AGIPiplineGraph();
+
+public:
+	bool tryLockGraph();
+	void lockGraph();
+	void unlockGraph();
+
+	std::unique_lock<std::recursive_mutex> lockGuardGraph();
 
 public:
 	typedef typename AGIPiplineSource<SO>::AGIPiplineSourcePtr AGIPiplineSourcePtr;
@@ -38,6 +46,8 @@ public:
 private:
 	std::deque<AGIPiplineSourcePtr> m_sources;
 	std::deque<AGIPiplineTargetPtr> m_targets;
+
+	std::recursive_mutex m_mutex;
 };
 
 

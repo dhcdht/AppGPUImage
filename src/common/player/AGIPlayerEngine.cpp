@@ -39,6 +39,13 @@ bool AGIPlayerEngine::init(AGIPiplineInputPtr input, AGIPiplineOutputPtr output)
     return true;
 }
 
+bool AGIPlayerEngine::init(AGIPiplineGraphPtr graph)
+{
+    m_piplineGraph = graph;
+
+    return true;
+}
+
 bool AGIPlayerEngine::play()
 {
     std::unique_lock<decltype(m_mutex)> lock(m_mutex);
@@ -48,6 +55,7 @@ bool AGIPlayerEngine::play()
     {
         AGIContext::sharedContext()->getVideoProcessQueue()->syncDispatch([&]()
         {
+            auto lock = m_piplineGraph->lockGuardGraph();
             for (int i = 0; i < m_piplineGraph->getTargetCount(); ++i)
             {
 				auto target = m_piplineGraph->getTargetAtIndex(i);
@@ -100,6 +108,8 @@ void AGIPlayerEngine::handlePlayNextFrame()
         AGIContext::sharedContext()->getVideoProcessQueue()->syncDispatch([&]()
         {
             bgfx::frame();
+
+            auto lock = m_piplineGraph->lockGuardGraph();
             for (int i = 0; i < m_piplineGraph->getTargetCount(); ++i)
             {
                 auto target = m_piplineGraph->getTargetAtIndex(i);
@@ -111,6 +121,7 @@ void AGIPlayerEngine::handlePlayNextFrame()
         auto beginTime = std::chrono::steady_clock::now();
         AGIContext::sharedContext()->getVideoProcessQueue()->syncDispatch([&]()
         {
+            auto lock = m_piplineGraph->lockGuardGraph();
             for (int i = 0; i < m_piplineGraph->getTargetCount(); ++i)
             {
                 auto target = m_piplineGraph->getTargetAtIndex(i);
