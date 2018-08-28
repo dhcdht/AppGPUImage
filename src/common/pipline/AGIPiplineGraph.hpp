@@ -10,7 +10,7 @@
 #define AGIPiplineGraph_hpp
 
 #include "AGIPipline.hpp"
-#include <set>
+#include <deque>
 
 
 template <typename SO, typename TI>
@@ -36,8 +36,8 @@ public:
 	AGIPiplineTargetPtr getTargetAtIndex(int index);
 
 private:
-	std::set<AGIPiplineSourcePtr> m_sources;
-	std::set<AGIPiplineTargetPtr> m_targets;
+	std::deque<AGIPiplineSourcePtr> m_sources;
+	std::deque<AGIPiplineTargetPtr> m_targets;
 };
 
 

@@ -8,11 +8,11 @@
 
 #include "AGIPlayerEngine.h"
 #include "core/AGIContext.h"
+#include "pipline/AGIPiplineGraph.cpp"
 
 
 AGIPlayerEngine::AGIPlayerEngine()
-    : m_playInput{nullptr}
-    , m_playOutput{nullptr}
+    : m_piplineGraph{}
     , m_playQueue{"AGIPlayerEngineQueue"}
     , m_mutex{}
     , m_isPaused{false}
@@ -23,8 +23,7 @@ AGIPlayerEngine::AGIPlayerEngine()
 
 AGIPlayerEngine::~AGIPlayerEngine()
 {
-    m_playInput = nullptr;
-    m_playOutput = nullptr;
+    m_piplineGraph = nullptr;
     //m_playQueue;
     //m_mutex;
     m_isPaused = false;
@@ -33,8 +32,9 @@ AGIPlayerEngine::~AGIPlayerEngine()
 
 bool AGIPlayerEngine::init(AGIPiplineInputPtr input, AGIPiplineOutputPtr output)
 {
-    m_playInput = input;
-    m_playOutput = output;
+    m_piplineGraph = std::make_shared<AGIPiplineGraphPtr::element_type>();
+    m_piplineGraph->addSource(input);
+    m_piplineGraph->addTarget(output);
 
     return true;
 }
@@ -48,7 +48,11 @@ bool AGIPlayerEngine::play()
     {
         AGIContext::sharedContext()->getVideoProcessQueue()->syncDispatch([&]()
         {
-            m_playOutput->processTarget();
+            for (int i = 0; i < m_piplineGraph->getTargetCount(); ++i)
+            {
+				auto target = m_piplineGraph->getTargetAtIndex(i);
+				target->processTarget();
+            }
         });
 
         this->handlePlayNextFrame();
@@ -80,21 +84,38 @@ bool AGIPlayerEngine::stop()
 
 void AGIPlayerEngine::handlePlayNextFrame()
 {
-    if (m_playInput && !m_isPaused)
+    if (m_piplineGraph->getSourcesCount() > 0 && !m_isPaused)
     {
-        m_lastFrameDuration = m_playInput->getCurrentFrameDuration();
+        auto source0 = m_piplineGraph->getSourceAtIndex(0);
+        auto input0 = dynamic_cast<AGIPiplineInput*>(source0.get());
+        if (input0)
+        {
+            m_lastFrameDuration = input0->getCurrentFrameDuration();
+        }
+        else
+        {
+            m_lastFrameDuration = Milliseconds(1000 / 30);
+        }
         // 显示当前帧
         AGIContext::sharedContext()->getVideoProcessQueue()->syncDispatch([&]()
         {
             bgfx::frame();
-            m_playOutput->endOneProcess();
+            for (int i = 0; i < m_piplineGraph->getTargetCount(); ++i)
+            {
+                auto target = m_piplineGraph->getTargetAtIndex(i);
+                target->endOneProcess();
+            }
         });
 
         // 预渲染下一帧，并确定花费的时间
         auto beginTime = std::chrono::steady_clock::now();
         AGIContext::sharedContext()->getVideoProcessQueue()->syncDispatch([&]()
         {
-            m_playOutput->processTarget();
+            for (int i = 0; i < m_piplineGraph->getTargetCount(); ++i)
+            {
+                auto target = m_piplineGraph->getTargetAtIndex(i);
+                target->processTarget();
+            }
         });
         auto endTime = std::chrono::steady_clock::now();
         auto duration = std::chrono::duration_cast<Milliseconds>(endTime - beginTime);

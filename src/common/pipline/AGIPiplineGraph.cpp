@@ -11,6 +11,8 @@
 
 template <typename SO, typename TI>
 AGIPiplineGraph<SO, TI>::AGIPiplineGraph()
+	: m_sources{}
+	, m_targets{}
 {
 	
 }
@@ -18,13 +20,14 @@ AGIPiplineGraph<SO, TI>::AGIPiplineGraph()
 template <typename SO, typename TI>
 AGIPiplineGraph<SO, TI>::~AGIPiplineGraph()
 {
-	
+	m_sources.clear();
+	m_targets.clear();
 }
 
 template <typename SO, typename TI>
 bool AGIPiplineGraph<SO, TI>::addSource(AGIPiplineSourcePtr source)
 {
-	m_sources.insert(source);
+	m_sources.push_back(source);
 
 	return true;
 }
@@ -56,7 +59,7 @@ typename AGIPiplineGraph<SO, TI>::AGIPiplineSourcePtr AGIPiplineGraph<SO, TI>::g
 template <typename SO, typename TI>
 bool AGIPiplineGraph<SO, TI>::addTarget(AGIPiplineTargetPtr target)
 {
-	m_targets.insert(target);
+	m_targets.push_back(target);
 
 	return true;
 }

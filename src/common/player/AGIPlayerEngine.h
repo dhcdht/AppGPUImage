@@ -12,16 +12,20 @@
 #include <iostream>
 #include "IO/input/AGIPiplineInput.h"
 #include "IO/output/AGIPiplineOutput.h"
+#include "pipline/AGIPiplineGraph.hpp"
 #include "core/AGIDispatchQueue.h"
 
 
 class AGIPlayerEngine
 {
 public:
+    typedef std::shared_ptr<AGIPiplineGraph<AGIImagePtr, AGIImagePtr>> AGIPiplineGraphPtr;
+public:
     AGIPlayerEngine();
     virtual ~AGIPlayerEngine();
 
     bool init(AGIPiplineInputPtr input, AGIPiplineOutputPtr output);
+    bool init(AGIPiplineGraphPtr graph);
 
 public:
     bool play();
@@ -32,8 +36,7 @@ private:
     void handlePlayNextFrame();
 
 private:
-    AGIPiplineInputPtr m_playInput;
-    AGIPiplineOutputPtr m_playOutput;
+    AGIPiplineGraphPtr m_piplineGraph;
 
     AGIDispatchQueue m_playQueue;
     std::mutex m_mutex;
