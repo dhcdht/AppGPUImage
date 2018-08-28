@@ -22,6 +22,7 @@ public:
 
     void test_playerEngine(const char *filePath);
     void test_pauseEngine();
+    void test_changeFilter();
 
 public:
     int m_windowID;
