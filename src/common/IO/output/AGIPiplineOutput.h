@@ -9,7 +9,7 @@
 #ifndef AGIPiplineOutput_h
 #define AGIPiplineOutput_h
 
-#include "piplineIO/AGIPiplineIO.hpp"
+#include "pipline/AGIPipline.hpp"
 #include "IO/AGIImage.h"
 
 

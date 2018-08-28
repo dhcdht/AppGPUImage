@@ -1,13 +1,13 @@
 //
-//  AGIPiplineIO.hpp
+//  AGIPipline.hpp
 //  AppGPUImage
 //
 //  Created by 董宏昌 on 2018/7/2.
 //  Copyright © 2018年 董宏昌. All rights reserved.
 //
 
-#ifndef AGIPiplineIO_hpp
-#define AGIPiplineIO_hpp
+#ifndef AGIPipline_hpp
+#define AGIPipline_hpp
 
 #include <iostream>
 #include <memory>
@@ -19,6 +19,8 @@ template <class SO>
 class AGIPiplineSource;
 template <class TI>
 class AGIPiplineTarget {
+public:
+    typedef std::shared_ptr<AGIPiplineTarget<TI>> AGIPiplineTargetPtr;
     typedef std::weak_ptr<AGIPiplineSource<TI>> WeakPtrSource;
 public:
     virtual int getTargetInputCount() = 0;
@@ -46,6 +48,8 @@ protected:
 
 template <class SO>
 class AGIPiplineSource : public std::enable_shared_from_this<AGIPiplineSource<SO>> {
+public:
+    typedef std::shared_ptr<AGIPiplineSource<SO>> AGIPiplineSourcePtr;
     typedef std::shared_ptr<AGIPiplineTarget<SO>> SharedPtrTarget;
 public:
     virtual int getSourceOutputCount() = 0;
@@ -71,10 +75,12 @@ protected:
 
 template <class SO, class TI>
 class AGIPiplineNode : public AGIPiplineSource<SO>, public AGIPiplineTarget<TI> {
+public:
+    typedef std::shared_ptr<AGIPiplineNode<SO, TI>> AGIPiplineNodePtr;
     // pull
 public:
     void endOneProcess() override { AGIPiplineTarget<TI>::endOneProcess(); };
 };
 
 
-#endif /* AGIPiplineIO_hpp */
+#endif /* AGIPipline_hpp */

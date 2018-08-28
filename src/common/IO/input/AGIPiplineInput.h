@@ -9,7 +9,7 @@
 #ifndef AGIPiplineInput_h
 #define AGIPiplineInput_h
 
-#include "piplineIO/AGIPiplineIO.hpp"
+#include "pipline/AGIPipline.hpp"
 #include "IO/AGIImage.h"
 #include "util/bgfxUtils.h"
 

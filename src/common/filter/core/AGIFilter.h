@@ -9,7 +9,7 @@
 #ifndef AGIFilter_h
 #define AGIFilter_h
 
-#include "piplineIO/AGIPiplineIO.hpp"
+#include "pipline/AGIPipline.hpp"
 #include "IO/AGIImage.h"
 
 

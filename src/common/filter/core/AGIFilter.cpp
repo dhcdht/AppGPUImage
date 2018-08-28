@@ -8,7 +8,7 @@
 
 #include "AGIFilter.h"
 #include "core/AGIContext.h"
-#include "piplineIO/AGIPiplineIO.cpp"
+#include "pipline/AGIPipline.cpp"
 
 
 AGIFilter::AGIFilter()

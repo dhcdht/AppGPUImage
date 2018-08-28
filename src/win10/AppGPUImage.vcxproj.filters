@@ -34,9 +34,6 @@
     <Filter Include="common\IO\output">
       <UniqueIdentifier>{8feac53a-d198-41c8-ae05-37378bfce020}</UniqueIdentifier>
     </Filter>
-    <Filter Include="common\piplineIO">
-      <UniqueIdentifier>{ddffb074-75e8-42be-b764-f57448e8f110}</UniqueIdentifier>
-    </Filter>
     <Filter Include="common\util">
       <UniqueIdentifier>{5202b539-e1d9-4dc5-9586-f580b36db311}</UniqueIdentifier>
     </Filter>
@@ -45,6 +42,9 @@
     </Filter>
     <Filter Include="common\player">
       <UniqueIdentifier>{ec54767d-091e-4a10-9586-681c43652cb0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common\pipline">
+      <UniqueIdentifier>{ddffb074-75e8-42be-b764-f57448e8f110}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -99,9 +99,6 @@
     <ClInclude Include="..\common\IO\AGIImage.h">
       <Filter>common\IO</Filter>
     </ClInclude>
-    <ClInclude Include="..\common\piplineIO\AGIPiplineIO.hpp">
-      <Filter>common\piplineIO</Filter>
-    </ClInclude>
     <ClInclude Include="..\common\util\AGIUtilDefer.h">
       <Filter>common\util</Filter>
     </ClInclude>
@@ -143,6 +140,12 @@
     </ClInclude>
     <ClInclude Include="..\common\IO\output\AGIPiplineOutputImage.h">
       <Filter>common\IO\output</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\pipline\AGIPiplineGraph.hpp">
+      <Filter>common\pipline</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\pipline\AGIPipline.hpp">
+      <Filter>common\pipline</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -197,9 +200,6 @@
     <ClCompile Include="..\common\IO\AGIImage.cpp">
       <Filter>common\IO</Filter>
     </ClCompile>
-    <ClCompile Include="..\common\piplineIO\AGIPiplineIO.cpp">
-      <Filter>common\piplineIO</Filter>
-    </ClCompile>
     <ClCompile Include="..\common\util\AGIUtilDefer.cpp">
       <Filter>common\util</Filter>
     </ClCompile>
@@ -238,6 +238,12 @@
     </ClCompile>
     <ClCompile Include="..\common\IO\output\AGIPiplineOutputImage.cpp">
       <Filter>common\IO\output</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\pipline\AGIPiplineGraph.cpp">
+      <Filter>common\pipline</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\pipline\AGIPipline.cpp">
+      <Filter>common\pipline</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
