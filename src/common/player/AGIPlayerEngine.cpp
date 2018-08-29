@@ -55,7 +55,7 @@ bool AGIPlayerEngine::play()
     {
         AGIContext::sharedContext()->getVideoProcessQueue()->syncDispatch([&]()
         {
-            auto lock = m_piplineGraph->lockGuardGraph();
+            auto lock = m_piplineGraph->lockSharedGuardGraph();
             for (int i = 0; i < m_piplineGraph->getTargetCount(); ++i)
             {
 				auto target = m_piplineGraph->getTargetAtIndex(i);
@@ -94,22 +94,25 @@ void AGIPlayerEngine::handlePlayNextFrame()
 {
     if (m_piplineGraph->getSourcesCount() > 0 && !m_isPaused)
     {
-        auto source0 = m_piplineGraph->getSourceAtIndex(0);
-        auto input0 = dynamic_cast<AGIPiplineInput*>(source0.get());
-        if (input0)
         {
-            m_lastFrameDuration = input0->getCurrentFrameDuration();
-        }
-        else
-        {
-            m_lastFrameDuration = Milliseconds(1000 / 30);
+            auto lock = m_piplineGraph->lockSharedGuardGraph();
+            auto source0 = m_piplineGraph->getSourceAtIndex(0);
+            auto input0 = static_cast<AGIPiplineInput*>(source0.get());
+            if (input0)
+            {
+                m_lastFrameDuration = input0->getCurrentFrameDuration();
+            }
+            else
+            {
+                m_lastFrameDuration = Milliseconds(1000 / 30);
+            }
         }
         // 显示当前帧
         AGIContext::sharedContext()->getVideoProcessQueue()->syncDispatch([&]()
         {
             bgfx::frame();
 
-            auto lock = m_piplineGraph->lockGuardGraph();
+            auto lock = m_piplineGraph->lockSharedGuardGraph();
             for (int i = 0; i < m_piplineGraph->getTargetCount(); ++i)
             {
                 auto target = m_piplineGraph->getTargetAtIndex(i);
@@ -121,7 +124,7 @@ void AGIPlayerEngine::handlePlayNextFrame()
         auto beginTime = std::chrono::steady_clock::now();
         AGIContext::sharedContext()->getVideoProcessQueue()->syncDispatch([&]()
         {
-            auto lock = m_piplineGraph->lockGuardGraph();
+            auto lock = m_piplineGraph->lockSharedGuardGraph();
             for (int i = 0; i < m_piplineGraph->getTargetCount(); ++i)
             {
                 auto target = m_piplineGraph->getTargetAtIndex(i);

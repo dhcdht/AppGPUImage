@@ -181,7 +181,7 @@ void SDKTest::test_changeFilter()
 	auto lock = kPiplineGraph->lockGuardGraph();
 
 	auto target0 = kPiplineGraph->getTargetAtIndex(0);
-	auto output0 = dynamic_cast<AGIPiplineOutput*>(target0.get());
+	auto output0 = static_cast<AGIPiplineOutput*>(target0.get());
 	if (output0)
 	{
 		auto weakSource = output0->getSources()[0];
