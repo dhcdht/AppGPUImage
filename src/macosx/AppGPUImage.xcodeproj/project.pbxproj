@@ -607,10 +607,10 @@
 		EBDB7AE821355527006DDC5B /* pipline */ = {
 			isa = PBXGroup;
 			children = (
+				EBDB7AEC21355527006DDC5B /* AGIPipline.cpp */,
 				EBDB7AE921355527006DDC5B /* AGIPipline.hpp */,
 				EBDB7AEA21355527006DDC5B /* AGIPiplineGraph.cpp */,
 				EBDB7AEB21355527006DDC5B /* AGIPiplineGraph.hpp */,
-				EBDB7AEC21355527006DDC5B /* AGIPipline.cpp */,
 			);
 			name = pipline;
 			path = ../../common/pipline;

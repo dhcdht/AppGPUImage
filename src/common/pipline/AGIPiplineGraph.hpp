@@ -1,4 +1,4 @@
-﻿//
+//
 //  AGIPiplineGraph.hpp
 //  AppGPUImage
 //
@@ -47,6 +47,7 @@ private:
 	std::deque<AGIPiplineSourcePtr> m_sources;
 	std::deque<AGIPiplineTargetPtr> m_targets;
 
+    // todo: use read write lock for perfermance
 	std::recursive_mutex m_mutex;
 };
 

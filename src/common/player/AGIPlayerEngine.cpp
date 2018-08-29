@@ -1,4 +1,4 @@
-﻿//
+//
 //  AGIPlayerEngine.cpp
 //  AppGPUImage
 //
@@ -85,7 +85,7 @@ bool AGIPlayerEngine::stop()
 {
     this->pause();
 
-
+    // todo: stop logic
 
     return false;
 }

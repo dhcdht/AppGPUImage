@@ -1,4 +1,4 @@
-﻿//
+//
 //  AGIPiplineGraph.cpp
 //  AppGPUImage
 //
