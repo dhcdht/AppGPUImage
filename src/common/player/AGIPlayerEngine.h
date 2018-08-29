@@ -1,4 +1,4 @@
-﻿//
+//
 //  AGIPlayerEngine.h
 //  AppGPUImage
 //
@@ -12,20 +12,18 @@
 #include <iostream>
 #include "IO/input/AGIPiplineInput.h"
 #include "IO/output/AGIPiplineOutput.h"
-#include "pipline/AGIPiplineGraph.hpp"
+#include "filter/core/AGIFilterGraph.h"
 #include "core/AGIDispatchQueue.h"
 
 
 class AGIPlayerEngine
 {
 public:
-    typedef std::shared_ptr<AGIPiplineGraph<AGIImagePtr, AGIImagePtr>> AGIPiplineGraphPtr;
-public:
     AGIPlayerEngine();
     virtual ~AGIPlayerEngine();
 
     bool init(AGIPiplineInputPtr input, AGIPiplineOutputPtr output);
-    bool init(AGIPiplineGraphPtr graph);
+    bool init(AGIFilterGraphPtr graph);
 
 public:
     bool play();
@@ -36,7 +34,7 @@ private:
     void handlePlayNextFrame();
 
 private:
-    AGIPiplineGraphPtr m_piplineGraph;
+    AGIFilterGraphPtr m_filterGraph;
 
     AGIDispatchQueue m_playQueue;
     std::mutex m_mutex;

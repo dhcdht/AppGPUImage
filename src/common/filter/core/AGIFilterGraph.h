@@ -1,4 +1,4 @@
-﻿//
+//
 //  AGIFilterGraph.h
 //  AppGPUImage
 //
@@ -10,6 +10,7 @@
 #define AGIFilterGraph_h
 
 #include "pipline/AGIPiplineGraph.hpp"
+#include "pipline/AGIPiplineGraph.cpp"
 #include "IO/AGIImage.h"
 #include "IO/input/AGIPiplineInput.h"
 #include "IO/output/AGIPiplineOutput.h"
@@ -25,7 +26,7 @@ public:
 	AGIPiplineInputPtr getInputAtIndex(int index);
 	AGIPiplineOutputPtr getOutputAtIndex(int index);
 };
-typedef std::shared_ptr<AGIFilterGraph> AgiFilterGraphPtr;
+typedef std::shared_ptr<AGIFilterGraph> AGIFilterGraphPtr;
 
 
 #endif /* AGIFilterGraph_h */

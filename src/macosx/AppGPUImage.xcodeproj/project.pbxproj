@@ -111,6 +111,8 @@
 		EBDB7AFF213555C1006DDC5B /* AGIPiplineOutputImage.h in Headers */ = {isa = PBXBuildFile; fileRef = EBDB7AFB213555C1006DDC5B /* AGIPiplineOutputImage.h */; };
 		EBDB7B00213555C1006DDC5B /* AGIPiplineOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = EBDB7AFC213555C1006DDC5B /* AGIPiplineOutput.h */; };
 		EBDB7B01213555C1006DDC5B /* AGIPiplineOutputImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EBDB7AFD213555C1006DDC5B /* AGIPiplineOutputImage.cpp */; };
+		EBDB7B7021369CA0006DDC5B /* AGIFilterGraph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EBDB7B6E21369CA0006DDC5B /* AGIFilterGraph.cpp */; };
+		EBDB7B7121369CA0006DDC5B /* AGIFilterGraph.h in Headers */ = {isa = PBXBuildFile; fileRef = EBDB7B6F21369CA0006DDC5B /* AGIFilterGraph.h */; };
 		EBFFAA2D20EB759500ADB5D5 /* shaders in Resources */ = {isa = PBXBuildFile; fileRef = EBFFAA2C20EB759500ADB5D5 /* shaders */; };
 		EE550A0E20E2726200EFA54B /* AppGPUImage.h in Headers */ = {isa = PBXBuildFile; fileRef = EE550A0C20E2726200EFA54B /* AppGPUImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EE550A7E20E277D600EFA54B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE550A7D20E277D600EFA54B /* Foundation.framework */; };
@@ -349,6 +351,8 @@
 		EBDB7AFB213555C1006DDC5B /* AGIPiplineOutputImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGIPiplineOutputImage.h; sourceTree = "<group>"; };
 		EBDB7AFC213555C1006DDC5B /* AGIPiplineOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGIPiplineOutput.h; sourceTree = "<group>"; };
 		EBDB7AFD213555C1006DDC5B /* AGIPiplineOutputImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AGIPiplineOutputImage.cpp; sourceTree = "<group>"; };
+		EBDB7B6E21369CA0006DDC5B /* AGIFilterGraph.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AGIFilterGraph.cpp; sourceTree = "<group>"; };
+		EBDB7B6F21369CA0006DDC5B /* AGIFilterGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGIFilterGraph.h; sourceTree = "<group>"; };
 		EBFFAA2C20EB759500ADB5D5 /* shaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = shaders; path = ../../common_res/shaders; sourceTree = "<group>"; };
 		EE550A0920E2726200EFA54B /* AppGPUImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AppGPUImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE550A0C20E2726200EFA54B /* AppGPUImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppGPUImage.h; sourceTree = "<group>"; };
@@ -463,6 +467,8 @@
 		EB037658210B05CF001C853C /* core */ = {
 			isa = PBXGroup;
 			children = (
+				EBDB7B6E21369CA0006DDC5B /* AGIFilterGraph.cpp */,
+				EBDB7B6F21369CA0006DDC5B /* AGIFilterGraph.h */,
 				EBDB7AF121355533006DDC5B /* AGIFilter.cpp */,
 				EBDB7AF221355533006DDC5B /* AGIFilter.h */,
 				EB037659210B05E7001C853C /* AGIProgram.cpp */,
@@ -795,6 +801,7 @@
 				EE550A0E20E2726200EFA54B /* AppGPUImage.h in Headers */,
 				EBA1C3E02109C952006751E7 /* AGIPiplineOutputContextWindow.h in Headers */,
 				EBDB7AF8213555A5006DDC5B /* AGIPlayerEngine.h in Headers */,
+				EBDB7B7121369CA0006DDC5B /* AGIFilterGraph.h in Headers */,
 				EBDB7AF421355533006DDC5B /* AGIFilter.h in Headers */,
 				EE550AAF20E27CD800EFA54B /* AppGPUImageMacOSX.h in Headers */,
 				EBDB7AEF21355527006DDC5B /* AGIPiplineGraph.hpp in Headers */,
@@ -972,6 +979,7 @@
 				EE73932A2113DDEA006144B1 /* AGIImage.cpp in Sources */,
 				EE6CE3AC210DFEE5003176BD /* AGIDisaptchQueue.cpp in Sources */,
 				EBCA0B0520EB690200351569 /* SDKTest.cpp in Sources */,
+				EBDB7B7021369CA0006DDC5B /* AGIFilterGraph.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

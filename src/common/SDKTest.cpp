@@ -149,8 +149,7 @@ static void testFiltetPlayMovie(std::shared_ptr<AGIPiplineInput> input0)
 }
 
 static AGIPlayerEngine kPlayerEngine;
-typedef std::shared_ptr<AGIPiplineGraph<AGIImagePtr, AGIImagePtr>> AGIPiplineGraphPtr;
-static AGIPiplineGraphPtr kPiplineGraph;
+static AGIFilterGraphPtr kFilterGraph;
 void SDKTest::test_playerEngine(const char* filePath)
 {
 	auto input = std::make_shared<AGIPiplineInputFFmpegReader>();
@@ -163,11 +162,11 @@ void SDKTest::test_playerEngine(const char* filePath)
 	input->addTarget(contentMode);
 	contentMode->addTarget(output);
 
-	kPiplineGraph = std::make_shared<AGIPiplineGraphPtr::element_type>();
-	kPiplineGraph->addSource(input);
-	kPiplineGraph->addTarget(output);
+	kFilterGraph = std::make_shared<AGIFilterGraph>();
+	kFilterGraph->addSource(input);
+	kFilterGraph->addTarget(output);
 
-	kPlayerEngine.init(kPiplineGraph);
+	kPlayerEngine.init(kFilterGraph);
 	kPlayerEngine.play();
 }
 
@@ -178,21 +177,20 @@ void SDKTest::test_pauseEngine()
 
 void SDKTest::test_changeFilter()
 {
-	auto lock = kPiplineGraph->lockGuardGraph();
+	auto lock = kFilterGraph->lockGuardGraph();
 
-	auto target0 = kPiplineGraph->getTargetAtIndex(0);
-	auto output0 = static_cast<AGIPiplineOutput*>(target0.get());
+    auto output0 = kFilterGraph->getOutputAtIndex(0);
 	if (output0)
 	{
 		auto weakSource = output0->getSources()[0];
 		auto source = weakSource.lock();
 		if (source != nullptr)
 		{
-			source->removeTarget(target0);
+			source->removeTarget(output0);
 
 			auto filter = std::make_shared<AGIFilterGrayscale>();
 			source->addTarget(filter);
-			filter->addTarget(target0);
+			filter->addTarget(output0);
 		}
 	}
 }

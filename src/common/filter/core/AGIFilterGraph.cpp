@@ -1,4 +1,4 @@
-﻿//
+//
 //  AGIFilterGraph.cpp
 //  AppGPUImage
 //
@@ -16,15 +16,15 @@ AGIFilterGraph::AGIFilterGraph()
 
 AGIFilterGraph::~AGIFilterGraph()
 {
-	
+
 }
 
 AGIPiplineInputPtr AGIFilterGraph::getInputAtIndex(int index)
 {
-	auto lock = this->lockGuardGraph();
+	auto lock = this->lockSharedGuardGraph();
 
 	auto sourcePtr = this->getSourceAtIndex(index);
-	auto input = dynamic_cast<AGIPiplineInputPtr::element_type*>(sourcePtr.get());
+	auto input = static_cast<AGIPiplineInputPtr::element_type*>(sourcePtr.get());
 	auto inputPtr = AGIPiplineInputPtr(input);
 
 	return inputPtr;
@@ -32,10 +32,10 @@ AGIPiplineInputPtr AGIFilterGraph::getInputAtIndex(int index)
 
 AGIPiplineOutputPtr AGIFilterGraph::getOutputAtIndex(int index)
 {
-	auto lock = this->lockGuardGraph();
+	auto lock = this->lockSharedGuardGraph();
 
 	auto targetPtr = this->getTargetAtIndex(index);
-	auto output = dynamic_cast<AGIPiplineOutputPtr::element_type*>(targetPtr.get());
+	auto output = static_cast<AGIPiplineOutputPtr::element_type*>(targetPtr.get());
 	auto outputPtr = AGIPiplineOutputPtr(output);
 
 	return outputPtr;
