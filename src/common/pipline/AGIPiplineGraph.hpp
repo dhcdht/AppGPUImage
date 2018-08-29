@@ -11,7 +11,7 @@
 
 #include "AGIPipline.hpp"
 #include <deque>
-#include <shared_mutex>
+#include <mutex>
 
 
 template <typename SO, typename TI>
@@ -22,19 +22,11 @@ public:
 	virtual ~AGIPiplineGraph();
 
 public:
-    // write
 	bool tryLockGraph();
 	void lockGraph();
 	void unlockGraph();
 
-    std::unique_lock<std::shared_timed_mutex> lockGuardGraph();
-
-    // read
-    bool trySharedLockGraph();
-    void lockSharedGraph();
-    void unlockSharedGraph();
-
-    std::shared_lock<std::shared_timed_mutex> lockSharedGuardGraph();
+	std::unique_lock<std::recursive_mutex> lockGuardGraph();
 
 public:
 	typedef typename AGIPiplineSource<SO>::AGIPiplineSourcePtr AGIPiplineSourcePtr;
@@ -55,7 +47,11 @@ private:
 	std::deque<AGIPiplineSourcePtr> m_sources;
 	std::deque<AGIPiplineTargetPtr> m_targets;
 
-	std::shared_timed_mutex m_sharedMutex;
+	// c++14 加入的 shared_timed_mutex 和 c++17 加入的 shared_mutex 都被普遍认为性能有问题，
+	// 这也导致了他们加入标准的顺序很奇怪，
+	// 另外，他们都没有 recursive 递归锁的功能，
+	// 所以这里只使用了普通的递归锁，而不是读写锁。
+	std::recursive_mutex m_mutex;
 };
 
 

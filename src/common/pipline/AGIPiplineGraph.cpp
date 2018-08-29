@@ -13,7 +13,7 @@ template <typename SO, typename TI>
 AGIPiplineGraph<SO, TI>::AGIPiplineGraph()
 	: m_sources{}
 	, m_targets{}
-    , m_sharedMutex{}
+	, m_mutex{}
 {
 	
 }
@@ -30,53 +30,27 @@ AGIPiplineGraph<SO, TI>::~AGIPiplineGraph()
 template <typename SO, typename TI>
 bool AGIPiplineGraph<SO, TI>::tryLockGraph()
 {
-    return m_sharedMutex.try_lock();
+	return m_mutex.try_lock();
 }
 
 template <typename SO, typename TI>
 void AGIPiplineGraph<SO, TI>::lockGraph()
 {
-    m_sharedMutex.lock();
+	m_mutex.lock();
 }
 
 template <typename SO, typename TI>
 void AGIPiplineGraph<SO, TI>::unlockGraph()
 {
-    m_sharedMutex.unlock();
+	m_mutex.unlock();
 }
 
 template <typename SO, typename TI>
-std::unique_lock<std::shared_timed_mutex> AGIPiplineGraph<SO, TI>::lockGuardGraph()
+std::unique_lock<std::recursive_mutex> AGIPiplineGraph<SO, TI>::lockGuardGraph()
 {
-	std::unique_lock<decltype(m_sharedMutex)> lock(m_sharedMutex);
+	std::unique_lock<decltype(m_mutex)> lock(m_mutex);
 
 	return std::move(lock);
-}
-
-template <typename SO, typename TI>
-bool AGIPiplineGraph<SO, TI>::trySharedLockGraph()
-{
-    return m_sharedMutex.try_lock_shared();
-}
-
-template <typename SO, typename TI>
-void AGIPiplineGraph<SO, TI>::lockSharedGraph()
-{
-    m_sharedMutex.lock_shared();
-}
-
-template <typename SO, typename TI>
-void AGIPiplineGraph<SO, TI>::unlockSharedGraph()
-{
-    m_sharedMutex.unlock_shared();
-}
-
-template <typename SO, typename TI>
-std::shared_lock<std::shared_timed_mutex> AGIPiplineGraph<SO, TI>::lockSharedGuardGraph()
-{
-    std::shared_lock<decltype(m_sharedMutex)> lock(m_sharedMutex);
-
-    return std::move(lock);
 }
 
 template <typename SO, typename TI>
@@ -100,7 +74,7 @@ void AGIPiplineGraph<SO, TI>::removeSource(AGIPiplineSourcePtr source)
 template <typename SO, typename TI>
 bool AGIPiplineGraph<SO, TI>::isContainSource(AGIPiplineSourcePtr source)
 {
-	auto lock = this->lockSharedGuardGraph();
+	auto lock = this->lockGuardGraph();
 
 	return (m_sources.find(source) != m_sources.end());
 }
@@ -108,7 +82,7 @@ bool AGIPiplineGraph<SO, TI>::isContainSource(AGIPiplineSourcePtr source)
 template <typename SO, typename TI>
 int AGIPiplineGraph<SO, TI>::getSourcesCount()
 {
-	auto lock = this->lockSharedGuardGraph();
+	auto lock = this->lockGuardGraph();
 
 	return m_sources.size();
 }
@@ -116,7 +90,7 @@ int AGIPiplineGraph<SO, TI>::getSourcesCount()
 template <typename SO, typename TI>
 typename AGIPiplineGraph<SO, TI>::AGIPiplineSourcePtr AGIPiplineGraph<SO, TI>::getSourceAtIndex(int index)
 {
-	auto lock = this->lockSharedGuardGraph();
+	auto lock = this->lockGuardGraph();
 
 	return m_sources[index];
 }
@@ -142,7 +116,7 @@ void AGIPiplineGraph<SO, TI>::removeTarget(AGIPiplineTargetPtr target)
 template <typename SO, typename TI>
 bool AGIPiplineGraph<SO, TI>::isContainTarget(AGIPiplineTargetPtr target)
 {
-	auto lock = this->lockSharedGuardGraph();
+	auto lock = this->lockGuardGraph();
 
 	return (m_targets.find(target) != m_targets.end());
 }
@@ -150,7 +124,7 @@ bool AGIPiplineGraph<SO, TI>::isContainTarget(AGIPiplineTargetPtr target)
 template <typename SO, typename TI>
 int AGIPiplineGraph<SO, TI>::getTargetCount()
 {
-	auto lock = this->lockSharedGuardGraph();
+	auto lock = this->lockGuardGraph();
 
 	return m_targets.size();
 }
@@ -158,7 +132,7 @@ int AGIPiplineGraph<SO, TI>::getTargetCount()
 template <typename SO, typename TI>
 typename AGIPiplineGraph<SO, TI>::AGIPiplineTargetPtr AGIPiplineGraph<SO, TI>::getTargetAtIndex(int index)
 {
-	auto lock = this->lockSharedGuardGraph();
+	auto lock = this->lockGuardGraph();
 
 	return m_targets[index];
 }

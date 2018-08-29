@@ -54,7 +54,7 @@ bool AGIPlayerEngine::play()
     {
         AGIContext::sharedContext()->getVideoProcessQueue()->syncDispatch([&]()
         {
-            auto lock = m_filterGraph->lockSharedGuardGraph();
+            auto lock = m_filterGraph->lockGuardGraph();
             for (int i = 0; i < m_filterGraph->getTargetCount(); ++i)
             {
 				auto target = m_filterGraph->getTargetAtIndex(i);
@@ -94,7 +94,7 @@ void AGIPlayerEngine::handlePlayNextFrame()
     if (m_filterGraph->getSourcesCount() > 0 && !m_isPaused)
     {
         {
-            auto lock = m_filterGraph->lockSharedGuardGraph();
+            auto lock = m_filterGraph->lockGuardGraph();
             auto source0 = m_filterGraph->getSourceAtIndex(0);
             auto input0 = static_cast<AGIPiplineInput*>(source0.get());
             if (input0)
@@ -111,7 +111,7 @@ void AGIPlayerEngine::handlePlayNextFrame()
         {
             bgfx::frame();
 
-            auto lock = m_filterGraph->lockSharedGuardGraph();
+            auto lock = m_filterGraph->lockGuardGraph();
             for (int i = 0; i < m_filterGraph->getTargetCount(); ++i)
             {
                 auto target = m_filterGraph->getTargetAtIndex(i);
@@ -123,7 +123,7 @@ void AGIPlayerEngine::handlePlayNextFrame()
         auto beginTime = std::chrono::steady_clock::now();
         AGIContext::sharedContext()->getVideoProcessQueue()->syncDispatch([&]()
         {
-            auto lock = m_filterGraph->lockSharedGuardGraph();
+            auto lock = m_filterGraph->lockGuardGraph();
             for (int i = 0; i < m_filterGraph->getTargetCount(); ++i)
             {
                 auto target = m_filterGraph->getTargetAtIndex(i);
