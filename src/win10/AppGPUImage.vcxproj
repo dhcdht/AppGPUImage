@@ -175,6 +175,7 @@ copy "$(SolutionDir)..\..\..\src\common_deps\opencv\win10\dll\*.dll" "$(TargetDi
     <ClInclude Include="..\common\filter\AGIFilterTwoPass.h" />
     <ClInclude Include="..\common\filter\core\AGIFilter.h" />
     <ClInclude Include="..\common\filter\core\AGIFilterGraph.h" />
+    <ClInclude Include="..\common\filter\core\AGIFilterSetting.hpp" />
     <ClInclude Include="..\common\filter\core\AGIProgram.h" />
     <ClInclude Include="..\common\filter\core\AGIProgramCacheManager.h" />
     <ClInclude Include="..\common\IO\AGIImage.h" />
@@ -211,6 +212,7 @@ copy "$(SolutionDir)..\..\..\src\common_deps\opencv\win10\dll\*.dll" "$(TargetDi
     <ClCompile Include="..\common\filter\AGIFilterTwoPass.cpp" />
     <ClCompile Include="..\common\filter\core\AGIFilter.cpp" />
     <ClCompile Include="..\common\filter\core\AGIFilterGraph.cpp" />
+    <ClCompile Include="..\common\filter\core\AGIFilterSetting.cpp" />
     <ClCompile Include="..\common\filter\core\AGIProgram.cpp" />
     <ClCompile Include="..\common\filter\core\AGIProgramCacheManager.cpp" />
     <ClCompile Include="..\common\IO\AGIImage.cpp" />

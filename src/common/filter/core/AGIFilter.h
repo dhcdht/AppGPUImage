@@ -47,6 +47,7 @@ public:
 protected:
     AGIImagePtr m_framebufferImage;
 };
+typedef std::shared_ptr<AGIFilter> AGIFilterPtr;
 
 
 #endif /* AGIFilter_h */
