@@ -173,6 +173,7 @@ copy "$(SolutionDir)..\..\..\src\common_deps\opencv\win10\dll\*.dll" "$(TargetDi
     <ClInclude Include="..\common\filter\AGIFilterSobelEdgeDetection.h" />
     <ClInclude Include="..\common\filter\AGIFilterTransform.h" />
     <ClInclude Include="..\common\filter\AGIFilterTwoPass.h" />
+    <ClInclude Include="..\common\filter\core\AGICurve.h" />
     <ClInclude Include="..\common\filter\core\AGIFilter.h" />
     <ClInclude Include="..\common\filter\core\AGIFilterGraph.h" />
     <ClInclude Include="..\common\filter\core\AGIFilterSetting.hpp" />
@@ -210,6 +211,8 @@ copy "$(SolutionDir)..\..\..\src\common_deps\opencv\win10\dll\*.dll" "$(TargetDi
     <ClCompile Include="..\common\filter\AGIFilterSobelEdgeDetection.cpp" />
     <ClCompile Include="..\common\filter\AGIFilterTransform.cpp" />
     <ClCompile Include="..\common\filter\AGIFilterTwoPass.cpp" />
+    <ClCompile Include="..\common\filter\core\AGICurve.cpp" />
+    <ClCompile Include="..\common\filter\core\AGIEasing.cpp" />
     <ClCompile Include="..\common\filter\core\AGIFilter.cpp" />
     <ClCompile Include="..\common\filter\core\AGIFilterGraph.cpp" />
     <ClCompile Include="..\common\filter\core\AGIFilterSetting.cpp" />

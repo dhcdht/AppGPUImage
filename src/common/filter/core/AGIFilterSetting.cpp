@@ -2,7 +2,7 @@
 //  AGIFilterSetting.cpp
 //  AppGPUImage
 //
-//  Created by 董宏昌 on 2018/7/2.
+//  Created by 董宏昌 on 2018/8/30.
 //  Copyright © 2018年 董宏昌. All rights reserved.
 //
 
@@ -36,28 +36,42 @@ bool AGIFilterSetting<T>::init(SetFunc setFunc, T defaultValue)
 }
 
 template <typename T>
-bool AGIFilterSetting<T>::setValueForTime(float time, T value)
+bool AGIFilterSetting<T>::setValueForTime(double time, T value, AGICurve::Type curveType)
 {
-	m_timeValueMap[time] = value;
+	auto curve = std::make_shared<AGICurve>();
+	curve->init(curveType);
+	m_timeValueMap[time] = {curve, value};
 
 	return true;
 }
 
 template <typename T>
-T AGIFilterSetting<T>::getValueForTime(float getTime)
+T AGIFilterSetting<T>::getValueForTime(double getTime)
 {
-	auto ret = m_defaultValue;
-	for (auto timeValue : m_timeValueMap)
+	float leftTime = 0.0;
+	float leftValue = m_defaultValue;
+	float ret = leftValue;
+	for (auto item : m_timeValueMap)
 	{
-		auto time = timeValue.first;
-		auto value = timeValue.second;
+		ValueItem timeValue = item.second;
+		float time = item.first;
+		float value = timeValue.second;
 
 		if (time > getTime)
 		{
+			auto rightTime = time;
+			auto rightValue = value;
+			AGICurvePtr curve = timeValue.first;
+			auto curPoint = (getTime - leftTime) / (rightTime - leftTime);
+			auto curveValue = curve->getCurveValueForPoint(curPoint);
+
+			ret = leftValue + (rightValue - leftValue) * curveValue;
+
 			break;
 		}
 
-		ret = value;
+		leftTime = time;
+		leftValue = value;
 	}
 
 	return ret;

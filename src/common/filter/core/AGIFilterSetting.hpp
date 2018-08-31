@@ -2,7 +2,7 @@
 //  AGIFilterSetting.hpp
 //  AppGPUImage
 //
-//  Created by 董宏昌 on 2018/7/2.
+//  Created by 董宏昌 on 2018/8/30.
 //  Copyright © 2018年 董宏昌. All rights reserved.
 //
 
@@ -13,6 +13,7 @@
 #include <functional>
 #include "AGIFilter.h"
 #include <map>
+#include "AGICurve.h"
 
 
 /*
@@ -32,13 +33,15 @@ public:
 	bool init(SetFunc setFunc, T defaultValue = 0);
 
 public:
-	bool setValueForTime(float time, T value);
-	T getValueForTime(float getTime);
+	bool setValueForTime(double time, T value, AGICurve::Type curveType = AGICurve::None);
+	T getValueForTime(double getTime);
 
 private:
 	SetFunc m_setFunc;
 	T m_defaultValue;
-	std::map<float, T> m_timeValueMap;
+
+	typedef std::pair<AGICurvePtr, T> ValueItem;
+	std::map<double, ValueItem> m_timeValueMap;
 };
 
 

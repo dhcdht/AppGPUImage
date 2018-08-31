@@ -153,6 +153,9 @@
     <ClInclude Include="..\common\filter\core\AGIFilterSetting.hpp">
       <Filter>common\filter\core</Filter>
     </ClInclude>
+    <ClInclude Include="..\common\filter\core\AGICurve.h">
+      <Filter>common\filter\core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AGIPlatformWin10.cpp">
@@ -255,6 +258,12 @@
       <Filter>common\filter\core</Filter>
     </ClCompile>
     <ClCompile Include="..\common\filter\core\AGIFilterSetting.cpp">
+      <Filter>common\filter\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\filter\core\AGICurve.cpp">
+      <Filter>common\filter\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\filter\core\AGIEasing.cpp">
       <Filter>common\filter\core</Filter>
     </ClCompile>
   </ItemGroup>
