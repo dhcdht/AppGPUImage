@@ -77,3 +77,10 @@ T AGIFilterSetting<T>::getValueForTime(double getTime)
 	return ret;
 }
 
+template <typename T>
+bool AGIFilterSetting<T>::doSetFuncForTime(double getTime)
+{
+	auto value = getValueForTime(getTime);
+	return m_setFunc(value);
+}
+

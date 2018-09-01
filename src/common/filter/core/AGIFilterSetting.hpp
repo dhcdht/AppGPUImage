@@ -35,6 +35,7 @@ public:
 public:
 	bool setValueForTime(double time, T value, AGICurve::Type curveType = AGICurve::None);
 	T getValueForTime(double getTime);
+	bool doSetFuncForTime(double getTime);
 
 private:
 	SetFunc m_setFunc;

@@ -11,7 +11,9 @@
 
 
 AGIClip::AGIClip()
-	: m_piplineInput{ nullptr }
+	: m_input{}
+	, m_output{}
+	, m_filterGraph{}
 	, m_readerBeginTime{ 0 }
 	, m_readerEndTime{ -1 }
 	, m_trackBeginTime{ 0 }
@@ -22,7 +24,9 @@ AGIClip::AGIClip()
 
 AGIClip::~AGIClip()
 {
-	m_piplineInput = nullptr;
+	m_input = nullptr;
+	m_output = nullptr;
+	m_filterGraph = nullptr;
 
 	m_readerBeginTime = Milliseconds(0);
 	m_readerEndTime = Milliseconds(-1);
@@ -32,13 +36,26 @@ AGIClip::~AGIClip()
 
 bool AGIClip::init(const std::string filePath)
 {
-	m_piplineInput = std::make_shared<AGIPiplineInputFFmpegReader>();
-	if (!m_piplineInput->init(filePath))
+	m_input = std::make_shared<AGIPiplineInputFFmpegReader>();
+	if (!m_input->init(filePath))
 	{
 		return false;
 	}
 
-	m_readerEndTime = m_piplineInput->getDuration();
+	m_output = std::make_shared<AGIPiplineOutputImage>();
+	if (!m_output->init())
+	{
+		return false;
+	}
+
+	m_filterGraph = std::make_shared<AGIFilterGraph>();
+	m_filterGraph->addSource(m_input);
+	m_filterGraph->addTarget(m_output);
+
+	m_readerBeginTime = Milliseconds(0);
+	m_readerEndTime = Milliseconds(-1);
+	m_trackBeginTime = Milliseconds(0);
+	m_trackEndTime = Milliseconds(-1);
 
 	return true;
 }
@@ -48,16 +65,23 @@ Milliseconds AGIClip::getReaderBeginTime()
 	return m_readerBeginTime;
 }
 
+bool AGIClip::setReaderBeginTime(Milliseconds readerBeginTime)
+{
+	m_readerBeginTime = readerBeginTime;
+
+	return true;
+}
+
 Milliseconds AGIClip::getReaderEndTime()
 {
 	if (m_readerEndTime == Milliseconds(-1))
 	{
-		if (m_piplineInput == nullptr)
+		if (m_input == nullptr)
 		{
 			return Milliseconds(0);
 		}
 
-		return m_piplineInput->getDuration();
+		return m_input->getDuration();
 	}
 	else
 	{
@@ -65,9 +89,23 @@ Milliseconds AGIClip::getReaderEndTime()
 	}
 }
 
+bool AGIClip::setReaderEndTime(std::chrono::milliseconds readerEndTime)
+{
+	m_readerEndTime = readerEndTime;
+
+	return true;
+}
+
 Milliseconds AGIClip::getTrackBeginTime()
 {
 	return m_trackBeginTime;
+}
+
+bool AGIClip::setTrackBeginTime(std::chrono::milliseconds trackBeginTime)
+{
+	m_trackBeginTime = trackBeginTime;
+
+	return true;
 }
 
 Milliseconds AGIClip::getTrackEndTime()
@@ -79,4 +117,64 @@ Milliseconds AGIClip::getTrackEndTime()
 
 	return m_trackEndTime;
 }
+
+bool AGIClip::setTrackEndTime(std::chrono::milliseconds trackEndTime)
+{
+	m_trackEndTime = trackEndTime;
+
+	return true;
+}
+
+//region AGIPiplineInput
+
+Milliseconds AGIClip::getDuration()
+{
+	auto trackEndTime = this->getTrackEndTime();
+	auto trackBeginTime = this->getTrackBeginTime();
+
+	return (trackEndTime - trackBeginTime);
+}
+
+int AGIClip::getPreferFrameRate()
+{
+	return m_input->getPreferFrameRate();
+}
+
+bool AGIClip::syncSeekToTime(Milliseconds time)
+{
+	return m_input->syncSeekToTime(time);
+}
+
+Milliseconds AGIClip::getCurrentFrameTime()
+{
+	return m_input->getCurrentFrameTime();
+}
+
+Milliseconds AGIClip::getCurrentFrameDuration()
+{
+	return m_input->getCurrentFrameDuration();
+}
+
+//region AGIPiplineSource
+
+std::vector<AGIImagePtr> AGIClip::pullOutputs()
+{
+	if (!m_output->processTarget())
+	{
+		return {};
+	}
+
+	auto outputImage = m_output->getLastOutputImage();
+
+	return { outputImage };
+}
+
+void AGIClip::endOneProcess()
+{
+	m_output->endOneProcess();
+}
+
+//endregion AGIPiplineSource
+
+//endregion AGIPiplineInput
 

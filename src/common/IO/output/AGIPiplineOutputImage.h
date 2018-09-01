@@ -36,6 +36,7 @@ public:
 private:
 	AGIImagePtr m_lastOutputImage;
 };
+typedef std::shared_ptr<AGIPiplineOutputImage> AGIPiplineOutputImagePtr;
 
 
 #endif /* AGIPiplineOutputImage_h */

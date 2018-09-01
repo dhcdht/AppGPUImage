@@ -13,24 +13,48 @@
 #include <chrono>
 #include "IO/input/AGIPiplineInput.h"
 #include "util/bgfxUtils.h"
+#include "IO/output/AGIPiplineOutputImage.h"
+#include "filter/core/AGIFilterGraph.h"
 
 
-class AGIClip
+class AGIClip : public AGIPiplineInput
 {
 public:
 	AGIClip();
 	virtual ~AGIClip();
 
-	bool init(const std::string filePath);
+	bool init(const std::string filePath) override;
 
 public:
 	Milliseconds getReaderBeginTime();
+	bool setReaderBeginTime(Milliseconds readerBeginTime);
 	Milliseconds getReaderEndTime();
+	bool setReaderEndTime(Milliseconds readerEndTime);
 	Milliseconds getTrackBeginTime();
+	bool setTrackBeginTime(Milliseconds trackBeginTime);
 	Milliseconds getTrackEndTime();
+	bool setTrackEndTime(Milliseconds trackEndTime);
+
+	//region AGIPiplineInput
+public:
+	Milliseconds getDuration() override;
+	int getPreferFrameRate() override;
+	bool syncSeekToTime(Milliseconds time) override;
+	Milliseconds getCurrentFrameTime() override;
+	Milliseconds getCurrentFrameDuration() override;
+
+	//region AGIPiplineSource
+	int getSourceOutputCount() override { return 1; };
+	std::vector<AGIImagePtr> pullOutputs() override;
+	void endOneProcess() override;
+	//endregion AGIPiplineSource
+
+	//endregion AGIPiplineInput
 
 private:
-	AGIPiplineInputPtr m_piplineInput;
+	AGIPiplineInputPtr m_input;
+	AGIPiplineOutputImagePtr m_output;
+	AGIFilterGraphPtr m_filterGraph;
 
 	Milliseconds m_readerBeginTime;
 	Milliseconds m_readerEndTime;
