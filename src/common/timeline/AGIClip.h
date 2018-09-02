@@ -13,7 +13,7 @@
 #include <chrono>
 #include "IO/input/AGIPiplineInput.h"
 #include "util/bgfxUtils.h"
-#include "IO/output/AGIPiplineOutputImage.h"
+#include "IO/AGIPiplineIOImage.h"
 #include "filter/core/AGIFilterGraph.h"
 
 
@@ -35,6 +35,9 @@ public:
 	Milliseconds getTrackEndTime();
 	bool setTrackEndTime(Milliseconds trackEndTime);
 
+	AGIFilterGraphPtr getFilterGraph();
+	AGIPiplineIOImagePtr getFilterGraphOutput();
+
 	//region AGIPiplineInput
 public:
 	Milliseconds getDuration() override;
@@ -53,7 +56,7 @@ public:
 
 private:
 	AGIPiplineInputPtr m_input;
-	AGIPiplineOutputImagePtr m_output;
+	AGIPiplineIOImagePtr m_output;
 	AGIFilterGraphPtr m_filterGraph;
 
 	Milliseconds m_readerBeginTime;

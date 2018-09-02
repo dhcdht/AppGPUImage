@@ -28,7 +28,9 @@
 #include "filter/AGIFilterOpenCVBackgroundDetect.h"
 #include "filter/AGIFilterOpenCVFaceDetect.h"
 #include "player/AGIPlayerEngine.h"
-#include "IO/output/AGIPiplineOutputImage.h"
+#include "IO/AGIPiplineIOImage.h"
+#include "filter/core/AGIFilterSetting.hpp"
+#include "filter/core/AGIFilterSetting.cpp"
 
 
 SDKTest::~SDKTest() {
@@ -43,20 +45,6 @@ void SDKTest::init(void *window, int sizeWidth, int sizeHeight) {
 	AGIContext::sharedContext()->getVideoProcessQueue()->dispatch([=]() {
 		AGIContext::sharedContext()->init(window, sizeWidth, sizeHeight);
 	});
-}
-
-void SDKTest::test_timeline(const char *filePath)
-{
-	auto timeline = std::make_shared<AGITimeline>();
-
-	timeline->addVideoTrack();
-	auto clip = std::make_shared<AGIClip>();
-	clip->init(filePath);
-	timeline->addClipToVideoTrack(clip, 0);
-
-	auto videoTrack = timeline->getVideoTrackAtIndex(0);
-	auto beginTime = videoTrack->getBeginTime();
-	auto endTime = videoTrack->getEndTime();
 }
 
 static void testFiltetPlayMovie(std::shared_ptr<AGIPiplineInput> input0)
@@ -191,7 +179,54 @@ void SDKTest::test_changeFilter()
 			auto filter = std::make_shared<AGIFilterGrayscale>();
 			source->addTarget(filter);
 			filter->addTarget(output0);
+
+			//auto setting = AGIFilterSetting<float>();
+			//auto setGrayProcessFunc = std::bind(&AGIFilterGrayscale::setProgress, filter, std::placeholders::_1);
+			//setting.init(setGrayProcessFunc);
+
+			//setting.setValueForTime(0.3, 0.1);
+			//setting.setValueForTime(0.5, 0.5);
+			//setting.setValueForTime(0.8, 0.9);
+			//setting.setValueForTime(1.0, 1.0);
+
+			//auto value = setting.getValueForTime(0.0);
+			//value = setting.getValueForTime(0.2);
+			//value = setting.getValueForTime(0.4);
+			//value = setting.getValueForTime(0.5);
+			//value = setting.getValueForTime(0.99);
+
+			//setting.doSetFuncForTime(0.7);
 		}
 	}
+}
+
+void SDKTest::test_timeline(const char *filePath)
+{
+	//auto timeline = std::make_shared<AGITimeline>();
+
+	//timeline->addVideoTrack();
+	//auto clip = std::make_shared<AGIClip>();
+	//clip->init(filePath);
+	//timeline->addClipToVideoTrack(clip, 0);
+
+	//auto videoTrack = timeline->getVideoTrackAtIndex(0);
+	//auto beginTime = videoTrack->getBeginTime();
+	//auto endTime = videoTrack->getEndTime();
+
+	auto clip = std::make_shared<AGIClip>();
+	clip->init(filePath);
+
+	auto ioImage = clip->getFilterGraphOutput();
+	auto output = std::make_shared<AGIPiplineOutputContextWindow>();
+	output->init();
+
+	ioImage->addTarget(output);
+
+	auto outputGraph = std::make_shared<AGIFilterGraph>();
+	outputGraph->addSource(ioImage);
+	outputGraph->addTarget(output);
+
+	kPlayerEngine.init(outputGraph);
+	kPlayerEngine.play();
 }
 

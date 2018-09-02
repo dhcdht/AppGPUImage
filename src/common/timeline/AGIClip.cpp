@@ -42,11 +42,14 @@ bool AGIClip::init(const std::string filePath)
 		return false;
 	}
 
-	m_output = std::make_shared<AGIPiplineOutputImage>();
+	m_output = std::make_shared<AGIPiplineIOImage>();
 	if (!m_output->init())
 	{
 		return false;
 	}
+	m_output->setInputParamsDelegate(m_input);
+
+	m_input->addTarget(m_output);
 
 	m_filterGraph = std::make_shared<AGIFilterGraph>();
 	m_filterGraph->addSource(m_input);
@@ -123,6 +126,16 @@ bool AGIClip::setTrackEndTime(std::chrono::milliseconds trackEndTime)
 	m_trackEndTime = trackEndTime;
 
 	return true;
+}
+
+AGIFilterGraphPtr AGIClip::getFilterGraph()
+{
+	return m_filterGraph;
+}
+
+AGIPiplineIOImagePtr AGIClip::getFilterGraphOutput()
+{
+	return m_output;
 }
 
 //region AGIPiplineInput

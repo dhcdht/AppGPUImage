@@ -138,9 +138,6 @@
     <ClInclude Include="..\common\IO\output\AGIPiplineOutput.h">
       <Filter>common\IO\output</Filter>
     </ClInclude>
-    <ClInclude Include="..\common\IO\output\AGIPiplineOutputImage.h">
-      <Filter>common\IO\output</Filter>
-    </ClInclude>
     <ClInclude Include="..\common\pipline\AGIPiplineGraph.hpp">
       <Filter>common\pipline</Filter>
     </ClInclude>
@@ -155,6 +152,9 @@
     </ClInclude>
     <ClInclude Include="..\common\filter\core\AGICurve.h">
       <Filter>common\filter\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\IO\AGIPiplineIOImage.h">
+      <Filter>common\IO</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -245,9 +245,6 @@
     <ClCompile Include="..\common\IO\output\AGIPiplineOutput.cpp">
       <Filter>common\IO\output</Filter>
     </ClCompile>
-    <ClCompile Include="..\common\IO\output\AGIPiplineOutputImage.cpp">
-      <Filter>common\IO\output</Filter>
-    </ClCompile>
     <ClCompile Include="..\common\pipline\AGIPiplineGraph.cpp">
       <Filter>common\pipline</Filter>
     </ClCompile>
@@ -265,6 +262,9 @@
     </ClCompile>
     <ClCompile Include="..\common\filter\core\AGIEasing.cpp">
       <Filter>common\filter\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\IO\AGIPiplineIOImage.cpp">
+      <Filter>common\IO</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -180,12 +180,12 @@ copy "$(SolutionDir)..\..\..\src\common_deps\opencv\win10\dll\*.dll" "$(TargetDi
     <ClInclude Include="..\common\filter\core\AGIProgram.h" />
     <ClInclude Include="..\common\filter\core\AGIProgramCacheManager.h" />
     <ClInclude Include="..\common\IO\AGIImage.h" />
+    <ClInclude Include="..\common\IO\AGIPiplineIOImage.h" />
     <ClInclude Include="..\common\IO\input\AGIPiplineInput.h" />
     <ClInclude Include="..\common\IO\input\AGIPiplineInputFFmpegReader.h" />
     <ClInclude Include="..\common\IO\input\AGIPiplineInputPicture.h" />
     <ClInclude Include="..\common\IO\output\AGIPiplineOutput.h" />
     <ClInclude Include="..\common\IO\output\AGIPiplineOutputContextWindow.h" />
-    <ClInclude Include="..\common\IO\output\AGIPiplineOutputImage.h" />
     <ClInclude Include="..\common\pipline\AGIPipline.hpp" />
     <ClInclude Include="..\common\pipline\AGIPiplineGraph.hpp" />
     <ClInclude Include="..\common\player\AGIPlayerEngine.h" />
@@ -219,12 +219,12 @@ copy "$(SolutionDir)..\..\..\src\common_deps\opencv\win10\dll\*.dll" "$(TargetDi
     <ClCompile Include="..\common\filter\core\AGIProgram.cpp" />
     <ClCompile Include="..\common\filter\core\AGIProgramCacheManager.cpp" />
     <ClCompile Include="..\common\IO\AGIImage.cpp" />
+    <ClCompile Include="..\common\IO\AGIPiplineIOImage.cpp" />
     <ClCompile Include="..\common\IO\input\AGIPiplineInput.cpp" />
     <ClCompile Include="..\common\IO\input\AGIPiplineInputFFmpegReader.cpp" />
     <ClCompile Include="..\common\IO\input\AGIPiplineInputPicture.cpp" />
     <ClCompile Include="..\common\IO\output\AGIPiplineOutput.cpp" />
     <ClCompile Include="..\common\IO\output\AGIPiplineOutputContextWindow.cpp" />
-    <ClCompile Include="..\common\IO\output\AGIPiplineOutputImage.cpp" />
     <ClCompile Include="..\common\pipline\AGIPipline.cpp" />
     <ClCompile Include="..\common\pipline\AGIPiplineGraph.cpp" />
     <ClCompile Include="..\common\player\AGIPlayerEngine.cpp" />
