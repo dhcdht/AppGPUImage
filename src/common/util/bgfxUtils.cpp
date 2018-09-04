@@ -343,6 +343,7 @@ namespace bgfxUtils {
         return bgfxRuntimeShader::createShader(type, filePath, defines, varyingPath, profile);
     }
 
+    /*
     cv::Mat generateCVMatFromBuffer(bgfx::Memory* mem, bgfx::TextureFormat::Enum format, int width, int height)
     {
         int matFormat = 0;
@@ -360,6 +361,7 @@ namespace bgfxUtils {
 
         return mat;
     }
+    */
 
     bgfx::TextureHandle generateTextureFromBuffer(bgfx::Memory* mem, bgfx::TextureFormat::Enum format, int width, int height)
     {

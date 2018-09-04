@@ -13,7 +13,7 @@
 #include <bgfx/bgfx.h>
 #include <bimg/bimg.h>
 #include <chrono>
-#include "opencv/cv.hpp"
+//#include "opencv/cv.hpp"
 
 
 // 方便书写着色器的宏
@@ -40,7 +40,7 @@ namespace bgfxUtils {
                                     const char *varyingPath = nullptr,
                                     const char *profile = nullptr);
 
-	cv::Mat generateCVMatFromBuffer(bgfx::Memory *mem, bgfx::TextureFormat::Enum format, int width, int height);
+	//cv::Mat generateCVMatFromBuffer(bgfx::Memory *mem, bgfx::TextureFormat::Enum format, int width, int height);
 	bgfx::TextureHandle generateTextureFromBuffer(bgfx::Memory *mem, bgfx::TextureFormat::Enum format, int width, int height);
 }
 

@@ -25,8 +25,6 @@
 #include "IO/input/AGIPiplineInputFFmpegReader.h"
 #include "filter/AGIFilterContentMode.h"
 #include "timeline/AGITimeline.h"
-#include "filter/AGIFilterOpenCVBackgroundDetect.h"
-#include "filter/AGIFilterOpenCVFaceDetect.h"
 #include "player/AGIPlayerEngine.h"
 #include "IO/AGIPiplineIOImage.h"
 #include "filter/core/AGIFilterSetting.hpp"
@@ -119,11 +117,13 @@ static void testFiltetPlayMovie(std::shared_ptr<AGIPiplineInput> input0)
     }
     else
     {
-		auto filter = std::make_shared<AGIFilterOpenCVBackgroundDetect>();
+		//auto filter = std::make_shared<AGIFilterOpenCVBackgroundDetect>();
 		//static  auto filter = std::make_shared<AGIFilterOpenCVFaceDetect>();
 
-		input->addTarget(filter);
-		filter->addTarget(output);
+		//input->addTarget(filter);
+		//filter->addTarget(output);
+
+		input->addTarget(output);
 
 	    if (!output->processTarget())
 	    {

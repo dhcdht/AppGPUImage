@@ -117,12 +117,6 @@
     <ClInclude Include="..\common\IO\input\AGIPiplineInput.h">
       <Filter>common\IO\input</Filter>
     </ClInclude>
-    <ClInclude Include="..\common\filter\AGIFilterOpenCVBackgroundDetect.h">
-      <Filter>common\filter</Filter>
-    </ClInclude>
-    <ClInclude Include="..\common\filter\AGIFilterOpenCVFaceDetect.h">
-      <Filter>common\filter</Filter>
-    </ClInclude>
     <ClInclude Include="..\common\util\AGIUtil.h">
       <Filter>common\util</Filter>
     </ClInclude>
@@ -226,12 +220,6 @@
     </ClCompile>
     <ClCompile Include="..\common\IO\input\AGIPiplineInput.cpp">
       <Filter>common\IO\input</Filter>
-    </ClCompile>
-    <ClCompile Include="..\common\filter\AGIFilterOpenCVBackgroundDetect.cpp">
-      <Filter>common\filter</Filter>
-    </ClCompile>
-    <ClCompile Include="..\common\filter\AGIFilterOpenCVFaceDetect.cpp">
-      <Filter>common\filter</Filter>
     </ClCompile>
     <ClCompile Include="..\common\filter\AGIFilterDefault.cpp">
       <Filter>common\filter</Filter>
