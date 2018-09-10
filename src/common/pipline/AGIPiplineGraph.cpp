@@ -9,8 +9,8 @@
 #include "AGIPiplineGraph.hpp"
 
 
-template <typename SO, typename TI>
-AGIPiplineGraph<SO, TI>::AGIPiplineGraph()
+template <typename GN>
+AGIPiplineGraph<GN>::AGIPiplineGraph()
 	: m_graphSources{}
 	, m_graphTargets{}
 	, m_graphMutex{}
@@ -18,8 +18,8 @@ AGIPiplineGraph<SO, TI>::AGIPiplineGraph()
 	
 }
 
-template <typename SO, typename TI>
-AGIPiplineGraph<SO, TI>::~AGIPiplineGraph()
+template <typename GN>
+AGIPiplineGraph<GN>::~AGIPiplineGraph()
 {
 	auto lock = this->lockGuardGraph();
 
@@ -27,34 +27,34 @@ AGIPiplineGraph<SO, TI>::~AGIPiplineGraph()
 	m_graphTargets.clear();
 }
 
-template <typename SO, typename TI>
-bool AGIPiplineGraph<SO, TI>::tryLockGraph()
+template <typename GN>
+bool AGIPiplineGraph<GN>::tryLockGraph()
 {
 	return m_graphMutex.try_lock();
 }
 
-template <typename SO, typename TI>
-void AGIPiplineGraph<SO, TI>::lockGraph()
+template <typename GN>
+void AGIPiplineGraph<GN>::lockGraph()
 {
 	m_graphMutex.lock();
 }
 
-template <typename SO, typename TI>
-void AGIPiplineGraph<SO, TI>::unlockGraph()
+template <typename GN>
+void AGIPiplineGraph<GN>::unlockGraph()
 {
 	m_graphMutex.unlock();
 }
 
-template <typename SO, typename TI>
-std::unique_lock<std::recursive_mutex> AGIPiplineGraph<SO, TI>::lockGuardGraph()
+template <typename GN>
+std::unique_lock<std::recursive_mutex> AGIPiplineGraph<GN>::lockGuardGraph()
 {
 	std::unique_lock<decltype(m_graphMutex)> lock(m_graphMutex);
 
 	return std::move(lock);
 }
 
-template <typename SO, typename TI>
-bool AGIPiplineGraph<SO, TI>::addGraphSource(AGIPiplineGraphSourcePtr source)
+template <typename GN>
+bool AGIPiplineGraph<GN>::addGraphSource(AGIPiplineGraphSourcePtr source)
 {
 	auto lock = this->lockGuardGraph();
 
@@ -63,40 +63,40 @@ bool AGIPiplineGraph<SO, TI>::addGraphSource(AGIPiplineGraphSourcePtr source)
 	return true;
 }
 
-template <typename SO, typename TI>
-void AGIPiplineGraph<SO, TI>::removeGraphSource(AGIPiplineGraphSourcePtr source)
+template <typename GN>
+void AGIPiplineGraph<GN>::removeGraphSource(AGIPiplineGraphSourcePtr source)
 {
 	auto lock = this->lockGuardGraph();
 
 	m_graphSources.erase(source);
 }
 
-template <typename SO, typename TI>
-bool AGIPiplineGraph<SO, TI>::isContainGraphSource(AGIPiplineGraphSourcePtr source)
+template <typename GN>
+bool AGIPiplineGraph<GN>::isContainGraphSource(AGIPiplineGraphSourcePtr source)
 {
 	auto lock = this->lockGuardGraph();
 
 	return (m_graphSources.find(source) != m_graphSources.end());
 }
 
-template <typename SO, typename TI>
-int AGIPiplineGraph<SO, TI>::getGraphSourcesCount()
+template <typename GN>
+int AGIPiplineGraph<GN>::getGraphSourcesCount()
 {
 	auto lock = this->lockGuardGraph();
 
 	return m_graphSources.size();
 }
 
-template <typename SO, typename TI>
-typename AGIPiplineGraph<SO, TI>::AGIPiplineGraphSourcePtr AGIPiplineGraph<SO, TI>::getGraphSourceAtIndex(int index)
+template <typename GN>
+typename AGIPiplineGraph<GN>::AGIPiplineGraphSourcePtr AGIPiplineGraph<GN>::getGraphSourceAtIndex(int index)
 {
 	auto lock = this->lockGuardGraph();
 
 	return m_graphSources[index];
 }
 
-template <typename SO, typename TI>
-bool AGIPiplineGraph<SO, TI>::addGraphTarget(AGIPiplineGraphTargetPtr target)
+template <typename GN>
+bool AGIPiplineGraph<GN>::addGraphTarget(AGIPiplineGraphTargetPtr target)
 {
 	auto lock = this->lockGuardGraph();
 
@@ -105,32 +105,32 @@ bool AGIPiplineGraph<SO, TI>::addGraphTarget(AGIPiplineGraphTargetPtr target)
 	return true;
 }
 
-template <typename SO, typename TI>
-void AGIPiplineGraph<SO, TI>::removeGraphTarget(AGIPiplineGraphTargetPtr target)
+template <typename GN>
+void AGIPiplineGraph<GN>::removeGraphTarget(AGIPiplineGraphTargetPtr target)
 {
 	auto lock = this->lockGuardGraph();
 
 	m_graphTargets.erase(target);
 }
 
-template <typename SO, typename TI>
-bool AGIPiplineGraph<SO, TI>::isContainGraphTarget(AGIPiplineGraphTargetPtr target)
+template <typename GN>
+bool AGIPiplineGraph<GN>::isContainGraphTarget(AGIPiplineGraphTargetPtr target)
 {
 	auto lock = this->lockGuardGraph();
 
 	return (m_graphTargets.find(target) != m_graphTargets.end());
 }
 
-template <typename SO, typename TI>
-int AGIPiplineGraph<SO, TI>::getGraphTargetCount()
+template <typename GN>
+int AGIPiplineGraph<GN>::getGraphTargetCount()
 {
 	auto lock = this->lockGuardGraph();
 
 	return m_graphTargets.size();
 }
 
-template <typename SO, typename TI>
-typename AGIPiplineGraph<SO, TI>::AGIPiplineGraphTargetPtr AGIPiplineGraph<SO, TI>::getGraphTargetAtIndex(int index)
+template <typename GN>
+typename AGIPiplineGraph<GN>::AGIPiplineGraphTargetPtr AGIPiplineGraph<GN>::getGraphTargetAtIndex(int index)
 {
 	auto lock = this->lockGuardGraph();
 

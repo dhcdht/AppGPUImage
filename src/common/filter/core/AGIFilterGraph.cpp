@@ -19,24 +19,24 @@ AGIFilterGraph::~AGIFilterGraph()
 
 }
 
-AGIPiplineInputPtr AGIFilterGraph::getInputAtIndex(int index)
+AGIFilterPtr AGIFilterGraph::getInputAtIndex(int index)
 {
 	auto lock = this->lockGuardGraph();
 
 	auto sourcePtr = this->getGraphSourceAtIndex(index);
-	auto input = static_cast<AGIPiplineInputPtr::element_type*>(sourcePtr.get());
-	auto inputPtr = AGIPiplineInputPtr(input);
+	auto input = static_cast<AGIFilterPtr::element_type*>(sourcePtr.get());
+	auto inputPtr = AGIFilterPtr(input);
 
 	return inputPtr;
 }
 
-AGIPiplineOutputPtr AGIFilterGraph::getOutputAtIndex(int index)
+AGIFilterPtr AGIFilterGraph::getOutputAtIndex(int index)
 {
 	auto lock = this->lockGuardGraph();
 
 	auto targetPtr = this->getGraphTargetAtIndex(index);
-	auto output = static_cast<AGIPiplineOutputPtr::element_type*>(targetPtr.get());
-	auto outputPtr = AGIPiplineOutputPtr(output);
+	auto output = static_cast<AGIFilterPtr::element_type*>(targetPtr.get());
+	auto outputPtr = AGIFilterPtr(output);
 
 	return outputPtr;
 }

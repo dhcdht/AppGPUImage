@@ -12,19 +12,18 @@
 #include "pipline/AGIPiplineGraph.hpp"
 #include "pipline/AGIPiplineGraph.cpp"
 #include "IO/AGIImage.h"
-#include "IO/input/AGIPiplineInput.h"
-#include "IO/output/AGIPiplineOutput.h"
+#include "AGIFilter.h"
 
 
-class AGIFilterGraph : public AGIPiplineGraph<AGIImagePtr, AGIImagePtr>
+class AGIFilterGraph : public AGIPiplineGraph<AGIImagePtr>
 {
 public:
 	AGIFilterGraph();
 	~AGIFilterGraph() override;
 
 public:
-	AGIPiplineInputPtr getInputAtIndex(int index);
-	AGIPiplineOutputPtr getOutputAtIndex(int index);
+	AGIFilterPtr getInputAtIndex(int index);
+	AGIFilterPtr getOutputAtIndex(int index);
 };
 typedef std::shared_ptr<AGIFilterGraph> AGIFilterGraphPtr;
 

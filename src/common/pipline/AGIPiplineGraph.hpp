@@ -14,7 +14,7 @@
 #include <mutex>
 
 
-template <typename SO, typename TI>
+template <typename GN>
 class AGIPiplineGraph
 {
 public:
@@ -29,14 +29,14 @@ public:
 	std::unique_lock<std::recursive_mutex> lockGuardGraph();
 
 public:
-	typedef typename AGIPiplineSource<SO>::AGIPiplineSourcePtr AGIPiplineGraphSourcePtr;
+	typedef typename AGIPiplineNode<GN, GN>::AGIPiplineSourcePtr AGIPiplineGraphSourcePtr;
 	bool addGraphSource(AGIPiplineGraphSourcePtr source);
 	void removeGraphSource(AGIPiplineGraphSourcePtr source);
 	bool isContainGraphSource(AGIPiplineGraphSourcePtr source);
 	int getGraphSourcesCount();
 	AGIPiplineGraphSourcePtr getGraphSourceAtIndex(int index);
 
-	typedef typename AGIPiplineTarget<TI>::AGIPiplineTargetPtr AGIPiplineGraphTargetPtr;
+	typedef typename AGIPiplineNode<GN, GN>::AGIPiplineTargetPtr AGIPiplineGraphTargetPtr;
 	bool addGraphTarget(AGIPiplineGraphTargetPtr target);
 	void removeGraphTarget(AGIPiplineGraphTargetPtr target);
 	bool isContainGraphTarget(AGIPiplineGraphTargetPtr target);
