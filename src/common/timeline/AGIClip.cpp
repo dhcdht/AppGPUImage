@@ -47,7 +47,8 @@ bool AGIClip::init(const std::string filePath)
 	{
 		return false;
 	}
-	m_output->setInputParamsDelegate(m_input);
+    AGIPiplineIOImageInputDelegatePtr ptrThis = std::static_pointer_cast<AGIPiplineIOImageInputDelegate>(this->shared_from_this());
+    m_output->setInputParamsDelegate(ptrThis);
 
 	m_input->addTarget(m_output);
 

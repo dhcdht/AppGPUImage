@@ -55,7 +55,9 @@
 
     NSURL *url = [[NSBundle mainBundle] URLForResource:@"big_buck_bunny" withExtension:@"mp4"];
     const char *urlString = [[url absoluteString] cStringUsingEncoding:NSUTF8StringEncoding];
-    self.sdkTest->test_playerEngine(urlString);
+//    self.sdkTest->test_playerEngine(urlString);
+
+    self.sdkTest->test_timeline(urlString);
 }
 
 @end

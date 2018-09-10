@@ -1,4 +1,4 @@
-﻿//
+//
 //  AGIPiplineIOImage.h
 //  AppGPUImage
 //
@@ -27,12 +27,12 @@ bool AGIPiplineIOImage::init()
 	return true;
 }
 
-void AGIPiplineIOImage::setInputParamsDelegate(AGIPiplineInputPtr inputParamsDelegate)
+void AGIPiplineIOImage::setInputParamsDelegate(AGIPiplineIOImageInputDelegatePtr inputParamsDelegate)
 {
 	m_inputParamsDelegate = inputParamsDelegate;
 }
 
-AGIPiplineInputPtr AGIPiplineIOImage::getInputParamsDelegate()
+AGIPiplineIOImageInputDelegatePtr AGIPiplineIOImage::getInputParamsDelegate()
 {
 	return m_inputParamsDelegate;
 }

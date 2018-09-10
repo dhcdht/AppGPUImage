@@ -17,7 +17,7 @@
 #include "filter/core/AGIFilterGraph.h"
 
 
-class AGIClip : public AGIPiplineInput
+class AGIClip : public AGIPiplineIOImageInputDelegate
 {
 public:
 	AGIClip();
