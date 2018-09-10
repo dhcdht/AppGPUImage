@@ -151,8 +151,8 @@ void SDKTest::test_playerEngine(const char* filePath)
 	contentMode->addTarget(output);
 
 	kFilterGraph = std::make_shared<AGIFilterGraph>();
-	kFilterGraph->addGraphSource(input);
-	kFilterGraph->addGraphTarget(output);
+    kFilterGraph->setAttachmentInput(input);
+    kFilterGraph->setAttachmentOutput(output);
 
 	kPlayerEngine.init(kFilterGraph);
 	kPlayerEngine.play();
@@ -167,7 +167,7 @@ void SDKTest::test_changeFilter()
 {
 	auto lock = kFilterGraph->lockGuardGraph();
 
-    auto output0 = kFilterGraph->getOutputAtIndex(0);
+    auto output0 = kFilterGraph->getGraphTargetAtIndex(0);
 	if (output0)
 	{
 		auto weakSource = output0->getSources()[0];
@@ -223,8 +223,8 @@ void SDKTest::test_timeline(const char *filePath)
 	ioImage->addTarget(output);
 
 	auto outputGraph = std::make_shared<AGIFilterGraph>();
-	outputGraph->addGraphSource(ioImage);
-	outputGraph->addGraphTarget(output);
+    outputGraph->setAttachmentInput(ioImage);
+    outputGraph->setAttachmentOutput(output);
 
 	kPlayerEngine.init(outputGraph);
 	kPlayerEngine.play();

@@ -137,3 +137,68 @@ typename AGIPiplineGraph<GN>::AGIPiplineGraphTargetPtr AGIPiplineGraph<GN>::getG
 	return m_graphTargets[index];
 }
 
+template <typename GN>
+void AGIPiplineGraph<GN>::endOneProcess()
+{
+    auto lock = this->lockGuardGraph();
+
+    for (auto target : m_graphTargets) {
+        target->endOneProcess();
+    }
+}
+
+template <typename GN>
+int AGIPiplineGraph<GN>::getSourceOutputCount()
+{
+    auto lock = this->lockGuardGraph();
+
+    int outputCount = 0;
+    for (auto target : m_graphTargets) {
+        outputCount += target->getSourceOutputCount();
+    }
+
+    return outputCount;
+}
+
+template <typename GN>
+std::vector<GN> AGIPiplineGraph<GN>::pullOutputs()
+{
+    auto lock = this->lockGuardGraph();
+
+    std::vector<GN> outputs;
+    for (auto target : m_graphTargets) {
+        auto targetOutputs = target->pullOutputs();
+        for (auto output : targetOutputs) {
+            outputs.push_back(output);
+        }
+    }
+
+    return outputs;
+}
+
+template <typename GN>
+int AGIPiplineGraph<GN>::getTargetInputCount()
+{
+    auto lock = this->lockGuardGraph();
+
+    int inputCount = 0;
+    for (auto source : m_graphSources) {
+        inputCount += source->getTargetInputCount();
+    }
+
+    return inputCount;
+}
+
+template <typename GN>
+bool AGIPiplineGraph<GN>::processTarget()
+{
+    auto lock = this->lockGuardGraph();
+
+    bool ret = true;
+    for (auto target : m_graphTargets) {
+        ret &= target->processTarget();
+    }
+
+    return ret;
+}
+

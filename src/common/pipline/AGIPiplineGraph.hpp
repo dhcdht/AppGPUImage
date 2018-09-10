@@ -15,7 +15,7 @@
 
 
 template <typename GN>
-class AGIPiplineGraph
+class AGIPiplineGraph : public AGIPiplineNode<GN, GN>
 {
 public:
 	AGIPiplineGraph();
@@ -29,19 +29,38 @@ public:
 	std::unique_lock<std::recursive_mutex> lockGuardGraph();
 
 public:
-	typedef typename AGIPiplineNode<GN, GN>::AGIPiplineSourcePtr AGIPiplineGraphSourcePtr;
+	typedef typename AGIPiplineNode<GN, GN>::AGIPiplineNodePtr AGIPiplineGraphSourcePtr;
 	bool addGraphSource(AGIPiplineGraphSourcePtr source);
 	void removeGraphSource(AGIPiplineGraphSourcePtr source);
 	bool isContainGraphSource(AGIPiplineGraphSourcePtr source);
 	int getGraphSourcesCount();
 	AGIPiplineGraphSourcePtr getGraphSourceAtIndex(int index);
 
-	typedef typename AGIPiplineNode<GN, GN>::AGIPiplineTargetPtr AGIPiplineGraphTargetPtr;
+	typedef typename AGIPiplineNode<GN, GN>::AGIPiplineNodePtr AGIPiplineGraphTargetPtr;
 	bool addGraphTarget(AGIPiplineGraphTargetPtr target);
 	void removeGraphTarget(AGIPiplineGraphTargetPtr target);
 	bool isContainGraphTarget(AGIPiplineGraphTargetPtr target);
 	int getGraphTargetCount();
 	AGIPiplineGraphTargetPtr getGraphTargetAtIndex(int index);
+
+    //region AGIPiplineNode
+
+public:
+    void endOneProcess() override;
+
+    //region AGIPiplineSource
+public:
+    int getSourceOutputCount() override;
+    std::vector<GN> pullOutputs() override;
+    //endregion AGIPiplineSource
+
+    //region AGIPiplineTarget
+public:
+    int getTargetInputCount() override;
+    bool processTarget() override;
+    //endregion AGIPiplineTarget
+
+    //endregion AGIPiplineNode
 
 private:
 	std::deque<AGIPiplineGraphSourcePtr> m_graphSources;

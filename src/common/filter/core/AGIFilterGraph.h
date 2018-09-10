@@ -13,6 +13,8 @@
 #include "pipline/AGIPiplineGraph.cpp"
 #include "IO/AGIImage.h"
 #include "AGIFilter.h"
+#include "IO/input/AGIPiplineInput.h"
+#include "IO/output/AGIPiplineOutput.h"
 
 
 class AGIFilterGraph : public AGIPiplineGraph<AGIImagePtr>
@@ -22,8 +24,21 @@ public:
 	~AGIFilterGraph() override;
 
 public:
-	AGIFilterPtr getInputAtIndex(int index);
-	AGIFilterPtr getOutputAtIndex(int index);
+    AGIPiplineInputPtr getAttachmentInput();
+    void setAttachmentInput(AGIPiplineInputPtr input);
+
+    AGIPiplineOutputPtr getAttachmentOutput();
+    void setAttachmentOutput(AGIPiplineOutputPtr output);
+
+    //region AGIPiplineGraph
+public:
+    AGIFilterPtr getGraphSourceAtIndex(int index);  // overload
+    AGIFilterPtr getGraphTargetAtIndex(int index);  // overload
+    //endregion AGIPiplineGraph
+
+private:
+    AGIPiplineInputPtr m_attachmentInput;
+    AGIPiplineOutputPtr m_attachmentOutput;
 };
 typedef std::shared_ptr<AGIFilterGraph> AGIFilterGraphPtr;
 

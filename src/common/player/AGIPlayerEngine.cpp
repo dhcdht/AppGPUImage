@@ -32,8 +32,8 @@ AGIPlayerEngine::~AGIPlayerEngine()
 bool AGIPlayerEngine::init(AGIPiplineInputPtr input, AGIPiplineOutputPtr output)
 {
     m_filterGraph = std::make_shared<AGIFilterGraph>();
-    m_filterGraph->addGraphSource(input);
-    m_filterGraph->addGraphTarget(output);
+    m_filterGraph->setAttachmentInput(input);
+    m_filterGraph->setAttachmentOutput(output);
 
     return true;
 }
@@ -55,10 +55,15 @@ bool AGIPlayerEngine::play()
         AGIContext::sharedContext()->getVideoProcessQueue()->syncDispatch([&]()
         {
             auto lock = m_filterGraph->lockGuardGraph();
-            for (int i = 0; i < m_filterGraph->getGraphTargetCount(); ++i)
-            {
-				auto target = m_filterGraph->getGraphTargetAtIndex(i);
-				target->processTarget();
+            auto output = m_filterGraph->getAttachmentOutput();
+            if (output) {
+                output->processTarget();
+            } else {
+                for (int i = 0; i < m_filterGraph->getGraphTargetCount(); ++i)
+                {
+                    auto target = m_filterGraph->getGraphTargetAtIndex(i);
+                    target->processTarget();
+                }
             }
         });
 
@@ -91,15 +96,14 @@ bool AGIPlayerEngine::stop()
 
 void AGIPlayerEngine::handlePlayNextFrame()
 {
-    if (m_filterGraph->getGraphSourcesCount() > 0 && !m_isPaused)
+    if (!m_isPaused)
     {
         {
             auto lock = m_filterGraph->lockGuardGraph();
-            auto source0 = m_filterGraph->getGraphSourceAtIndex(0);
-            auto input0 = static_cast<AGIPiplineInput*>(source0.get());
-            if (input0)
+            AGIPiplineInputPtr input = m_filterGraph->getAttachmentInput();
+            if (input)
             {
-                m_lastFrameDuration = input0->getCurrentFrameDuration();
+                m_lastFrameDuration = input->getCurrentFrameDuration();
             }
             else
             {
@@ -112,10 +116,15 @@ void AGIPlayerEngine::handlePlayNextFrame()
             bgfx::frame();
 
             auto lock = m_filterGraph->lockGuardGraph();
-            for (int i = 0; i < m_filterGraph->getGraphTargetCount(); ++i)
-            {
-                auto target = m_filterGraph->getGraphTargetAtIndex(i);
-                target->endOneProcess();
+            auto output = m_filterGraph->getAttachmentOutput();
+            if (output) {
+                output->endOneProcess();
+            } else {
+                for (int i = 0; i < m_filterGraph->getGraphTargetCount(); ++i)
+                {
+                    auto target = m_filterGraph->getGraphTargetAtIndex(i);
+                    target->endOneProcess();
+                }
             }
         });
 
@@ -124,10 +133,15 @@ void AGIPlayerEngine::handlePlayNextFrame()
         AGIContext::sharedContext()->getVideoProcessQueue()->syncDispatch([&]()
         {
             auto lock = m_filterGraph->lockGuardGraph();
-            for (int i = 0; i < m_filterGraph->getGraphTargetCount(); ++i)
-            {
-                auto target = m_filterGraph->getGraphTargetAtIndex(i);
-                target->processTarget();
+            auto output = m_filterGraph->getAttachmentOutput();
+            if (output) {
+                output->processTarget();
+            } else {
+                for (int i = 0; i < m_filterGraph->getGraphTargetCount(); ++i)
+                {
+                    auto target = m_filterGraph->getGraphTargetAtIndex(i);
+                    target->processTarget();
+                }
             }
         });
         auto endTime = std::chrono::steady_clock::now();
