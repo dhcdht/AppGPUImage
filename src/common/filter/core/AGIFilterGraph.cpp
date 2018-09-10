@@ -23,7 +23,7 @@ AGIPiplineInputPtr AGIFilterGraph::getInputAtIndex(int index)
 {
 	auto lock = this->lockGuardGraph();
 
-	auto sourcePtr = this->getSourceAtIndex(index);
+	auto sourcePtr = this->getGraphSourceAtIndex(index);
 	auto input = static_cast<AGIPiplineInputPtr::element_type*>(sourcePtr.get());
 	auto inputPtr = AGIPiplineInputPtr(input);
 
@@ -34,7 +34,7 @@ AGIPiplineOutputPtr AGIFilterGraph::getOutputAtIndex(int index)
 {
 	auto lock = this->lockGuardGraph();
 
-	auto targetPtr = this->getTargetAtIndex(index);
+	auto targetPtr = this->getGraphTargetAtIndex(index);
 	auto output = static_cast<AGIPiplineOutputPtr::element_type*>(targetPtr.get());
 	auto outputPtr = AGIPiplineOutputPtr(output);
 

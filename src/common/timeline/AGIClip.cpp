@@ -1,4 +1,4 @@
-﻿//
+//
 //  AGIClip.cpp
 //  AppGPUImage
 //
@@ -52,8 +52,8 @@ bool AGIClip::init(const std::string filePath)
 	m_input->addTarget(m_output);
 
 	m_filterGraph = std::make_shared<AGIFilterGraph>();
-	m_filterGraph->addSource(m_input);
-	m_filterGraph->addTarget(m_output);
+	m_filterGraph->addGraphSource(m_input);
+	m_filterGraph->addGraphTarget(m_output);
 
 	m_readerBeginTime = Milliseconds(0);
 	m_readerEndTime = Milliseconds(-1);

@@ -1,4 +1,4 @@
-﻿//
+//
 //  AGIClip.h
 //  AppGPUImage
 //

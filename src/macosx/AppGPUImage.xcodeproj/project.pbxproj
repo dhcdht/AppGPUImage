@@ -15,6 +15,11 @@
 		EB1235A520EDF2450091A969 /* AGIFilterTwoPass.h in Headers */ = {isa = PBXBuildFile; fileRef = EB1235A320EDF2450091A969 /* AGIFilterTwoPass.h */; };
 		EB1235A820EDF3BD0091A969 /* AGIFilterSobelEdgeDetection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB1235A620EDF3BD0091A969 /* AGIFilterSobelEdgeDetection.cpp */; };
 		EB1235A920EDF3BD0091A969 /* AGIFilterSobelEdgeDetection.h in Headers */ = {isa = PBXBuildFile; fileRef = EB1235A720EDF3BD0091A969 /* AGIFilterSobelEdgeDetection.h */; };
+		EB69DC1C21460CBE00E4F30E /* AGICurve.h in Headers */ = {isa = PBXBuildFile; fileRef = EB69DC1721460CBD00E4F30E /* AGICurve.h */; };
+		EB69DC1D21460CBE00E4F30E /* AGICurve.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB69DC1821460CBD00E4F30E /* AGICurve.cpp */; };
+		EB69DC1E21460CBE00E4F30E /* AGIFilterSetting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB69DC1921460CBD00E4F30E /* AGIFilterSetting.cpp */; };
+		EB69DC1F21460CBE00E4F30E /* AGIFilterSetting.hpp in Headers */ = {isa = PBXBuildFile; fileRef = EB69DC1A21460CBE00E4F30E /* AGIFilterSetting.hpp */; };
+		EB69DC2021460CBE00E4F30E /* AGIEasing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB69DC1B21460CBE00E4F30E /* AGIEasing.cpp */; };
 		EBA1C3CB2109B7D6006751E7 /* AGIUtilDefer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EBA1C3C92109B7D6006751E7 /* AGIUtilDefer.cpp */; };
 		EBA1C3CC2109B7D6006751E7 /* AGIUtilDefer.h in Headers */ = {isa = PBXBuildFile; fileRef = EBA1C3CA2109B7D6006751E7 /* AGIUtilDefer.h */; };
 		EBA1C3DB2109C952006751E7 /* AGIPiplineInputPicture.h in Headers */ = {isa = PBXBuildFile; fileRef = EBA1C3D22109C952006751E7 /* AGIPiplineInputPicture.h */; };
@@ -202,6 +207,11 @@
 		EB1235A320EDF2450091A969 /* AGIFilterTwoPass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AGIFilterTwoPass.h; sourceTree = "<group>"; };
 		EB1235A620EDF3BD0091A969 /* AGIFilterSobelEdgeDetection.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AGIFilterSobelEdgeDetection.cpp; sourceTree = "<group>"; };
 		EB1235A720EDF3BD0091A969 /* AGIFilterSobelEdgeDetection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AGIFilterSobelEdgeDetection.h; sourceTree = "<group>"; };
+		EB69DC1721460CBD00E4F30E /* AGICurve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGICurve.h; sourceTree = "<group>"; };
+		EB69DC1821460CBD00E4F30E /* AGICurve.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AGICurve.cpp; sourceTree = "<group>"; };
+		EB69DC1921460CBD00E4F30E /* AGIFilterSetting.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AGIFilterSetting.cpp; sourceTree = "<group>"; };
+		EB69DC1A21460CBE00E4F30E /* AGIFilterSetting.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AGIFilterSetting.hpp; sourceTree = "<group>"; };
+		EB69DC1B21460CBE00E4F30E /* AGIEasing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AGIEasing.cpp; sourceTree = "<group>"; };
 		EBA1C3C92109B7D6006751E7 /* AGIUtilDefer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AGIUtilDefer.cpp; sourceTree = "<group>"; };
 		EBA1C3CA2109B7D6006751E7 /* AGIUtilDefer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AGIUtilDefer.h; sourceTree = "<group>"; };
 		EBA1C3D22109C952006751E7 /* AGIPiplineInputPicture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGIPiplineInputPicture.h; sourceTree = "<group>"; };
@@ -312,6 +322,11 @@
 		EB037658210B05CF001C853C /* core */ = {
 			isa = PBXGroup;
 			children = (
+				EB69DC1821460CBD00E4F30E /* AGICurve.cpp */,
+				EB69DC1721460CBD00E4F30E /* AGICurve.h */,
+				EB69DC1B21460CBE00E4F30E /* AGIEasing.cpp */,
+				EB69DC1921460CBD00E4F30E /* AGIFilterSetting.cpp */,
+				EB69DC1A21460CBE00E4F30E /* AGIFilterSetting.hpp */,
 				EBDB7B6E21369CA0006DDC5B /* AGIFilterGraph.cpp */,
 				EBDB7B6F21369CA0006DDC5B /* AGIFilterGraph.h */,
 				EBDB7AF121355533006DDC5B /* AGIFilter.cpp */,
@@ -548,12 +563,12 @@
 		EE73932B2113DDFB006144B1 /* timeline */ = {
 			isa = PBXGroup;
 			children = (
-				EE73932C2113DDFB006144B1 /* AGITimeline.h */,
 				EE73932D2113DDFB006144B1 /* AGITrack.cpp */,
+				EE7393312113DDFB006144B1 /* AGITrack.h */,
 				EE73932E2113DDFB006144B1 /* AGITimeline.cpp */,
+				EE73932C2113DDFB006144B1 /* AGITimeline.h */,
 				EE73932F2113DDFB006144B1 /* AGIClip.cpp */,
 				EE7393302113DDFB006144B1 /* AGIClip.h */,
-				EE7393312113DDFB006144B1 /* AGITrack.h */,
 			);
 			name = timeline;
 			path = ../../common/timeline;
@@ -566,6 +581,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB69DC1C21460CBE00E4F30E /* AGICurve.h in Headers */,
 				EBCA0AF320EB690200351569 /* AGIContext.h in Headers */,
 				EB1235A520EDF2450091A969 /* AGIFilterTwoPass.h in Headers */,
 				EBDB7AED21355527006DDC5B /* AGIPipline.hpp in Headers */,
@@ -600,6 +616,7 @@
 				EB03765C210B05E7001C853C /* AGIProgram.h in Headers */,
 				EE7393372113DDFB006144B1 /* AGITrack.h in Headers */,
 				EBA1C3DD2109C952006751E7 /* AGIPiplineInputFFmpegReader.h in Headers */,
+				EB69DC1F21460CBE00E4F30E /* AGIFilterSetting.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -756,6 +773,7 @@
 				EB03765F210B0EB2001C853C /* AGIProgramCacheManager.cpp in Sources */,
 				EBA1C3DE2109C952006751E7 /* AGIPiplineInputPicture.cpp in Sources */,
 				EB1235A420EDF2450091A969 /* AGIFilterTwoPass.cpp in Sources */,
+				EB69DC1D21460CBE00E4F30E /* AGICurve.cpp in Sources */,
 				EB03765B210B05E7001C853C /* AGIProgram.cpp in Sources */,
 				EBDB7AF021355527006DDC5B /* AGIPipline.cpp in Sources */,
 				EE7393342113DDFB006144B1 /* AGITimeline.cpp in Sources */,
@@ -764,9 +782,11 @@
 				EBA1C3CB2109B7D6006751E7 /* AGIUtilDefer.cpp in Sources */,
 				EBCA0AF120EB690200351569 /* AGIResourceManager.cpp in Sources */,
 				EBA1C3DC2109C952006751E7 /* AGIPiplineInputFFmpegReader.cpp in Sources */,
+				EB69DC1E21460CBE00E4F30E /* AGIFilterSetting.cpp in Sources */,
 				EE73932A2113DDEA006144B1 /* AGIImage.cpp in Sources */,
 				EE6CE3AC210DFEE5003176BD /* AGIDisaptchQueue.cpp in Sources */,
 				EBCA0B0520EB690200351569 /* SDKTest.cpp in Sources */,
+				EB69DC2021460CBE00E4F30E /* AGIEasing.cpp in Sources */,
 				EBDB7B7021369CA0006DDC5B /* AGIFilterGraph.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

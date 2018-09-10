@@ -151,8 +151,8 @@ void SDKTest::test_playerEngine(const char* filePath)
 	contentMode->addTarget(output);
 
 	kFilterGraph = std::make_shared<AGIFilterGraph>();
-	kFilterGraph->addSource(input);
-	kFilterGraph->addTarget(output);
+	kFilterGraph->addGraphSource(input);
+	kFilterGraph->addGraphTarget(output);
 
 	kPlayerEngine.init(kFilterGraph);
 	kPlayerEngine.play();
@@ -223,8 +223,8 @@ void SDKTest::test_timeline(const char *filePath)
 	ioImage->addTarget(output);
 
 	auto outputGraph = std::make_shared<AGIFilterGraph>();
-	outputGraph->addSource(ioImage);
-	outputGraph->addTarget(output);
+	outputGraph->addGraphSource(ioImage);
+	outputGraph->addGraphTarget(output);
 
 	kPlayerEngine.init(outputGraph);
 	kPlayerEngine.play();
