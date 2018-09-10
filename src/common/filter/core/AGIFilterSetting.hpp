@@ -1,4 +1,4 @@
-﻿//
+//
 //  AGIFilterSetting.hpp
 //  AppGPUImage
 //
@@ -18,7 +18,7 @@
 
 /*
  * AGIFilter 的设置类
- * 基本功能，在 0~1 的时间范围内给特定的 filter 设置参数值
+ * 基本功能，在 0~1 的进度范围内给特定的 filter 设置参数值
  */
 template <typename T>
 class AGIFilterSetting
@@ -33,16 +33,16 @@ public:
 	bool init(SetFunc setFunc, T defaultValue = 0);
 
 public:
-	bool setValueForTime(double time, T value, AGICurve::Type curveType = AGICurve::None);
-	T getValueForTime(double getTime);
-	bool doSetFuncForTime(double getTime);
+	bool setValueForProgress(double progress, T value, AGICurve::Type curveType = AGICurve::None);
+	T getValueForProgress(double getProgress);
+	bool doSetFuncForProgress(double progress);
 
 private:
 	SetFunc m_setFunc;
 	T m_defaultValue;
 
 	typedef std::pair<AGICurvePtr, T> ValueItem;
-	std::map<double, ValueItem> m_timeValueMap;
+	std::map<double, ValueItem> m_progressValueMap;
 };
 
 
