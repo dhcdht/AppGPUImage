@@ -14,6 +14,7 @@
 #include "AGIFilter.h"
 #include <map>
 #include "AGICurve.h"
+#include "AGIFilterSettingInterface.h"
 
 
 /*
@@ -21,7 +22,7 @@
  * 基本功能，在 0~1 的进度范围内给特定的 filter 设置参数值
  */
 template <typename T>
-class AGIFilterSetting
+class AGIFilterSetting : public AGIFilterSettingInterface
 {
 public:
 	typedef std::function<bool(T)> SetFunc;
@@ -35,7 +36,11 @@ public:
 public:
 	bool setValueForProgress(double progress, T value, AGICurve::Type curveType = AGICurve::None);
 	T getValueForProgress(double getProgress);
-	bool doSetFuncForProgress(double progress);
+
+    //region AGIFilterSettingInterface
+public:
+	bool doSetFuncForProgress(double progress) override;
+    //endregion AGIFilterSettingInterface
 
 private:
 	SetFunc m_setFunc;

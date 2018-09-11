@@ -15,9 +15,10 @@
 #include "AGIFilter.h"
 #include "IO/input/AGIPiplineInput.h"
 #include "IO/output/AGIPiplineOutput.h"
+#include "AGIFilterSettingInterface.h"
 
 
-class AGIFilterGraph : public AGIPiplineGraph<AGIImagePtr>
+class AGIFilterGraph : public AGIPiplineGraph<AGIImagePtr>, public AGIFilterSettingContainer
 {
 public:
 	AGIFilterGraph();

@@ -30,11 +30,15 @@ std::vector<AGIFilterGraphPtr> AGIFilterDynamicGraph::getFilterGraphFroTime(Mill
     std::vector<AGIFilterGraphPtr> ret;
     for (auto it = m_rangedGraphs.begin(); it != m_rangedGraphs.end(); it++) {
         auto itRangedGraphPtr = (*it);
-        if (itRangedGraphPtr->getBeginTime() <= time
-            && time <= itRangedGraphPtr->getEndTime()) {
-            ret.push_back(itRangedGraphPtr->getGraph());
+        auto beginTime = itRangedGraphPtr->getBeginTime();
+        auto endTime = itRangedGraphPtr->getEndTime();
+        if (beginTime <= time
+            && time <= endTime) {
+            double progress = (double)((time - beginTime).count()) / (double)((endTime - beginTime).count());
+            auto graph = itRangedGraphPtr->getGraph();
+            graph->doSetFuncForProgress(progress);
 
-            // todo: 计算 graph settings？
+            ret.push_back(graph);
         }
     }
 
