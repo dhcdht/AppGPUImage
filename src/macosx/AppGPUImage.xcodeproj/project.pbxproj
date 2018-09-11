@@ -20,6 +20,10 @@
 		EB69DC1E21460CBE00E4F30E /* AGIFilterSetting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB69DC1921460CBD00E4F30E /* AGIFilterSetting.cpp */; };
 		EB69DC1F21460CBE00E4F30E /* AGIFilterSetting.hpp in Headers */ = {isa = PBXBuildFile; fileRef = EB69DC1A21460CBE00E4F30E /* AGIFilterSetting.hpp */; };
 		EB69DC2021460CBE00E4F30E /* AGIEasing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB69DC1B21460CBE00E4F30E /* AGIEasing.cpp */; };
+		EB69DC592147640700E4F30E /* AGIFilterRangedGraph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB69DC572147640700E4F30E /* AGIFilterRangedGraph.cpp */; };
+		EB69DC5A2147640700E4F30E /* AGIFilterRangedGraph.h in Headers */ = {isa = PBXBuildFile; fileRef = EB69DC582147640700E4F30E /* AGIFilterRangedGraph.h */; };
+		EB69DC5D2147654A00E4F30E /* AGIFilterDynamicGraph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB69DC5B2147654A00E4F30E /* AGIFilterDynamicGraph.cpp */; };
+		EB69DC5E2147654A00E4F30E /* AGIFilterDynamicGraph.h in Headers */ = {isa = PBXBuildFile; fileRef = EB69DC5C2147654A00E4F30E /* AGIFilterDynamicGraph.h */; };
 		EBA1C3CB2109B7D6006751E7 /* AGIUtilDefer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EBA1C3C92109B7D6006751E7 /* AGIUtilDefer.cpp */; };
 		EBA1C3CC2109B7D6006751E7 /* AGIUtilDefer.h in Headers */ = {isa = PBXBuildFile; fileRef = EBA1C3CA2109B7D6006751E7 /* AGIUtilDefer.h */; };
 		EBA1C3DB2109C952006751E7 /* AGIPiplineInputPicture.h in Headers */ = {isa = PBXBuildFile; fileRef = EBA1C3D22109C952006751E7 /* AGIPiplineInputPicture.h */; };
@@ -212,6 +216,10 @@
 		EB69DC1921460CBD00E4F30E /* AGIFilterSetting.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AGIFilterSetting.cpp; sourceTree = "<group>"; };
 		EB69DC1A21460CBE00E4F30E /* AGIFilterSetting.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AGIFilterSetting.hpp; sourceTree = "<group>"; };
 		EB69DC1B21460CBE00E4F30E /* AGIEasing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AGIEasing.cpp; sourceTree = "<group>"; };
+		EB69DC572147640700E4F30E /* AGIFilterRangedGraph.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AGIFilterRangedGraph.cpp; sourceTree = "<group>"; };
+		EB69DC582147640700E4F30E /* AGIFilterRangedGraph.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AGIFilterRangedGraph.h; sourceTree = "<group>"; };
+		EB69DC5B2147654A00E4F30E /* AGIFilterDynamicGraph.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AGIFilterDynamicGraph.cpp; sourceTree = "<group>"; };
+		EB69DC5C2147654A00E4F30E /* AGIFilterDynamicGraph.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AGIFilterDynamicGraph.h; sourceTree = "<group>"; };
 		EBA1C3C92109B7D6006751E7 /* AGIUtilDefer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AGIUtilDefer.cpp; sourceTree = "<group>"; };
 		EBA1C3CA2109B7D6006751E7 /* AGIUtilDefer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AGIUtilDefer.h; sourceTree = "<group>"; };
 		EBA1C3D22109C952006751E7 /* AGIPiplineInputPicture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGIPiplineInputPicture.h; sourceTree = "<group>"; };
@@ -335,6 +343,10 @@
 				EB03765A210B05E7001C853C /* AGIProgram.h */,
 				EB03765D210B0EB2001C853C /* AGIProgramCacheManager.cpp */,
 				EB03765E210B0EB2001C853C /* AGIProgramCacheManager.h */,
+				EB69DC572147640700E4F30E /* AGIFilterRangedGraph.cpp */,
+				EB69DC582147640700E4F30E /* AGIFilterRangedGraph.h */,
+				EB69DC5B2147654A00E4F30E /* AGIFilterDynamicGraph.cpp */,
+				EB69DC5C2147654A00E4F30E /* AGIFilterDynamicGraph.h */,
 			);
 			path = core;
 			sourceTree = "<group>";
@@ -598,8 +610,10 @@
 				EE7393262113DDE3006144B1 /* AGIPiplineInput.h in Headers */,
 				EE7393292113DDEA006144B1 /* AGIImage.h in Headers */,
 				EBCA0AFE20EB690200351569 /* AGIFilterAlphaBlend.h in Headers */,
+				EB69DC5E2147654A00E4F30E /* AGIFilterDynamicGraph.h in Headers */,
 				EBA1C3DB2109C952006751E7 /* AGIPiplineInputPicture.h in Headers */,
 				EBCA0AFC20EB690200351569 /* AGIFilterDefault.h in Headers */,
+				EB69DC5A2147640700E4F30E /* AGIFilterRangedGraph.h in Headers */,
 				EE7393212113DDDB006144B1 /* AGIFilterContentMode.h in Headers */,
 				EBCA0AF220EB690200351569 /* AGIResourceManager.h in Headers */,
 				EBCA0B0420EB690200351569 /* AGIFilterGrayscale.h in Headers */,
@@ -761,6 +775,8 @@
 				EE7393332113DDFB006144B1 /* AGITrack.cpp in Sources */,
 				EE9370D0213E0D7900145CBA /* AGIPiplineIOImage.cpp in Sources */,
 				EE7393252113DDE3006144B1 /* AGIPiplineInput.cpp in Sources */,
+				EB69DC592147640700E4F30E /* AGIFilterRangedGraph.cpp in Sources */,
+				EB69DC5D2147654A00E4F30E /* AGIFilterDynamicGraph.cpp in Sources */,
 				EBCA0B0120EB690200351569 /* AGIFilterAlphaBlend.cpp in Sources */,
 				EBA1C3DF2109C952006751E7 /* AGIPiplineOutputContextWindow.cpp in Sources */,
 				EBDB7AF321355533006DDC5B /* AGIFilter.cpp in Sources */,
