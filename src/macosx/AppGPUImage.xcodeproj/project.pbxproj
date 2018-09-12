@@ -69,6 +69,10 @@
 		EBDB7B7121369CA0006DDC5B /* AGIFilterGraph.h in Headers */ = {isa = PBXBuildFile; fileRef = EBDB7B6F21369CA0006DDC5B /* AGIFilterGraph.h */; };
 		EBEBBA65214790C000191814 /* AGIFilterSettingInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EBEBBA63214790C000191814 /* AGIFilterSettingInterface.cpp */; };
 		EBEBBA66214790C000191814 /* AGIFilterSettingInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = EBEBBA64214790C000191814 /* AGIFilterSettingInterface.h */; };
+		EBEBBA932148C0B600191814 /* AGIPiplineConnection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EBEBBA912148C0B600191814 /* AGIPiplineConnection.cpp */; };
+		EBEBBA942148C0B600191814 /* AGIPiplineConnection.hpp in Headers */ = {isa = PBXBuildFile; fileRef = EBEBBA922148C0B600191814 /* AGIPiplineConnection.hpp */; };
+		EBF3765C2148C3B700393278 /* AGIImageConnection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EBF3765A2148C3B700393278 /* AGIImageConnection.cpp */; };
+		EBF3765D2148C3B700393278 /* AGIImageConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = EBF3765B2148C3B700393278 /* AGIImageConnection.h */; };
 		EBFFAA2D20EB759500ADB5D5 /* shaders in Resources */ = {isa = PBXBuildFile; fileRef = EBFFAA2C20EB759500ADB5D5 /* shaders */; };
 		EE550A0E20E2726200EFA54B /* AppGPUImage.h in Headers */ = {isa = PBXBuildFile; fileRef = EE550A0C20E2726200EFA54B /* AppGPUImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EE550A7E20E277D600EFA54B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE550A7D20E277D600EFA54B /* Foundation.framework */; };
@@ -267,6 +271,10 @@
 		EBDB7B6F21369CA0006DDC5B /* AGIFilterGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGIFilterGraph.h; sourceTree = "<group>"; };
 		EBEBBA63214790C000191814 /* AGIFilterSettingInterface.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AGIFilterSettingInterface.cpp; sourceTree = "<group>"; };
 		EBEBBA64214790C000191814 /* AGIFilterSettingInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AGIFilterSettingInterface.h; sourceTree = "<group>"; };
+		EBEBBA912148C0B600191814 /* AGIPiplineConnection.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AGIPiplineConnection.cpp; sourceTree = "<group>"; };
+		EBEBBA922148C0B600191814 /* AGIPiplineConnection.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AGIPiplineConnection.hpp; sourceTree = "<group>"; };
+		EBF3765A2148C3B700393278 /* AGIImageConnection.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AGIImageConnection.cpp; sourceTree = "<group>"; };
+		EBF3765B2148C3B700393278 /* AGIImageConnection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AGIImageConnection.h; sourceTree = "<group>"; };
 		EBFFAA2C20EB759500ADB5D5 /* shaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = shaders; path = ../../common_res/shaders; sourceTree = "<group>"; };
 		EE550A0920E2726200EFA54B /* AppGPUImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AppGPUImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE550A0C20E2726200EFA54B /* AppGPUImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppGPUImage.h; sourceTree = "<group>"; };
@@ -366,6 +374,8 @@
 				EE7393272113DDEA006144B1 /* AGIImage.h */,
 				EBA1C3D12109C952006751E7 /* input */,
 				EBA1C3D62109C952006751E7 /* output */,
+				EBF3765A2148C3B700393278 /* AGIImageConnection.cpp */,
+				EBF3765B2148C3B700393278 /* AGIImageConnection.h */,
 			);
 			name = IO;
 			path = ../../common/IO;
@@ -491,6 +501,8 @@
 				EBDB7AE921355527006DDC5B /* AGIPipline.hpp */,
 				EBDB7AEA21355527006DDC5B /* AGIPiplineGraph.cpp */,
 				EBDB7AEB21355527006DDC5B /* AGIPiplineGraph.hpp */,
+				EBEBBA912148C0B600191814 /* AGIPiplineConnection.cpp */,
+				EBEBBA922148C0B600191814 /* AGIPiplineConnection.hpp */,
 			);
 			name = pipline;
 			path = ../../common/pipline;
@@ -613,6 +625,7 @@
 				EE7393322113DDFB006144B1 /* AGITimeline.h in Headers */,
 				EBCA0B0720EB690200351569 /* bgfxUtils.h in Headers */,
 				EBAA40D620E61B28002FC1B2 /* AGIPlatformMacOSX.h in Headers */,
+				EBF3765D2148C3B700393278 /* AGIImageConnection.h in Headers */,
 				EE7393262113DDE3006144B1 /* AGIPiplineInput.h in Headers */,
 				EE7393292113DDEA006144B1 /* AGIImage.h in Headers */,
 				EBEBBA66214790C000191814 /* AGIFilterSettingInterface.h in Headers */,
@@ -631,6 +644,7 @@
 				EBDB7AF8213555A5006DDC5B /* AGIPlayerEngine.h in Headers */,
 				EBDB7B7121369CA0006DDC5B /* AGIFilterGraph.h in Headers */,
 				EBDB7AF421355533006DDC5B /* AGIFilter.h in Headers */,
+				EBEBBA942148C0B600191814 /* AGIPiplineConnection.hpp in Headers */,
 				EE550AAF20E27CD800EFA54B /* AppGPUImageMacOSX.h in Headers */,
 				EBDB7AEF21355527006DDC5B /* AGIPiplineGraph.hpp in Headers */,
 				EB037660210B0EB2001C853C /* AGIProgramCacheManager.h in Headers */,
@@ -790,6 +804,7 @@
 				EBDB7AF321355533006DDC5B /* AGIFilter.cpp in Sources */,
 				EBCA0AFD20EB690200351569 /* AGIFilterTransform.cpp in Sources */,
 				EBCA0AF420EB690200351569 /* AGIContext.cpp in Sources */,
+				EBEBBA932148C0B600191814 /* AGIPiplineConnection.cpp in Sources */,
 				EBCA0B0220EB690200351569 /* AGIFilterDefault.cpp in Sources */,
 				EE7393222113DDDB006144B1 /* AGIFilterContentMode.cpp in Sources */,
 				EB1235A820EDF3BD0091A969 /* AGIFilterSobelEdgeDetection.cpp in Sources */,
@@ -811,6 +826,7 @@
 				EE6CE3AC210DFEE5003176BD /* AGIDisaptchQueue.cpp in Sources */,
 				EBCA0B0520EB690200351569 /* SDKTest.cpp in Sources */,
 				EB69DC2021460CBE00E4F30E /* AGIEasing.cpp in Sources */,
+				EBF3765C2148C3B700393278 /* AGIImageConnection.cpp in Sources */,
 				EBDB7B7021369CA0006DDC5B /* AGIFilterGraph.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
