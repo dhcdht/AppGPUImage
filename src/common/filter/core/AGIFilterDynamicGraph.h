@@ -30,6 +30,7 @@ private:
     std::list<AGIFilterRangedGraphPtr> m_rangedGraphs;
     std::recursive_mutex m_graphsMutex;
 };
+typedef std::shared_ptr<AGIFilterDynamicGraph> AGIFilterDynamicGraphPtr;
 
 
 #endif /* AGIFilterDynamicGraph_h */

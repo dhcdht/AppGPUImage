@@ -75,6 +75,8 @@
 		EBF3765D2148C3B700393278 /* AGIImageConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = EBF3765B2148C3B700393278 /* AGIImageConnection.h */; };
 		EBF3766E2148D65F00393278 /* AGIPlayableInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EBF3766C2148D65F00393278 /* AGIPlayableInterface.cpp */; };
 		EBF3766F2148D65F00393278 /* AGIPlayableInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = EBF3766D2148D65F00393278 /* AGIPlayableInterface.h */; };
+		EBF376792148D9C500393278 /* AGIPlayable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EBF376772148D9C500393278 /* AGIPlayable.cpp */; };
+		EBF3767A2148D9C500393278 /* AGIPlayable.h in Headers */ = {isa = PBXBuildFile; fileRef = EBF376782148D9C500393278 /* AGIPlayable.h */; };
 		EBFFAA2D20EB759500ADB5D5 /* shaders in Resources */ = {isa = PBXBuildFile; fileRef = EBFFAA2C20EB759500ADB5D5 /* shaders */; };
 		EE550A0E20E2726200EFA54B /* AppGPUImage.h in Headers */ = {isa = PBXBuildFile; fileRef = EE550A0C20E2726200EFA54B /* AppGPUImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EE550A7E20E277D600EFA54B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE550A7D20E277D600EFA54B /* Foundation.framework */; };
@@ -279,6 +281,8 @@
 		EBF3765B2148C3B700393278 /* AGIImageConnection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AGIImageConnection.h; sourceTree = "<group>"; };
 		EBF3766C2148D65F00393278 /* AGIPlayableInterface.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AGIPlayableInterface.cpp; sourceTree = "<group>"; };
 		EBF3766D2148D65F00393278 /* AGIPlayableInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AGIPlayableInterface.h; sourceTree = "<group>"; };
+		EBF376772148D9C500393278 /* AGIPlayable.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AGIPlayable.cpp; sourceTree = "<group>"; };
+		EBF376782148D9C500393278 /* AGIPlayable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AGIPlayable.h; sourceTree = "<group>"; };
 		EBFFAA2C20EB759500ADB5D5 /* shaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = shaders; path = ../../common_res/shaders; sourceTree = "<group>"; };
 		EE550A0920E2726200EFA54B /* AppGPUImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AppGPUImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE550A0C20E2726200EFA54B /* AppGPUImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppGPUImage.h; sourceTree = "<group>"; };
@@ -519,6 +523,8 @@
 				EBDB7AF7213555A5006DDC5B /* AGIPlayerEngine.cpp */,
 				EBF3766C2148D65F00393278 /* AGIPlayableInterface.cpp */,
 				EBF3766D2148D65F00393278 /* AGIPlayableInterface.h */,
+				EBF376772148D9C500393278 /* AGIPlayable.cpp */,
+				EBF376782148D9C500393278 /* AGIPlayable.h */,
 			);
 			name = player;
 			path = ../../common/player;
@@ -647,6 +653,7 @@
 				EBCA0AFF20EB690200351569 /* AGIFilterTransform.h in Headers */,
 				EB1235A920EDF3BD0091A969 /* AGIFilterSobelEdgeDetection.h in Headers */,
 				EE550A0E20E2726200EFA54B /* AppGPUImage.h in Headers */,
+				EBF3767A2148D9C500393278 /* AGIPlayable.h in Headers */,
 				EBA1C3E02109C952006751E7 /* AGIPiplineOutputContextWindow.h in Headers */,
 				EBDB7AF8213555A5006DDC5B /* AGIPlayerEngine.h in Headers */,
 				EBDB7B7121369CA0006DDC5B /* AGIFilterGraph.h in Headers */,
@@ -807,6 +814,7 @@
 				EE7393252113DDE3006144B1 /* AGIPiplineInput.cpp in Sources */,
 				EB69DC592147640700E4F30E /* AGIFilterRangedGraph.cpp in Sources */,
 				EB69DC5D2147654A00E4F30E /* AGIFilterDynamicGraph.cpp in Sources */,
+				EBF376792148D9C500393278 /* AGIPlayable.cpp in Sources */,
 				EBCA0B0120EB690200351569 /* AGIFilterAlphaBlend.cpp in Sources */,
 				EBA1C3DF2109C952006751E7 /* AGIPiplineOutputContextWindow.cpp in Sources */,
 				EBDB7AF321355533006DDC5B /* AGIFilter.cpp in Sources */,
