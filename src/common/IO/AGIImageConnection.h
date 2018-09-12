@@ -15,7 +15,13 @@
 
 class AGIImageConnection : public AGIPiplineConnection<AGIImagePtr, AGIImagePtr>
 {
-    
+public:
+    typedef std::shared_ptr<AGIPiplineSource<AGIImagePtr>> AGIPiplineSourcePtr;
+    typedef std::shared_ptr<AGIPiplineTarget<AGIImagePtr>> AGIPiplineTargetPtr;
+
+public:
+    AGIImageConnection(AGIPiplineSourcePtr source, AGIPiplineTargetPtr target);
+    ~AGIImageConnection() override;
 };
 
 

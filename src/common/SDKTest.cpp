@@ -29,6 +29,7 @@
 #include "IO/AGIPiplineIOImage.h"
 #include "filter/core/AGIFilterSetting.hpp"
 #include "filter/core/AGIFilterSetting.cpp"
+#include "player/AGIPlayable.h"
 
 
 SDKTest::~SDKTest() {
@@ -137,68 +138,68 @@ static void testFiltetPlayMovie(std::shared_ptr<AGIPiplineInput> input0)
 }
 
 static AGIPlayerEngine kPlayerEngine;
-static AGIFilterGraphPtr kFilterGraph;
-void SDKTest::test_playerEngine(const char* filePath)
-{
-	auto input = std::make_shared<AGIPiplineInputFFmpegReader>();
-	input->init(filePath);
-	auto contentMode = std::make_shared<AGIFilterContentMode>();
-	contentMode->setContentMode(AGIFilterContentMode::AspectFit);
-	auto output = std::make_shared<AGIPiplineOutputContextWindow>();
-	output->init();
-
-	input->addTarget(contentMode);
-	contentMode->addTarget(output);
-
-	kFilterGraph = std::make_shared<AGIFilterGraph>();
-    kFilterGraph->setAttachmentInput(input);
-    kFilterGraph->setAttachmentOutput(output);
-
-	kPlayerEngine.init(kFilterGraph);
-	kPlayerEngine.play();
-}
-
-void SDKTest::test_pauseEngine()
-{
-	kPlayerEngine.pause();
-}
-
-void SDKTest::test_changeFilter()
-{
-	auto lock = kFilterGraph->lockGuardGraph();
-
-    auto output0 = kFilterGraph->getGraphTargetAtIndex(0);
-	if (output0)
-	{
-		auto weakSource = output0->getSources()[0];
-		auto source = weakSource.lock();
-		if (source != nullptr)
-		{
-			source->removeTarget(output0);
-
-			auto filter = std::make_shared<AGIFilterGrayscale>();
-			source->addTarget(filter);
-			filter->addTarget(output0);
-
-			//auto setting = AGIFilterSetting<float>();
-			//auto setGrayProcessFunc = std::bind(&AGIFilterGrayscale::setProgress, filter, std::placeholders::_1);
-			//setting.init(setGrayProcessFunc);
-
-			//setting.setValueForTime(0.3, 0.1);
-			//setting.setValueForTime(0.5, 0.5);
-			//setting.setValueForTime(0.8, 0.9);
-			//setting.setValueForTime(1.0, 1.0);
-
-			//auto value = setting.getValueForTime(0.0);
-			//value = setting.getValueForTime(0.2);
-			//value = setting.getValueForTime(0.4);
-			//value = setting.getValueForTime(0.5);
-			//value = setting.getValueForTime(0.99);
-
-			//setting.doSetFuncForTime(0.7);
-		}
-	}
-}
+//static AGIFilterGraphPtr kFilterGraph;
+//void SDKTest::test_playerEngine(const char* filePath)
+//{
+//    auto input = std::make_shared<AGIPiplineInputFFmpegReader>();
+//    input->init(filePath);
+//    auto contentMode = std::make_shared<AGIFilterContentMode>();
+//    contentMode->setContentMode(AGIFilterContentMode::AspectFit);
+//    auto output = std::make_shared<AGIPiplineOutputContextWindow>();
+//    output->init();
+//
+//    input->addTarget(contentMode);
+//    contentMode->addTarget(output);
+//
+//    kFilterGraph = std::make_shared<AGIFilterGraph>();
+//    kFilterGraph->setAttachmentInput(input);
+//    kFilterGraph->setAttachmentOutput(output);
+//
+//    kPlayerEngine.init(kFilterGraph);
+//    kPlayerEngine.play();
+//}
+//
+//void SDKTest::test_pauseEngine()
+//{
+//    kPlayerEngine.pause();
+//}
+//
+//void SDKTest::test_changeFilter()
+//{
+//    auto lock = kFilterGraph->lockGuardGraph();
+//
+//    auto output0 = kFilterGraph->getGraphTargetAtIndex(0);
+//    if (output0)
+//    {
+//        auto weakSource = output0->getSources()[0];
+//        auto source = weakSource.lock();
+//        if (source != nullptr)
+//        {
+//            source->removeTarget(output0);
+//
+//            auto filter = std::make_shared<AGIFilterGrayscale>();
+//            source->addTarget(filter);
+//            filter->addTarget(output0);
+//
+//            //auto setting = AGIFilterSetting<float>();
+//            //auto setGrayProcessFunc = std::bind(&AGIFilterGrayscale::setProgress, filter, std::placeholders::_1);
+//            //setting.init(setGrayProcessFunc);
+//
+//            //setting.setValueForTime(0.3, 0.1);
+//            //setting.setValueForTime(0.5, 0.5);
+//            //setting.setValueForTime(0.8, 0.9);
+//            //setting.setValueForTime(1.0, 1.0);
+//
+//            //auto value = setting.getValueForTime(0.0);
+//            //value = setting.getValueForTime(0.2);
+//            //value = setting.getValueForTime(0.4);
+//            //value = setting.getValueForTime(0.5);
+//            //value = setting.getValueForTime(0.99);
+//
+//            //setting.doSetFuncForTime(0.7);
+//        }
+//    }
+//}
 
 void SDKTest::test_timeline(const char *filePath)
 {
@@ -217,16 +218,21 @@ void SDKTest::test_timeline(const char *filePath)
 	clip->init(filePath);
 
 	auto ioImage = clip->getFilterGraphOutput();
+
 	auto output = std::make_shared<AGIPiplineOutputContextWindow>();
 	output->init();
 
-	ioImage->addTarget(output);
+    auto outputGraph = std::make_shared<AGIFilterGraph>();
+    // todo: no effect now
+    auto grayFilter = std::make_shared<AGIFilterGrayscale>();
+    outputGraph->addGraphSource(grayFilter);
+    outputGraph->addGraphTarget(grayFilter);
+//    outputGraph->setAttachmentInput(ioImage);
+//    outputGraph->setAttachmentOutput(output);
 
-	auto outputGraph = std::make_shared<AGIFilterGraph>();
-    outputGraph->setAttachmentInput(ioImage);
-    outputGraph->setAttachmentOutput(output);
+    auto playable = std::make_shared<AGIPlayable>(clip, ioImage, outputGraph);
 
-	kPlayerEngine.init(outputGraph);
+	kPlayerEngine.init(playable, output);
 	kPlayerEngine.play();
 }
 

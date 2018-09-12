@@ -8,13 +8,16 @@
 
 #include "AGIPlayerEngine.h"
 #include "core/AGIContext.h"
+#include "IO/AGIImageConnection.h"
 
 
 AGIPlayerEngine::AGIPlayerEngine()
-    : m_filterGraph{}
-    , m_playQueue{"AGIPlayerEngineQueue"}
-    , m_mutex{}
+    : m_playQueue{"AGIPlayerEngineQueue"}
+    , m_playMutex{}
+    , m_playable(nullptr)
+    , m_output(nullptr)
     , m_isPaused{false}
+    , m_lastFrameTimestamp{0}
     , m_lastFrameDuration{0}
 {
     
@@ -22,50 +25,54 @@ AGIPlayerEngine::AGIPlayerEngine()
 
 AGIPlayerEngine::~AGIPlayerEngine()
 {
-    m_filterGraph = nullptr;
-    //m_playQueue;
-    //m_mutex;
+    std::unique_lock<decltype(m_playMutex)> lock(m_playMutex);
+
+    m_playQueue.syncCancelAllOperation();
+    //m_playMutex;
+    m_playable = nullptr;
+    m_output = nullptr;
     m_isPaused = false;
+    m_lastFrameTimestamp = Milliseconds(0);
     m_lastFrameDuration = Milliseconds(0);
 }
 
-bool AGIPlayerEngine::init(AGIPiplineInputPtr input, AGIPiplineOutputPtr output)
+bool AGIPlayerEngine::init(AGIPlayableInterfacePtr playable, AGIPiplineOutputPtr output)
 {
-    m_filterGraph = std::make_shared<AGIFilterGraph>();
-    m_filterGraph->setAttachmentInput(input);
-    m_filterGraph->setAttachmentOutput(output);
-
-    return true;
-}
-
-bool AGIPlayerEngine::init(AGIFilterGraphPtr graph)
-{
-    m_filterGraph = graph;
+    m_playable = playable;
+    m_output = output;
 
     return true;
 }
 
 bool AGIPlayerEngine::play()
 {
-    std::unique_lock<decltype(m_mutex)> lock(m_mutex);
+    std::unique_lock<decltype(m_playMutex)> lock(m_playMutex);
     m_isPaused = false;
 
     m_playQueue.dispatch([&]()
     {
+        auto beginTime = Milliseconds(0);
+        auto ioImage = m_playable->getTargetIOImagePtr();
+        ioImage->syncSeekToTime(beginTime);
+        auto filterGraph = m_playable->getFilterGraphForTime(beginTime);
+
         AGIContext::sharedContext()->getVideoProcessQueue()->syncDispatch([&]()
         {
-            auto lock = m_filterGraph->lockGuardGraph();
-            auto output = m_filterGraph->getAttachmentOutput();
-            if (output) {
-                output->processTarget();
+            auto lock = filterGraph->lockGuardGraph();
+            if (m_output) {
+                auto connection = std::make_shared<AGIImageConnection>(ioImage, m_output);
+                m_output->processTarget();
             } else {
-                for (int i = 0; i < m_filterGraph->getGraphTargetCount(); ++i)
+                for (int i = 0; i < filterGraph->getGraphTargetCount(); ++i)
                 {
-                    auto target = m_filterGraph->getGraphTargetAtIndex(i);
+                    auto target = filterGraph->getGraphTargetAtIndex(i);
                     target->processTarget();
                 }
             }
         });
+
+        m_lastFrameTimestamp = ioImage->getCurrentFrameTime();
+        m_lastFrameDuration = ioImage->getCurrentFrameDuration();
 
         this->handlePlayNextFrame();
     });
@@ -76,7 +83,7 @@ bool AGIPlayerEngine::play()
 
 bool AGIPlayerEngine::pause()
 {
-    std::unique_lock<decltype(m_mutex)> lock(m_mutex);
+    std::unique_lock<decltype(m_playMutex)> lock(m_playMutex);
     m_isPaused = true;
 
     m_playQueue.syncCancelAllOperation();
@@ -98,48 +105,43 @@ void AGIPlayerEngine::handlePlayNextFrame()
 {
     if (!m_isPaused)
     {
-        {
-            auto lock = m_filterGraph->lockGuardGraph();
-            AGIPiplineInputPtr input = m_filterGraph->getAttachmentInput();
-            if (input)
-            {
-                m_lastFrameDuration = input->getCurrentFrameDuration();
-            }
-            else
-            {
-                m_lastFrameDuration = Milliseconds(1000 / 30);
-            }
-        }
+        auto ioImage = m_playable->getTargetIOImagePtr();
+
         // 显示当前帧
+        auto filterGraph = m_playable->getFilterGraphForTime(m_lastFrameTimestamp);
         AGIContext::sharedContext()->getVideoProcessQueue()->syncDispatch([&]()
         {
             bgfx::frame();
 
-            auto lock = m_filterGraph->lockGuardGraph();
-            auto output = m_filterGraph->getAttachmentOutput();
+            auto lock = filterGraph->lockGuardGraph();
+            auto output = m_output;
             if (output) {
+                auto connection = std::make_shared<AGIImageConnection>(ioImage, output);
                 output->endOneProcess();
             } else {
-                for (int i = 0; i < m_filterGraph->getGraphTargetCount(); ++i)
+                for (int i = 0; i < filterGraph->getGraphTargetCount(); ++i)
                 {
-                    auto target = m_filterGraph->getGraphTargetAtIndex(i);
+                    auto target = filterGraph->getGraphTargetAtIndex(i);
                     target->endOneProcess();
                 }
             }
         });
 
+        auto nextTimestamp = m_lastFrameTimestamp + m_lastFrameDuration;
+        auto nextFilterGraph = m_playable->getFilterGraphForTime(nextTimestamp);
+
         // 预渲染下一帧，并确定花费的时间
         auto beginTime = std::chrono::steady_clock::now();
         AGIContext::sharedContext()->getVideoProcessQueue()->syncDispatch([&]()
         {
-            auto lock = m_filterGraph->lockGuardGraph();
-            auto output = m_filterGraph->getAttachmentOutput();
-            if (output) {
-                output->processTarget();
+            auto lock = nextFilterGraph->lockGuardGraph();
+            if (m_output) {
+                auto connection = std::make_shared<AGIImageConnection>(ioImage, m_output);
+                m_output->processTarget();
             } else {
-                for (int i = 0; i < m_filterGraph->getGraphTargetCount(); ++i)
+                for (int i = 0; i < nextFilterGraph->getGraphTargetCount(); ++i)
                 {
-                    auto target = m_filterGraph->getGraphTargetAtIndex(i);
+                    auto target = nextFilterGraph->getGraphTargetAtIndex(i);
                     target->processTarget();
                 }
             }
@@ -154,6 +156,10 @@ void AGIPlayerEngine::handlePlayNextFrame()
             auto nextTime = m_lastFrameDuration - duration;
             std::this_thread::sleep_for(nextTime);
         }
+
+        // 变更到显示下一帧的相关环境
+        m_lastFrameTimestamp = ioImage->getCurrentFrameTime();
+        m_lastFrameDuration = ioImage->getCurrentFrameDuration();
 
         m_playQueue.dispatch([&]()
         {

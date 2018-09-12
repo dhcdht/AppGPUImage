@@ -18,9 +18,9 @@ public:
 
     void init(void *window, int sizeWidth, int sizeHeight);
 
-    void test_playerEngine(const char *filePath);
-    void test_pauseEngine();
-    void test_changeFilter();
+//    void test_playerEngine(const char *filePath);
+//    void test_pauseEngine();
+//    void test_changeFilter();
 
     void test_timeline(const char *filePath);
 

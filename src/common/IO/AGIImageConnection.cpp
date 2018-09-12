@@ -7,3 +7,16 @@
 //
 
 #include "AGIImageConnection.h"
+
+
+AGIImageConnection::AGIImageConnection(AGIPiplineSourcePtr source, AGIPiplineTargetPtr target)
+    : AGIPiplineConnection<AGIImagePtr, AGIImagePtr>(source, target)
+{
+
+}
+
+AGIImageConnection::~AGIImageConnection()
+{
+    
+}
+
