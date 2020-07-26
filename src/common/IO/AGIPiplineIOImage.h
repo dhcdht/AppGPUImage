@@ -1,4 +1,4 @@
-﻿//
+//
 //  AGIPiplineIOImage.h
 //  AppGPUImage
 //
@@ -13,6 +13,13 @@
 #include "output/AGIPiplineOutput.h"
 
 
+class AGIPiplineIOImageInputDelegate : public AGIPiplineInput
+{
+
+};
+typedef std::shared_ptr<AGIPiplineIOImageInputDelegate> AGIPiplineIOImageInputDelegatePtr;
+
+
 class AGIPiplineIOImage : public AGIPiplineInput, public AGIPiplineOutput
 {
 public:
@@ -23,8 +30,8 @@ public:
 	bool init() override;
 
 public:
-	void setInputParamsDelegate(AGIPiplineInputPtr inputParamsDelegate);
-	AGIPiplineInputPtr getInputParamsDelegate();
+	void setInputParamsDelegate(AGIPiplineIOImageInputDelegatePtr inputParamsDelegate);
+	AGIPiplineIOImageInputDelegatePtr getInputParamsDelegate();
 
 	//region AGIPiplineInput
 
@@ -55,7 +62,7 @@ public:
 private:
 	AGIImagePtr m_lastOutputImage;
 
-	AGIPiplineInputPtr m_inputParamsDelegate;
+	AGIPiplineIOImageInputDelegatePtr m_inputParamsDelegate;
 };
 typedef std::shared_ptr<AGIPiplineIOImage> AGIPiplineIOImagePtr;
 

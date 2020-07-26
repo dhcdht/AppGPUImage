@@ -14,6 +14,7 @@
 #include "IO/output/AGIPiplineOutput.h"
 #include "filter/core/AGIFilterGraph.h"
 #include "core/AGIDispatchQueue.h"
+#include "AGIPlayableInterface.h"
 
 
 class AGIPlayerEngine
@@ -22,8 +23,7 @@ public:
     AGIPlayerEngine();
     virtual ~AGIPlayerEngine();
 
-    bool init(AGIPiplineInputPtr input, AGIPiplineOutputPtr output);
-    bool init(AGIFilterGraphPtr graph);
+    bool init(AGIPlayableInterfacePtr playable, AGIPiplineOutputPtr output);
 
 public:
     bool play();
@@ -34,12 +34,14 @@ private:
     void handlePlayNextFrame();
 
 private:
-    AGIFilterGraphPtr m_filterGraph;
-
     AGIDispatchQueue m_playQueue;
-    std::mutex m_mutex;
+    std::mutex m_playMutex;
+
+    AGIPlayableInterfacePtr m_playable;
+    AGIPiplineOutputPtr m_output;
 
     bool m_isPaused;
+    Milliseconds m_lastFrameTimestamp;
     Milliseconds m_lastFrameDuration;
 };
 

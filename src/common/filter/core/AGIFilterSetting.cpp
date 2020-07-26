@@ -1,4 +1,4 @@
-﻿//
+//
 //  AGIFilterSetting.cpp
 //  AppGPUImage
 //
@@ -13,7 +13,7 @@ template <typename T>
 AGIFilterSetting<T>::AGIFilterSetting()
 	: m_setFunc{nullptr}
 	, m_defaultValue{0}
-	, m_timeValueMap{}
+	, m_progressValueMap{}
 {
 	
 }
@@ -23,7 +23,7 @@ AGIFilterSetting<T>::~AGIFilterSetting()
 {
 	m_setFunc = nullptr;
 	m_defaultValue = 0;
-	m_timeValueMap.clear();
+	m_progressValueMap.clear();
 }
 
 template <typename T>
@@ -36,33 +36,33 @@ bool AGIFilterSetting<T>::init(SetFunc setFunc, T defaultValue)
 }
 
 template <typename T>
-bool AGIFilterSetting<T>::setValueForTime(double time, T value, AGICurve::Type curveType)
+bool AGIFilterSetting<T>::setValueForProgress(double progress, T value, AGICurve::Type curveType)
 {
 	auto curve = std::make_shared<AGICurve>();
 	curve->init(curveType);
-	m_timeValueMap[time] = {curve, value};
+	m_progressValueMap[progress] = {curve, value};
 
 	return true;
 }
 
 template <typename T>
-T AGIFilterSetting<T>::getValueForTime(double getTime)
+T AGIFilterSetting<T>::getValueForProgress(double getProgress)
 {
-	float leftTime = 0.0;
+	float leftProgress = 0.0;
 	float leftValue = m_defaultValue;
 	float ret = leftValue;
-	for (auto item : m_timeValueMap)
+	for (auto item : m_progressValueMap)
 	{
-		ValueItem timeValue = item.second;
-		float time = item.first;
-		float value = timeValue.second;
+		ValueItem progressValue = item.second;
+		float progress = item.first;
+		float value = progressValue.second;
 
-		if (time > getTime)
+		if (progress > getProgress)
 		{
-			auto rightTime = time;
+			auto rightProgress = progress;
 			auto rightValue = value;
-			AGICurvePtr curve = timeValue.first;
-			auto curPoint = (getTime - leftTime) / (rightTime - leftTime);
+			AGICurvePtr curve = progressValue.first;
+			auto curPoint = (getProgress - leftProgress) / (rightProgress - leftProgress);
 			auto curveValue = curve->getCurveValueForPoint(curPoint);
 
 			ret = leftValue + (rightValue - leftValue) * curveValue;
@@ -70,7 +70,7 @@ T AGIFilterSetting<T>::getValueForTime(double getTime)
 			break;
 		}
 
-		leftTime = time;
+		leftProgress = progress;
 		leftValue = value;
 	}
 
@@ -78,9 +78,9 @@ T AGIFilterSetting<T>::getValueForTime(double getTime)
 }
 
 template <typename T>
-bool AGIFilterSetting<T>::doSetFuncForTime(double getTime)
+bool AGIFilterSetting<T>::doSetFuncForProgress(double progress)
 {
-	auto value = getValueForTime(getTime);
+	auto value = getValueForProgress(progress);
 	return m_setFunc(value);
 }
 

@@ -1,4 +1,4 @@
-﻿//
+//
 //  AGIFilter.h
 //  AppGPUImage
 //
@@ -11,9 +11,10 @@
 
 #include "pipline/AGIPipline.hpp"
 #include "IO/AGIImage.h"
+#include "AGIFilterSettingInterface.h"
 
 
-class AGIFilter : public AGIPiplineNode<AGIImagePtr, AGIImagePtr>
+class AGIFilter : public AGIPiplineNode<AGIImagePtr, AGIImagePtr>, public AGIFilterSettingContainer
 {
 public:
     AGIFilter();

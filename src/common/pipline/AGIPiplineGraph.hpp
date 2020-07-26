@@ -14,8 +14,8 @@
 #include <mutex>
 
 
-template <typename SO, typename TI>
-class AGIPiplineGraph
+template <typename GN>
+class AGIPiplineGraph : public AGIPiplineNode<GN, GN>
 {
 public:
 	AGIPiplineGraph();
@@ -29,29 +29,48 @@ public:
 	std::unique_lock<std::recursive_mutex> lockGuardGraph();
 
 public:
-	typedef typename AGIPiplineSource<SO>::AGIPiplineSourcePtr AGIPiplineSourcePtr;
-	bool addSource(AGIPiplineSourcePtr source);
-	void removeSource(AGIPiplineSourcePtr source);
-	bool isContainSource(AGIPiplineSourcePtr source);
-	int getSourcesCount();
-	AGIPiplineSourcePtr getSourceAtIndex(int index);
+	typedef typename AGIPiplineNode<GN, GN>::AGIPiplineNodePtr AGIPiplineGraphSourcePtr;
+	bool addGraphSource(AGIPiplineGraphSourcePtr source);
+	void removeGraphSource(AGIPiplineGraphSourcePtr source);
+	bool isContainGraphSource(AGIPiplineGraphSourcePtr source);
+	int getGraphSourcesCount();
+	AGIPiplineGraphSourcePtr getGraphSourceAtIndex(int index);
 
-	typedef typename AGIPiplineTarget<TI>::AGIPiplineTargetPtr AGIPiplineTargetPtr;
-	bool addTarget(AGIPiplineTargetPtr target);
-	void removeTarget(AGIPiplineTargetPtr target);
-	bool isContainTarget(AGIPiplineTargetPtr target);
-	int getTargetCount();
-	AGIPiplineTargetPtr getTargetAtIndex(int index);
+	typedef typename AGIPiplineNode<GN, GN>::AGIPiplineNodePtr AGIPiplineGraphTargetPtr;
+	bool addGraphTarget(AGIPiplineGraphTargetPtr target);
+	void removeGraphTarget(AGIPiplineGraphTargetPtr target);
+	bool isContainGraphTarget(AGIPiplineGraphTargetPtr target);
+	int getGraphTargetCount();
+	AGIPiplineGraphTargetPtr getGraphTargetAtIndex(int index);
+
+    //region AGIPiplineNode
+
+public:
+    void endOneProcess() override;
+
+    //region AGIPiplineSource
+public:
+    int getSourceOutputCount() override;
+    std::vector<GN> pullOutputs() override;
+    //endregion AGIPiplineSource
+
+    //region AGIPiplineTarget
+public:
+    int getTargetInputCount() override;
+    bool processTarget() override;
+    //endregion AGIPiplineTarget
+
+    //endregion AGIPiplineNode
 
 private:
-	std::deque<AGIPiplineSourcePtr> m_sources;
-	std::deque<AGIPiplineTargetPtr> m_targets;
+	std::deque<AGIPiplineGraphSourcePtr> m_graphSources;
+	std::deque<AGIPiplineGraphTargetPtr> m_graphTargets;
 
 	// c++14 加入的 shared_timed_mutex 和 c++17 加入的 shared_mutex 都被普遍认为性能有问题，
 	// 这也导致了他们加入标准的顺序很奇怪，
 	// 另外，他们都没有 recursive 递归锁的功能，
 	// 所以这里只使用了普通的递归锁，而不是读写锁。
-	std::recursive_mutex m_mutex;
+	std::recursive_mutex m_graphMutex;
 };
 
 

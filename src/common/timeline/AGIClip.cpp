@@ -1,4 +1,4 @@
-﻿//
+//
 //  AGIClip.cpp
 //  AppGPUImage
 //
@@ -47,13 +47,14 @@ bool AGIClip::init(const std::string filePath)
 	{
 		return false;
 	}
-	m_output->setInputParamsDelegate(m_input);
+    AGIPiplineIOImageInputDelegatePtr ptrThis = std::static_pointer_cast<AGIPiplineIOImageInputDelegate>(this->shared_from_this());
+    m_output->setInputParamsDelegate(ptrThis);
 
 	m_input->addTarget(m_output);
 
 	m_filterGraph = std::make_shared<AGIFilterGraph>();
-	m_filterGraph->addSource(m_input);
-	m_filterGraph->addTarget(m_output);
+    m_filterGraph->setAttachmentInput(m_input);
+    m_filterGraph->setAttachmentOutput(m_output);
 
 	m_readerBeginTime = Milliseconds(0);
 	m_readerEndTime = Milliseconds(-1);
